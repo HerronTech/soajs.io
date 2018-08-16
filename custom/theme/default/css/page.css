@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+body, html {
+    font-size: 18px;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Lato', sans-serif;
+    line-height: 1.9em;
+}
+
+p {
+    line-height: 1.9em;
+}
+
+a img {
+    border: none;
+}
+
+a {
+    color: rgb(65, 100, 126);
+    font-weight: 400;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    color: #DA9437;
+    text-decoration: none;
+}
+
+h2, .h2 {
+    font-size: 30px;
+
+}
+
+.clear{
+    clear: both;
+}
+
+div{
+    width: 50%;
+    margin: 0 auto;
+}
