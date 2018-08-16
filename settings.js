@@ -1,0 +1,4 @@
+let customSettings = {
+	"api": "",
+	"key": ""
+};
