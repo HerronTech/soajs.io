@@ -1,37 +1,20 @@
 "use strict";
 
 /**
- * define directive <app-header></app-header> as angular module requires it
+ * parse appDirectives from config file and generate all requested directives of type element
  */
-if(appDirectives.header && appDirectives.header !== ''){
-	app.directive('appHeader', function () {
-		return {
-			restrict: 'E',
-			templateUrl: appDirectives.header
+if(appDirectives && Object.keys(appDirectives).length > 0){
+	for(let oneDirective in appDirectives ){
+		if(appDirectives[oneDirective].name && appDirectives[oneDirective].name !== ''){
+			if(appDirectives[oneDirective].template && appDirectives[oneDirective].template !== ''){
+				
+				app.directive(appDirectives[oneDirective].name, function () {
+					return {
+						restrict: 'E',
+						templateUrl: appDirectives[oneDirective].template
+					}
+				});
+			}
 		}
-	});
-}
-
-/**
- * define directive <app-top-menu></app-top-menu> as angular module requires it
- */
-if(appDirectives.topMenu && appDirectives.topMenu !== '') {
-	app.directive('appTopMenu', function () {
-		return {
-			restrict: 'E',
-			templateUrl: appDirectives.topMenu
-		}
-	});
-}
-
-/**
- * define directive <app-footer></app-footer> as angular module requires it
- */
-if(appDirectives.footer && appDirectives.footer !== '') {
-	app.directive('appFooter', function () {
-		return {
-			restrict: 'E',
-			templateUrl: appDirectives.footer
-		}
-	});
+	}
 }

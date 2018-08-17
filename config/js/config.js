@@ -17,7 +17,16 @@ let appModules = ['ui.bootstrap', 'ngRoute', 'ngCookies', 'ngStorage', 'youtube-
 
 //optional list of global directives to use
 let appDirectives = {
-	header: "custom/theme/default/directives/header.tmpl",
-	topMenu: "custom/theme/default/directives/topMenu.tmpl",
-	footer: "custom/theme/default/directives/footer.tmpl"
+	header: {
+		name: 'appHeader',
+		template: "custom/theme/default/directives/header.tmpl"
+	},
+	topMenu: {
+		name: "appTopMenu",
+		template: "custom/theme/default/directives/topMenu.tmpl"
+	},
+	footer: {
+		name: "appFooter",
+		template: "custom/theme/default/directives/footer.tmpl"
+	}
 };
