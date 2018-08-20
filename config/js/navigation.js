@@ -42,14 +42,51 @@ let navigation = [
 		"scripts": ["custom/modules/store/controller.js"]
 	},
 	{
-		"id": "member",
+		"id": "member-area",
 		"label": "Member Area",
-		"url": "/member",
+		"url": "#",
 		"topMenu": true,
 		"title": "SOAJS | Member Area",
 		"description": " page meta description",
 		"keywords": "page meta keywords",
-		"tplPath": "custom/modules/member/directives/main.html",
-		"scripts": ["custom/modules/member/controller.js"]
+		"children": [
+			{
+				"label": "User Area",
+				"entries": [
+					{
+						"id": "member-join",
+						"label": "Join",
+						"url": "/join",
+						"topMenu": true,
+						"title": "SOAJS | Join",
+						"tplPath": "custom/modules/member/directives/main.html",
+						"scripts": ["custom/modules/member/controller.js"],
+					},
+					{
+						"id": "member-login",
+						"label": "Login",
+						"url": "/login",
+						"topMenu": true,
+						"title": "SOAJS | Login",
+						"tplPath": "custom/modules/member/directives/main.html",
+						"scripts": ["custom/modules/member/controller.js"],
+					}
+				]
+			},
+			{
+				"label": "Billing Area",
+				"entries": [
+					{
+						"id": "member-billing-area",
+						"label": "My Billing",
+						"url": "/member-billing",
+						"topMenu": true,
+						"title": "SOAJS | Billing",
+						"tplPath": "custom/modules/member/directives/main.html",
+						"scripts": ["custom/modules/member/controller.js"],
+					}
+				]
+			}
+		]
 	}
 ];

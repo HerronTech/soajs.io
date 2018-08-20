@@ -54,8 +54,8 @@ app.config([
 		
 		app.compileProvider = $compileProvider;
 		
-		navigation.forEach(function (navigationEntry) {
-			if (navigationEntry.scripts && navigationEntry.scripts.length > 0) {
+		function processOneMenuEntry(navigationEntry){
+			if(navigationEntry.tplPath){
 				$routeProvider.when(navigationEntry.url.replace('#', ''), {
 					templateUrl: navigationEntry.tplPath,
 					resolve: {
@@ -69,6 +69,29 @@ app.config([
 							return deferred.promise;
 						}]
 					}
+				});
+			}
+			
+			//add hook for children sub menu
+			if(navigationEntry.children && Array.isArray(navigationEntry.children) && navigationEntry.children.length > 0){
+				navigationEntry.children.forEach((subNavigationEntry) => {
+					subNavigationEntry.entries.forEach((oneSubNavigationEntry) => {
+						processOneMenuEntry(oneSubNavigationEntry);
+					});
+				});
+			}
+		}
+		
+		navigation.forEach((navigationEntry) => {
+			if (navigationEntry.scripts && Array.isArray(navigationEntry.scripts) && navigationEntry.scripts.length > 0) {
+				processOneMenuEntry(navigationEntry);
+			}
+			else if(navigationEntry.children && Array.isArray(navigationEntry.children) && navigationEntry.children.length > 0){
+				//add hook for children sub menu
+				navigationEntry.children.forEach((subNavigationEntry) => {
+					subNavigationEntry.entries.forEach((oneSubNavigationEntry) => {
+						processOneMenuEntry(oneSubNavigationEntry);
+					});
 				});
 			}
 			else {
