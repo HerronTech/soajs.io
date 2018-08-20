@@ -1,7 +1,7 @@
 'use strict';
 
 //detect domain
-if(location && location.host){
+if (location && location.host) {
 	let customDomain = location.host;
 	customDomain = customDomain.split(":")[0];
 	customDomain = customDomain.split(".");
@@ -13,7 +13,7 @@ if(location && location.host){
 let protocol = window.location.protocol;
 
 //detect port
-let mydomainport = (protocol ==='https:') ? 443 : 80;
+let mydomainport = (protocol === 'https:') ? 443 : 80;
 if (location && location.port && parseInt(location.port) !== 80) {
 	mydomainport = location.port;
 }
@@ -32,7 +32,7 @@ let whitelistedDomain = ['localhost', '127.0.0.1', mydomainAPI + '.' + myApplica
  * Create New Angular Module and add dependency modules
  * @type {module}
  */
-let app = angular.module('mainWebsite', appModules );
+let app = angular.module('mainWebsite', appModules);
 
 /**
  * Add Custom Configuration binding nagivation url entries with require.js to load
@@ -46,7 +46,7 @@ app.config([
 	'$filterProvider',
 	'$provide',
 	'$sceDelegateProvider',
-	function ($routeProvider, $controllerProvider, $compileProvider,$locationProvider, $filterProvider, $provide, $sceDelegateProvider) {
+	function ($routeProvider, $controllerProvider, $compileProvider, $locationProvider, $filterProvider, $provide, $sceDelegateProvider) {
 		
 		let whitelisted = ['self'];
 		whitelisted = whitelisted.concat(whitelistedDomain);
@@ -83,10 +83,10 @@ app.config([
 		$routeProvider.otherwise({
 			redirectTo: '/'
 		});
-
-        $locationProvider.html5Mode(true);
-        $locationProvider.hashPrefix('!');
-
+		
+		$locationProvider.html5Mode(true);
+		$locationProvider.hashPrefix('!');
+		
 		app.components = {
 			controller: $controllerProvider.register,
 			filter: $filterProvider.register,
@@ -98,13 +98,30 @@ app.config([
 /**
  * Define the main application controller of this angular module
  */
-app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($scope, $location, $routeParams) {
+app.controller('mainCtrl', ['$scope', '$location', '$timeout', function ($scope, $location, $timeout) {
 	
 	//define a global methods that builds a url compatible with angular annotation to invoke anchor links
-	$scope.goToAnchor = function (section, anchor) {
-		$location.path("/" + section + "/" + anchor);
+	$scope.goToPage = function (link) {
+		if(link.includes("#")){
+			let myLink = link.split("#");
+			$location.path(myLink[0]);
+			$location.hash(myLink[1]);
+		}
+		else{
+			$location.path(link);
+			$location.hash('');
+		}
 	};
-
+	
+	$scope.appNavigation = navigation;
+	
+	//capture on route change events and invoke custom methods
+	$scope.$on('$routeChangeStart', function (event, current, previous) {
+		//reset anchor value
+		delete $scope.currentLocationAnchor;
+		delete $scope.header_carousel;
+	});
+	
 	//capture on route change events and invoke custom methods
 	$scope.$on('$routeChangeSuccess', function (event, current, previous) {
 		
@@ -116,45 +133,53 @@ app.controller('mainCtrl', ['$scope', '$location', '$routeParams', function ($sc
 	
 	
 	//register local url location when a page finishes loading
-	function setLocalLocation(event, current, previous){
+	function setLocalLocation(event, current, previous) {
 		
 		$scope.currentLocation = $location.path();
-		
-		let subPagesDetection = $scope.currentLocation.match(/\//g);
-		if (subPagesDetection.length > 1) {
-			let p = $location.path().split(/\//);
-			$scope.currentLocation = "/" + p[1];
-		}
-		
-		if ($routeParams.anchor) {
-			let sp = '/' + $routeParams.anchor;
-			let p = $location.path().split(sp);
-			$scope.currentLocation = p[0];
+		let hash = $location.hash();
+		if (hash && hash !== '') {
+			$scope.currentLocationAnchor = hash;
+			$timeout(() => {
+				if ($("#" + hash)) {
+					$("html,body").animate({scrollTop: $("#" + hash).offset().top}, 1000);
+				}
+			}, 100);
 		}
 	}
 	
-	//update page title, keywords and description
-	function setPageMetaData(event, current, previous){
+	//update page title, keywords and description and activate link based on url and anchor values
+	function setPageMetaData(event, current, previous) {
 		
-		navigation.forEach((oneNavigationEntry) => {
+		$scope.appNavigation.forEach((oneNavigationEntry) => {
+			oneNavigationEntry.active = false;
 			
-			let urlOnly = oneNavigationEntry.url.replace('/:anchor?', '').replace("/:section?", '');
-			if (urlOnly === $scope.currentLocation) {
-				
-				if (oneNavigationEntry.title && oneNavigationEntry.title !== '') {
-					jQuery('head title').html(oneNavigationEntry.title);
+			let oneLink = oneNavigationEntry.url.split("#");
+			if (oneLink[0] === $scope.currentLocation) {
+				if (oneLink[1] && oneLink[1] === $scope.currentLocationAnchor) {
+					activateFromLink(oneNavigationEntry)
 				}
-				
-				if (oneNavigationEntry.keywords && oneNavigationEntry.keywords !== '') {
-					jQuery('head meta[name=keywords]').attr('content', oneNavigationEntry.keywords);
-				}
-				
-				if (oneNavigationEntry.description && oneNavigationEntry.description !== '') {
-					jQuery('head meta[name=description]').attr('content', oneNavigationEntry.description);
+				else if (!oneLink[1]) {
+					activateFromLink(oneNavigationEntry)
 				}
 			}
 			
 		});
+		
+		function activateFromLink(oneNavigationEntry) {
+			oneNavigationEntry.active = true;
+			
+			if (oneNavigationEntry.title && oneNavigationEntry.title !== '') {
+				jQuery('head title').html(oneNavigationEntry.title);
+			}
+			
+			if (oneNavigationEntry.keywords && oneNavigationEntry.keywords !== '') {
+				jQuery('head meta[name=keywords]').attr('content', oneNavigationEntry.keywords);
+			}
+			
+			if (oneNavigationEntry.description && oneNavigationEntry.description !== '') {
+				jQuery('head meta[name=description]').attr('content', oneNavigationEntry.description);
+			}
+		}
 	}
 }]);
 
