@@ -180,5 +180,10 @@ app.controller('mainCtrl', ['$scope', '$location', '$timeout', function ($scope,
 			}
 		}
 	}
+	
+	//method used by extended controllers to update the main parent scope.
+	$scope.updateParentScope = function(name, data){
+		$scope[name] = data;
+	}
 }]);
 
