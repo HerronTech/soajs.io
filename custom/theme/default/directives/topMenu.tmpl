@@ -17,7 +17,7 @@
 					<div id="navbar" class="col-lg-10 col-md-10 col-sm-9 collapse navbar-collapse navbar-right">
 						<ul class="nav navbar-nav">
 							<li ng-repeat="oneNav in appNavigation" ng-class="{'active': oneNav.active }" ng-if="oneNav.topMenu">
-								<a id="{{oneNav.id}}" ng-click="goToPage(oneNav.url)">{{oneNav.label}}</a>
+								<a id="{{oneNav.id}}" href="{{oneNav.url}}">{{oneNav.label}}</a>
 							</li>
 						</ul>
 					</div>

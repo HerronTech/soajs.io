@@ -99,57 +99,56 @@ app.config([
  * Define the main application controller of this angular module
  */
 app.controller('mainCtrl', ['$scope', '$location', '$timeout', function ($scope, $location, $timeout) {
-	
-	//define a global methods that builds a url compatible with angular annotation to invoke anchor links
-	$scope.goToPage = function (link) {
-		if(link.includes("#")){
-			let myLink = link.split("#");
-			$location.path(myLink[0]);
-			$location.hash(myLink[1]);
-		}
-		else{
-			$location.path(link);
-			$location.hash('');
-		}
-	};
-	
 	$scope.appNavigation = navigation;
+	
+	/**
+	 * method that animates scrolling to anchor location on page if anchor is in url and element is found on page
+	 */
+	function animateAnchorRedirections(event){
+		let hash = $location.hash();
+		if(hash && hash !== ''){
+			$scope.currentLocationAnchor = hash;
+			event.preventDefault();
+			$("html,body").scrollTop(0);
+			$timeout(() => {
+				if ($("#" + hash)) {
+					$("html,body").animate({scrollTop: $("#" + hash).offset().top}, 500);
+					window.location.hash = hash;
+					event.preventDefault();
+				}
+			}, 100);
+			
+		}
+	}
 	
 	//capture on route change events and invoke custom methods
 	$scope.$on('$routeChangeStart', function (event, current, previous) {
 		//reset anchor value
 		delete $scope.currentLocationAnchor;
 		delete $scope.header_carousel;
+		delete $scope.innerPage;
 	});
 	
 	//capture on route change events and invoke custom methods
 	$scope.$on('$routeChangeSuccess', function (event, current, previous) {
+		//trigger anchor animation redirection when previous page is not the same as this one
+		
 		
 		setLocalLocation(event, current, previous);
 		
-		setPageMetaData(event, current, previous);
+		animateAnchorRedirections(event);
 		
+		setPageMetaData(event, current, previous);
 	});
 	
 	
 	//register local url location when a page finishes loading
 	function setLocalLocation(event, current, previous) {
-		
 		$scope.currentLocation = $location.path();
-		let hash = $location.hash();
-		if (hash && hash !== '') {
-			$scope.currentLocationAnchor = hash;
-			$timeout(() => {
-				if ($("#" + hash)) {
-					$("html,body").animate({scrollTop: $("#" + hash).offset().top}, 1000);
-				}
-			}, 100);
-		}
 	}
 	
 	//update page title, keywords and description and activate link based on url and anchor values
 	function setPageMetaData(event, current, previous) {
-		
 		$scope.appNavigation.forEach((oneNavigationEntry) => {
 			oneNavigationEntry.active = false;
 			
