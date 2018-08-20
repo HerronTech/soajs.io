@@ -8,7 +8,7 @@ homeApp.controller('homePageCtrl', ['$scope', 'homePageSrv', function ($scope, h
 			id: 'main-image',
 			header: "Putting applications on the cloud shouldn’t be an IT pain.",
 			slogan: "Work on what matters. Get Microservices done.",
-			image: ""
+			image: "custom/modules/home/images/img-1.jpg"
 		}
 	];
 }]);
