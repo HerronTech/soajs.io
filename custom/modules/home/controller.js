@@ -12,4 +12,8 @@ homeApp.controller('homePageCtrl', ['$scope', 'homePageSrv', function ($scope, h
 		}
 	];
 	$scope.updateParentScope('header_carousel', header_carousel);
+	
+	$scope.$on("$destroy", function () {
+		$scope.removeFromParentScope('header_carousel');
+	});
 }]);

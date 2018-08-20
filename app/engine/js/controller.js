@@ -125,8 +125,6 @@ app.controller('mainCtrl', ['$scope', '$location', '$timeout', function ($scope,
 	$scope.$on('$routeChangeStart', function (event, current, previous) {
 		//reset anchor value
 		delete $scope.currentLocationAnchor;
-		delete $scope.header_carousel;
-		delete $scope.innerPage;
 	});
 	
 	//capture on route change events and invoke custom methods
@@ -184,6 +182,13 @@ app.controller('mainCtrl', ['$scope', '$location', '$timeout', function ($scope,
 	//method used by extended controllers to update the main parent scope.
 	$scope.updateParentScope = function(name, data){
 		$scope[name] = data;
-	}
+	};
+	
+	//method used by extended controllers to remove elements from the main parent scope.
+	$scope.removeFromParentScope = function(name){
+		if($scope[name]){
+			delete $scope[name];
+		}
+	};
 }]);
 

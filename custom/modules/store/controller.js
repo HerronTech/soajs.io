@@ -8,4 +8,8 @@ storeApp.controller('storeCtrl', ['$scope', function ($scope) {
 	};
 	
 	$scope.updateParentScope('innerPage', innerPage);
+	
+	$scope.$on("$destroy", function () {
+		$scope.removeFromParentScope('innerPage');
+	});
 }]);
