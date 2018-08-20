@@ -11,9 +11,14 @@ homeApp.controller('homePageCtrl', ['$scope', 'homePageSrv', function ($scope, h
 			image: "custom/modules/home/images/img-1.jpg"
 		}
 	];
+	
 	$scope.updateParentScope('header_carousel', header_carousel);
 	
 	$scope.$on("$destroy", function () {
 		$scope.removeFromParentScope('header_carousel');
 	});
+	
+	
+	homePageSrv.getIcons($scope);
+	
 }]);

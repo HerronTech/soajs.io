@@ -1,0 +1,35 @@
+<!--why soajs-->
+<div class="row">
+	<a id="why"></a>
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<h2>Why SOAJS Enterprise</h2>
+	</div>
+	<div class="w-100"></div>
+	<div class="col-lg-3 col-md-2 col-sm-2">
+		<img ng-src="" alt="">
+		<p>No IT plumbing coding  or development required</p>
+	</div>
+	<div class="col-lg-3 col-md-2 col-sm-2">
+		<img ng-src="" alt="">
+		<p>Single-pane-of-glass manageability</p>
+	</div>
+	<div class="col-lg-3 col-md-2 col-sm-2">
+		<img ng-src="" alt="">
+		<p>Multi-environment support</p>
+	</div>
+	<div class="col-lg-3 col-md-2 col-sm-2">
+		<img ng-src="" alt="">
+		<p>End - to - end - functional integration</p>
+	</div>
+	<div class="w-100"></div>
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<h2>Open Solution Architecture: Plug - n - Play & Adaptable</h2>
+	</div>
+	<div class="w-100"></div>
+	<div class="col-lg-2 col-md-3 col-sm-2" ng-repeat="oneIcon in icons">
+		<a href="{{oneIcon.url}}" ng-if="oneIcon.url" alt="{{oneIcon.title}}">
+			<img ng-src="{{oneIcon.image}}" />
+		</a>
+		<img ng-if="!oneIcon.urlo" ng-src="{{oneIcon.image}}" alt="{{oneIcon.title}}">
+	</div>
+</div>

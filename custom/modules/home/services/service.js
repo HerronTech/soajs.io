@@ -1,21 +1,15 @@
 "use strict";
 var homeAppSrv = app.components;
-homeAppSrv.service('homePageSrv', ['ngDataApi', function (ngDataApi) {
+homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	
-	function customService($scope, options, callback){
+	function getIcons($scope){
 		
-		let apiOptions = {
-			method: 'get',
-			url: (options.url) ? options.url + options.routeName : apiConfiguration.domain + options.routeName,
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		};
-		
-		ngDataApi[apiOptions.method]($scope, apiOptions, callback);
+		$http.get("custom/modules/home/icons.json").success(function(data) {
+			$scope.icons = data;
+		});
 	}
 	
 	return {
-		"customService": customService
+		"getIcons": getIcons
 	}
 }]);
