@@ -3,18 +3,25 @@
 
 /* Carousel base class */
 .carousel {
-    height: 500px;
     margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
     z-index: 10;
+    transform: translateY(-50%);
+    bottom: 60px;
+}
+.carousel-caption > h1{
+    color: #F4B500;
+}
+.carousel-inner {
+    opacity: 1;
+    background: rgba(57, 57, 88, 1); /* #393958 or 325169*/
 }
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
     height: 500px;
-    background-color: #777;
 }
 .carousel-inner > .item > img {
     position: absolute;
@@ -22,6 +29,7 @@
     left: 0;
     min-width: 100%;
     height: 500px;
+    opacity: 0.2;
 }
 
 
