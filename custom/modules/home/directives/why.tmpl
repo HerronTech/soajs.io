@@ -1,36 +1,36 @@
 <!--why soajs-->
 <div class="row darkblue-bg white-text section-padding" id="why">
     <div class="container">
-        <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h2>Why SOAJS Enterprise</h2>
         </div>
         <div class="w-100"></div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-center">
             <img ng-src="" alt="">
-            <p>No IT plumbing coding  or development required</p>
+            <h4>No IT plumbing coding  or development required</h4>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-center">
             <img ng-src="" alt="">
-            <p>Single-pane-of-glass manageability</p>
+            <h4>Single-pane-of-glass manageability</h4>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-center">
             <img ng-src="" alt="">
-            <p>Multi-environment support</p>
+            <h4>Multi-environment support</h4>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 text-center">
             <img ng-src="" alt="">
-            <p>End - to - end - functional integration</p>
+            <h4>End - to - end - functional integration</h4>
         </div>
         <div class="w-100"></div>
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <h2>Open Solution Architecture: Plug - n - Play & Adaptable</h2>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h3 style="padding-top:50px; padding-bottom:30px;">Open Solution Architecture: Plug-n-Play & Adaptable</h3>
         </div>
         <div class="w-100"></div>
-        <div class="col-lg-2 col-md-3 col-sm-2" ng-repeat="oneIcon in icons">
+        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-4" style="padding:5px;" ng-repeat="oneIcon in icons">
             <a href="{{oneIcon.url}}" ng-if="oneIcon.url" alt="{{oneIcon.title}}">
-                <img ng-src="{{oneIcon.image}}" />
+                <img ng-src="{{oneIcon.image}}" width="100%"/>
             </a>
-            <img ng-if="!oneIcon.urlo" ng-src="{{oneIcon.image}}" alt="{{oneIcon.title}}">
+            <img ng-if="!oneIcon.urlo" ng-src="{{oneIcon.image}}" alt="{{oneIcon.title}}" width="100%" />
         </div>
 	</div>
 </div>

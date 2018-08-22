@@ -1,7 +1,26 @@
 [
   {
-    "image": "",
-    "url": "",
-    "title": ""
+    "image": "custom/modules/home/images/kubernetes.jpg",
+    "title": "Kubernetes"
+  },
+  {
+    "image": "custom/modules/home/images/gcp.jpg",
+    "title": "GCP"
+  },
+  {
+    "image": "custom/modules/home/images/azure.jpg",
+    "title": "Azure"
+  },
+  {
+    "image": "custom/modules/home/images/drone.jpg",
+    "title": "Drone"
+  },
+  {
+    "image": "custom/modules/home/images/travis.jpg",
+    "title": "TravisCI"
+  },
+  {
+    "image": "custom/modules/home/images/jenkins.jpg",
+    "title": "Jenkins"
   }
 ]
