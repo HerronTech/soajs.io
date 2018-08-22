@@ -83,11 +83,9 @@ nav img#logo{
     Header Styles
  */
 #inner-page-header{
-    padding-top:150px;
+    padding-top:100px;
     height: 300px;
-    margin-bottom: 60px;
     background-color: #777;
-
     color: #fff;
     text-align: center;
     text-shadow: 0 1px 2px rgba(0,0,0,.6);
