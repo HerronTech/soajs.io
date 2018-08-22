@@ -7,7 +7,7 @@ body {
 }
 
 body, html {
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
     margin: 0;
     padding: 0;
@@ -99,3 +99,23 @@ nav img#logo{
 /**
     Common Styles
  */
+
+.white-text {
+    color: white;
+}
+.gray-text {
+    color: #383838;
+}
+.orange-text {
+     color: #F4B500;
+ }
+.blue-bg {
+    background-color: #325169;
+}
+.darkblue-bg {
+    background-color: #30414f;
+}
+.section-padding {
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
