@@ -23,6 +23,7 @@ let navigation = [
 		"url": "/#why",
 		"topMenu": true,
 	},
+	/*
 	{
 		"id": "contact-anchor",
 		"label": "Contact Us",
@@ -30,6 +31,7 @@ let navigation = [
 		"url": "/#contact",
 		"topMenu": true,
 	},
+	*/
 	{
 		"id": "store-anchor",
 		"label": "Store",
