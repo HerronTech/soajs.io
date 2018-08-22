@@ -4,7 +4,8 @@ memberApp.controller('memberCtrl', ['$scope', function ($scope) {
 	
 	let innerPage = {
 		header: "Member Area",
-		slogan: "Login & Register"
+		slogan: "Login & Register",
+        image: "custom/modules/member/images/member.jpg"
 	};
 	
 	$scope.updateParentScope('innerPage', innerPage);
