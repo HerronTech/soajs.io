@@ -15,7 +15,7 @@
 }
 .carousel-inner {
     opacity: 1;
-    background: rgba(57, 57, 88, 1); /* #393958 or 325169*/
+    background: #325169; /* #393958 or 325169*/
 }
 
 /* Declare heights because of positioning of img element */
