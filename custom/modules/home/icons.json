@@ -16,11 +16,35 @@
     "title": "Drone"
   },
   {
+    "image": "custom/modules/home/images/docker.jpg",
+    "title": "Docker"
+  },
+  {
     "image": "custom/modules/home/images/travis.jpg",
     "title": "TravisCI"
   },
   {
+    "image": "custom/modules/home/images/aws.jpg",
+    "title": "AWS"
+  },
+  {
     "image": "custom/modules/home/images/jenkins.jpg",
     "title": "Jenkins"
+  },
+  {
+    "image": "custom/modules/home/images/github.jpg",
+    "title": "Github"
+  },
+  {
+    "image": "custom/modules/home/images/nodejs.jpg",
+    "title": "NodeJS"
+  },
+  {
+    "image": "custom/modules/home/images/golang.jpg",
+    "title": "GoLang"
+  },
+  {
+    "image": "custom/modules/home/images/more.jpg",
+    "title": "... and much more"
   }
 ]
