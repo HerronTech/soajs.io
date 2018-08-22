@@ -1,0 +1,10 @@
+
+@media (max-width: 768px) {
+    .navbar {
+        background-color: white;
+        border-bottom: 1px grey solid;
+    }
+    .navbar-default .navbar-nav>li>a {
+        color: #383838;
+    }
+}
