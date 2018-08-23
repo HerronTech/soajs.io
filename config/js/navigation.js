@@ -35,7 +35,17 @@ let navigation = [
 	{
 		"id": "terms",
 		"label": "Terms & Conditions",
-		"url": "/legal-terms",
+		"url": "/legal",
+		"title": "SOAJS.IO | Terms & Conditions",
+		"description": " page meta description",
+		"keywords": "page meta keywords",
+		"tplPath": "custom/modules/legal/directives/terms.tmpl",
+		"scripts": ["custom/modules/legal/controller.js"]
+	},
+	{
+		"id": "terms",
+		"label": "Terms & Conditions",
+		"url": "/legal/terms",
 		"title": "SOAJS.IO | Terms & Conditions",
 		"description": " page meta description",
 		"keywords": "page meta keywords",
@@ -45,7 +55,7 @@ let navigation = [
 	{
 		"id": "terms",
 		"label": "Disclaimer",
-		"url": "/legal-disclaimer",
+		"url": "/legal/disclaimer",
 		"title": "SOAJS.IO | Disclaimer",
 		"description": " page meta description",
 		"keywords": "page meta keywords",
