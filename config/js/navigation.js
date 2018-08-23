@@ -37,29 +37,31 @@ let navigation = [
 		"label": "Terms & Conditions",
 		"url": "/legal-terms",
 		"title": "SOAJS.IO | Terms & Conditions",
-		"description": " page meta description",
-		"keywords": "page meta keywords",
 		"tplPath": "custom/modules/legal/directives/terms.tmpl",
 		"scripts": ["custom/modules/legal/controller.js"]
 	},
 	{
 		"id": "terms",
-		"label": "Disclaimer",
+		"label": "Legal Disclaimer",
 		"url": "/legal-disclaimer",
-		"title": "SOAJS.IO | Disclaimer",
-		"description": " page meta description",
-		"keywords": "page meta keywords",
+		"title": "SOAJS.IO | Legal Disclaimer",
 		"tplPath": "custom/modules/legal/directives/disclaimer.tmpl",
 		"scripts": ["custom/modules/legal/controller.js"]
 	},
+    {
+        "id": "privacy",
+        "label": "Privacy Policy",
+        "url": "/legal-privacy",
+        "title": "SOAJS.IO | Privacy Policy",
+        "tplPath": "custom/modules/legal/directives/privacy.tmpl",
+        "scripts": ["custom/modules/legal/controller.js"]
+    },
 	{
 		"id": "store-anchor",
 		"label": "Store",
 		"url": "/store",
 		"topMenu": true,
 		"title": "SOAJS.IO | Store",
-		"description": " page meta description",
-		"keywords": "page meta keywords",
 		"tplPath": "custom/modules/store/directives/main.html",
 		"scripts": ["custom/modules/store/controller.js"]
 	},
@@ -69,8 +71,6 @@ let navigation = [
 		"url": "#",
 		"topMenu": true,
 		"title": "SOAJS.IO | Member Area",
-		"description": " page meta description",
-		"keywords": "page meta keywords",
 		"children": [
 			{
 				"label": "User Area",
