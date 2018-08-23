@@ -3,11 +3,11 @@ jQuery(window).scroll(function() {
     
     if (scroll >= 10){//} && jQuery(window).width() > 767 ) {
         jQuery(".navbar").addClass("scrolling");
-        jQuery("img.logo").attr("src", "config/images/soajsio-white.png");
+        jQuery("nav #logo").addClass('blueLogo');
 
     } else {
         jQuery(".navbar").removeClass("scrolling");
-        jQuery("img.logo").attr("src", "config/images/soajsio.png");
+	    jQuery("nav #logo").removeClass('blueLogo');
     }
 });
 

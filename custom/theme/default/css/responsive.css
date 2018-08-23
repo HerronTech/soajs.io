@@ -7,4 +7,8 @@
     .navbar-default .navbar-nav>li>a {
         color: #383838;
     }
+
+    nav #logo {
+        background-image: url('/config/images/soajsio.png');
+    }
 }

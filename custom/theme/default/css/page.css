@@ -75,8 +75,21 @@ body, html {
     background-color: transparent;
 }
 
-nav img#logo{
+nav #logo{
+    height:26px;
+    max-height:26px;
     width:100%; /* force logo to follow the container width it belongs to*/
+    min-width:145px;
+    display:table;
+    background-image: url('/config/images/soajsio-white.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    -webkit-background-size: 100%;
+    background-size: 100%;
+}
+
+nav #logo.blueLogo{
+    background-image: url('/config/images/soajsio.png');
 }
 
 /**
