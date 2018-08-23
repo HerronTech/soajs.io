@@ -74,6 +74,7 @@ let navigation = [
 		"children": [
 			{
 				"label": "User Area",
+				"id": "user-area",
 				"entries": [
 					{
 						"id": "member-join",
@@ -81,8 +82,8 @@ let navigation = [
 						"url": "/join",
 						"topMenu": true,
                         "title": "SOAJS.IO | Join",
-						"tplPath": "custom/modules/member/directives/main.html",
-						"scripts": ["custom/modules/member/controller.js"],
+						"tplPath": "custom/modules/member/register/directives/main.html",
+						"scripts": ["custom/modules/member/register/controller.js"],
 					},
 					{
 						"id": "member-login",
@@ -90,8 +91,17 @@ let navigation = [
 						"url": "/login",
 						"topMenu": true,
 						"title": "SOAJS.IO | Login",
-						"tplPath": "custom/modules/member/directives/main.html",
-						"scripts": ["custom/modules/member/controller.js"],
+						"tplPath": "custom/modules/member/login/directives/main.html",
+						"scripts": ["custom/modules/member/login/controller.js"],
+					},
+					{
+						"id": "profile",
+						"label": "Profile",
+						"url": "/profile",
+						"topMenu": true,
+						"title": "SOAJS.IO | Profile",
+						"tplPath": "custom/modules/member/account/directives/profile.html",
+						"scripts": ["custom/modules/member/account/controller.js"],
 					}
 				]
 			},
@@ -104,8 +114,8 @@ let navigation = [
 						"url": "/member-billing",
 						"topMenu": true,
 						"title": "SOAJS.IO | Billing",
-						"tplPath": "custom/modules/member/directives/main.html",
-						"scripts": ["custom/modules/member/controller.js"],
+						"tplPath": "custom/modules/member/account/directives/billing.html",
+						"scripts": ["custom/modules/member/account/controller.js"],
 					}
 				]
 			}

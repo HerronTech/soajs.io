@@ -1,6 +1,6 @@
 "use strict";
 var memberApp = app.components;
-memberApp.controller('memberCtrl', ['$scope', function ($scope) {
+memberApp.controller('registerCtrl', ['$scope', function ($scope) {
 	
 	let innerPage = {
 		header: "Member Area",
