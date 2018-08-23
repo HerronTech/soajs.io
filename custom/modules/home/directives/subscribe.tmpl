@@ -1,0 +1,52 @@
+<div class='row gray-text section-padding'>
+	<div class="container">
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+			<h2>Get in touch</h2>
+			<p>
+				Ask us about how we can accelerate your modernization and/or digital transformation by eliminating the IT plumbing pain required to develop and deploy Microservices.
+			</p>
+			<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+				<a
+						href="https://www.google.com.lb/maps/place/90+Canal+St,+Boston,+MA+02114,+USA/@42.3639703,-71.0621315,17z/data=!3m1!4b1!4m5!3m4!1s0x89e3708fba38b103:0x4da29a3e8c8135a0!8m2!3d42.3639703!4d-71.0599428"
+						target="_new">
+					<img src="custom/theme/default/images/map.boston.png" width="100%">
+				</a>
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+				<p>
+					90 Canal Street, 4th Floor<br />
+					Boston, MA 02114 <br />
+					USA<br />
+				</p>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+			
+			<h3>Subscribe to SOAJS.io</h3>
+			<p>
+				In the coming months, we will be introducing SOAJS.IO, communicating updates, and providing insights. Subscribe here:
+			</p>
+			
+			<uib-alert ng-repeat="alert in newsletter.alerts" type="{{alert.type}}" ng-bind-html="alert.msg|toTrustedHtml"></uib-alert>
+			
+			<form name="newsletterForm" novalidate ng-submit="newsletterForm.$valid && subscribe()">
+				<div class="row">
+					<div class="col-md-6 col-sm-12 form-group">
+						<input ng-model="newsletter.name" type="text" class="form-control" placeholder="Name ..." required/>
+					</div>
+					<div class="col-md-6 col-sm-12 form-group">
+						<input ng-model="newsletter.email" type="text" class="form-control" placeholder="Email ..." required/>
+					</div>
+				</div>
+				<div class="clearfix">
+					<div class="pull-left form-group">
+						<div vc-recaptcha key="siteKey" ng-model="newsletter.captcha"></div>
+					</div>
+					<div class="pull-right form-group">
+						<input type="submit" class="btn btn-warning white-text" value="Subscribe"/>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
