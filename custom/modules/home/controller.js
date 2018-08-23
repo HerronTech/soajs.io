@@ -1,6 +1,6 @@
 "use strict";
 var homeApp = app.components;
-homeApp.controller('homePageCtrl', ['$scope', 'homePageSrv', function ($scope, homePageSrv) {
+homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', function ($scope, $uibModal, homePageSrv) {
 	
 	$scope.siteKey = sitekey;
 	
@@ -12,10 +12,22 @@ homeApp.controller('homePageCtrl', ['$scope', 'homePageSrv', function ($scope, h
 		company: '',
 		message: '',
 		captcha: null,
-		alerts: []
+		alert: {}
 	};
-	$scope.contactSales = function(){
-		homePageSrv.contactSalesForm($scope);
+	$scope.openSalesForm = function(){
+		let currentScope = $scope;
+		$uibModal.open({
+			animation: true,
+			templateUrl: 'sales.tmpl',
+			controller: ($scope) => {
+				$scope.siteKey = currentScope.siteKey;
+				$scope.sales = angular.copy(currentScope.sales);
+				
+				$scope.contactSales = function(){
+					homePageSrv.contactSalesForm($scope);
+				};
+			},
+		});
 	};
 	
 	//declare demo
@@ -26,18 +38,30 @@ homeApp.controller('homePageCtrl', ['$scope', 'homePageSrv', function ($scope, h
 		company: '',
 		message: '',
 		captcha: null,
-		alerts: []
+		alert: {}
 	};
-	$scope.requestDemo = function(){
-		homePageSrv.demoForm($scope);
+	$scope.openDemoForm = function() {
+		let currentScope = $scope;
+		$uibModal.open({
+			animation: true,
+			templateUrl: 'demo.tmpl',
+			controller: ($scope) => {
+				$scope.siteKey = currentScope.siteKey;
+				$scope.demo = angular.copy(currentScope.demo);
+				
+				$scope.requestDemo = function(){
+					homePageSrv.demoForm($scope);
+				};
+			},
+		});
 	};
 	
-	//declare contact sale
+	//declare newsletter
 	$scope.newsletter = {
 		name: '',
 		email: '',
 		captcha: null,
-		alerts: []
+		alert: {}
 	};
 	
 	/**

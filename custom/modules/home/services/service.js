@@ -8,8 +8,8 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	 * Load icons from json file and hook them to scope.
 	 * @param $scope
 	 */
-	function getIcons($scope){
-		$http.get("custom/modules/home/icons.json").success(function(data) {
+	function getIcons($scope) {
+		$http.get("custom/modules/home/icons.json").success(function (data) {
 			$scope.icons = data;
 		});
 	}
@@ -19,14 +19,13 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	 * @param $scope
 	 */
 	function contactSalesForm($scope) {
-		$scope.sales.alerts = [];
-		$scope.sales.alerts.push({ 'type': 'info', 'msg': "Your message is being sent, please wait ..." });
+		$scope.sales.alert = {'type': 'info', 'msg': "Your message is being sent, please wait ..."};
 		let postData = angular.copy($scope.sales);
-		delete postData.alerts;
+		delete postData.alert;
 		$http({
 			method: 'POST',
 			url: apiAddress + '/sendMessage',
-			headers: { 'Content-Type': 'application/json' },
+			headers: {'Content-Type': 'application/json'},
 			data: postData,
 		}).success(function (data, status, headers, config) {
 			if (data && data.result) {
@@ -37,15 +36,24 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 					company: '',
 					message: '',
 					captcha: null,
-					alerts: []
+					alerts: {}
 				};
-				$scope.sales.alerts.push({ 'type': 'success', 'msg': "Thank you for contacting our sales team. We will get back to you shortly." });
+				$scope.sales.alert = {
+					'type': 'success',
+					'msg': "Thank you for contacting our sales team. We will get back to you shortly."
+				};
 			}
 			else {
-				$scope.sales.alerts.push({ 'type': 'danger', 'msg': "Failed sending your message to the sales team, try again later." });
+				$scope.sales.alert = {
+					'type': 'danger',
+					'msg': "Failed sending your message to the sales team, try again later."
+				};
 			}
 		}).error(function (errData, status, headers, config) {
-			$scope.sales.alerts.push({ 'type': 'danger', 'msg': "Failed sending your message to the sales team, try again later." });
+			$scope.sales.alert = {
+				'type': 'danger',
+				'msg': "Failed sending your message to the sales team, try again later."
+			};
 		});
 	}
 	
@@ -54,14 +62,13 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	 * @param $scope
 	 */
 	function demoForm($scope) {
-		$scope.demo.alerts = [];
-		$scope.demo.alerts.push({ 'type': 'info', 'msg': "Your request is being sent, please wait ..." });
+		$scope.demo.alert = {'type': 'info', 'msg': "Your request is being sent, please wait ..."};
 		let postData = angular.copy($scope.demo);
-		delete postData.alerts;
+		delete postData.alert;
 		$http({
 			method: 'POST',
 			url: apiAddress + '/sendRequest',
-			headers: { 'Content-Type': 'application/json' },
+			headers: {'Content-Type': 'application/json'},
 			data: postData,
 		}).success(function (data, status, headers, config) {
 			if (data && data.result) {
@@ -72,30 +79,35 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 					company: '',
 					message: '',
 					captcha: null,
-					alerts: []
+					alert: {}
 				};
-				$scope.demo.alerts.push({ 'type': 'success', 'msg': "Thank you for contacting our team regarding a demo. We will get back to you shortly." });
+				$scope.demo.alert = {
+					'type': 'success',
+					'msg': "Thank you for contacting our team regarding a demo. We will get back to you shortly."
+				};
 			}
 			else {
-				$scope.demo.alerts.push({ 'type': 'danger', 'msg': "Failed sending your request to the team, try again later." });
+				$scope.demo.alert = {
+					'type': 'danger',
+					'msg': "Failed sending your request to the team, try again later."
+				};
 			}
 		}).error(function (errData, status, headers, config) {
-			$scope.demo.alerts.push({ 'type': 'danger', 'msg': "Failed sending your request to the team, try again later." });
+			$scope.demo.alert = {'type': 'danger', 'msg': "Failed sending your request to the team, try again later."};
 		});
 	}
 	
 	/**
-	 * Method that handles demo form on submit event
+	 * Method that handles newsletter form on submit event
 	 * @param $scope
 	 */
 	function subscribe($scope) {
-		$scope.newsletter.alerts = [];
 		let postData = angular.copy($scope.newsletter);
-		delete postData.alerts;
+		delete postData.alert;
 		$http({
 			method: 'POST',
 			url: apiAddress + '/sendMessage',
-			headers: { 'Content-Type': 'application/json' },
+			headers: {'Content-Type': 'application/json'},
 			data: postData,
 		}).success(function (data, status, headers, config) {
 			if (data && data.result) {
@@ -103,15 +115,18 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 					name: '',
 					email: '',
 					captcha: null,
-					alerts: []
+					alert: {}
 				};
-				$scope.newsletter.alerts.push({ 'type': 'success', 'msg': "Thank you for subscribing." });
+				$scope.newsletter.alert = {'type': 'success', 'msg': "Thank you for subscribing."};
 			}
 			else {
-				$scope.newsletter.alerts.push({ 'type': 'danger', 'msg': "Failed sending your subscription, try again later." });
+				$scope.newsletter.alert = {
+					'type': 'danger',
+					'msg': "Failed sending your subscription, try again later."
+				};
 			}
 		}).error(function (errData, status, headers, config) {
-			$scope.newsletter.alerts.push({ 'type': 'danger', 'msg': "Failed sending your subscription, try again later." });
+			$scope.newsletter.alert = {'type': 'danger', 'msg': "Failed sending your subscription, try again later."};
 		});
 	}
 	

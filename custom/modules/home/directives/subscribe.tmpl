@@ -3,7 +3,8 @@
 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 			<h2>Get in touch</h2>
 			<p>
-				Ask us about how we can accelerate your modernization and/or digital transformation by eliminating the IT plumbing pain required to develop and deploy Microservices.
+				Ask us about how we can accelerate your modernization and/or digital transformation by eliminating the
+				IT plumbing pain required to develop and deploy Microservices.
 			</p>
 			<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
 				<a
@@ -14,9 +15,9 @@
 			</div>
 			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 				<p>
-					90 Canal Street, 4th Floor<br />
-					Boston, MA 02114 <br />
-					USA<br />
+					90 Canal Street, 4th Floor<br/>
+					Boston, MA 02114 <br/>
+					USA<br/>
 				</p>
 			</div>
 		</div>
@@ -24,10 +25,11 @@
 			
 			<h3>Subscribe to SOAJS.io</h3>
 			<p>
-				In the coming months, we will be introducing SOAJS.IO, communicating updates, and providing insights. Subscribe here:
+				In the coming months, we will be introducing SOAJS.IO, communicating updates, and providing insights.
+				Subscribe here:
 			</p>
 			
-			<uib-alert ng-repeat="alert in newsletter.alerts" type="{{alert.type}}" ng-bind-html="alert.msg|toTrustedHtml"></uib-alert>
+			<uib-alert ng-show="newsletter.alert.msg" type="{{newsletter.alert.type}}" ng-bind-html="newsletter.alert.msg|toTrustedHtml"></uib-alert>
 			
 			<form name="newsletterForm" novalidate ng-submit="newsletterForm.$valid && subscribe()">
 				<div class="row">
@@ -38,11 +40,14 @@
 						<input ng-model="newsletter.email" type="text" class="form-control" placeholder="Email ..." required/>
 					</div>
 				</div>
-				<div class="clearfix">
-					<div class="pull-left form-group">
+				<div class="row">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group">
 						<div vc-recaptcha key="siteKey" ng-model="newsletter.captcha"></div>
 					</div>
-					<div class="pull-right form-group">
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group text-right hidden-xs">
+						<input type="submit" class="btn btn-warning white-text" value="Subscribe"/>
+					</div>
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-group text-center hidden-sm  hidden-lg hidden-md">
 						<input type="submit" class="btn btn-warning white-text" value="Subscribe"/>
 					</div>
 				</div>
