@@ -41,7 +41,7 @@ let navigation = [
 		"scripts": ["custom/modules/legal/controller.js"]
 	},
 	{
-		"id": "terms",
+		"id": "disclaimer",
 		"label": "Legal Disclaimer",
 		"url": "/legal/disclaimer",
 		"title": "SOAJS.IO | Legal Disclaimer",
@@ -51,7 +51,7 @@ let navigation = [
     {
         "id": "privacy",
         "label": "Privacy Policy",
-        "url": "/legal-privacy",
+        "url": "/legal/privacy",
         "title": "SOAJS.IO | Privacy Policy",
         "tplPath": "custom/modules/legal/directives/privacy.tmpl",
         "scripts": ["custom/modules/legal/controller.js"]
