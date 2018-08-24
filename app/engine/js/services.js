@@ -9,14 +9,11 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 		$cookies.remove('refresh_token', { 'domain': myApplicationDomain });
 		
 		$cookies.remove('soajs_dashboard_key', { 'domain': myApplicationDomain });
-		$cookies.remove('myEnv', { 'domain': myApplicationDomain });
 		$cookies.remove('soajs_auth', { 'domain': myApplicationDomain });
 		
-		$cookies.remove('soajs_current_route', { 'domain': myApplicationDomain });
-		
+
 		$localStorage.soajs_user = null;
 		$localStorage.acl_access = null;
-		scope.$parent.enableInterface = false;
 	}
 	
 	function revalidateTokens(scope, config, cb) {
