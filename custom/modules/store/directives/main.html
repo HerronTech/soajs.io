@@ -2,9 +2,87 @@
 <div class='row section-padding' ng-controller="storeCtrl">
 	<div class="container">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xm-12">
-			<hr>
-			<p>SOAJS Store inner page content</p>
-			<hr>
+			<div id="catalogs" ng-init="listAllCatalogs()">
+				<div class="entryBoxes">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noInfraCatalogs">
+							<div>
+								<input type="checkbox" checked ng-click="hideCatalogEntries('infra')"/>&nbsp;Infra As Code Templates
+								<a href="/store/iac" title="Learn More">
+									<span class="fa fa-info-circle"></span>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noCdCatalogs">
+							<div>
+								<input type="checkbox" checked ng-click="hideCatalogEntries('cd')"/>&nbsp;Catalog Recipes
+								<a href="/store/catalog" title="Learn More">
+									<span class="fa fa-info-circle"></span>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noTempCatalogs">
+							<div>
+								<input type="checkbox" checked ng-click="hideCatalogEntries('template')"/>&nbsp;Environment Templates
+								<a href="/store/env" title="Learn More">
+									<span class="fa fa-info-circle"></span>
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noCiCatalogs">
+							<div>
+								<input type="checkbox" checked ng-click="hideCatalogEntries('ci')"/>&nbsp;Continuous Integration
+								<a href="/store/ci" title="Learn More">
+									<span class="fa fa-info-circle"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<br/>
+					<hr>
+					<br/>
+					<div class="row">
+						<div ng-repeat="onectlg in allCatalogs" class="storeElement col-lg-6 col-md-6 col-sm-12 col-xs-12" ng-hide="onectlg.hide" tooltip="Last Modified on {{onectlg.ts|date}}">
+							<div class="content">
+								<div class="header blue-bg white-text">
+									<div class="col-lg-11 col-md-11 col-sm-11" ng-click="expandCollapse(onectlg);" tooltip="{{onectlg.name}}">
+										<b>{{onectlg.name}}</b>
+									</div>
+									<div class="col-lg-1 col-md-1 col-sm-1">
+										<a href="" ng-click="download(onectlg._id)" tooltip="Download">
+											<span class="glyphicon glyphicon-cloud-download"></span>
+										</a>
+									</div>
+								</div>
+								<div class="body" ng-click="expandCollapse(onectlg);">
+									<div class="col-lg-2 col-md-2 col-sm-2 text-center mainIcon">
+										<span class="glyphicon glyphicon-info-sign"></span>
+									</div>
+									<div class="col-lg-10 col-md-10 col-sm-10" ng-hide="onectlg.expanded && onectlg.description!== ''" ng-bind-html="onectlg.short_description | toTrustedHtml"></div>
+									<div class="col-lg-10 col-md-10 col-sm-10" ng-show="onectlg.expanded && onectlg.description!== ''" ng-bind-html="onectlg.description | toTrustedHtml"></div>
+								</div>
+								<div class="footer">
+									<div class="col-lg-11 col-md-11 col-sm-11">
+										<div class="row">
+											<div class="col-lg-3 col-md-3 col-sm-3 worksWith">
+												Works With
+											</div>
+											<div class="col-lg-9 col-md-9 col-sm-9 techList">
+												<div class="col-sm-2 col-md-2 col-lg-2" ng-repeat="oneLink in onectlg.icons">
+													<img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-1 col-md-1 col-sm-1 tagIcon">
+										<span class="glyphicon glyphicon-info-sign"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
