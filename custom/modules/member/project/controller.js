@@ -34,12 +34,6 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$http', '$timeout'
 			$scope.alerts.splice(index, 1);
 		};
 
-		$scope.closeAllAlerts = function () {
-			$timeout(function () {
-				$scope.alerts = [];
-			}, 20000);
-		};
-
 		$scope.checkPending = function () {
 			let reqOptions = {
 				"method": "get",
@@ -127,7 +121,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$http', '$timeout'
 										'type': 'success',
 										'msg': "Project was deleted successfully."
 									});
-									$scope.closeAllAlerts();
+									closeAllAlerts($scope, $timeout);
 									$scope.getList();
 								}
 							});
@@ -163,14 +157,14 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$http', '$timeout'
 							'type': 'danger',
 							'msg': error.message
 						});
-						$scope.closeAllAlerts();
+						closeAllAlerts($scope, $timeout);
 					}
 					else {
 						$scope.alerts.push({
 							'type': 'success',
 							'msg': "Project was deleted successfully."
 						});
-						$scope.closeAllAlerts();
+						closeAllAlerts($scope, $timeout);
 						$scope.getList();
 					}
 				});
@@ -222,7 +216,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$http', '$timeout'
 						'type': 'danger',
 						'msg': error.message
 					});
-					$scope.closeAllAlerts();
+					closeAllAlerts($scope, $timeout);
 				}
 				else {
 					var value = [];
@@ -243,8 +237,8 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$http', '$timeout'
 						timeout: $timeout,
 						form: config,
 						name: 'addGroup',
-						label: 'Add Users to project' + ': ' + project.name,
-						'msgs': {},
+						label: 'Add Users to project: ' + project.name,
+						msgs: {},
 						actions: [
 							{
 								'type': 'submit',
@@ -269,18 +263,14 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$http', '$timeout'
 
 									getSendDataFromServer($scope, ngDataApi, opts, function (error) {
 										if (error) {
-											$scope.alerts.push({
-												'type': 'danger',
-												'msg': error.message
-											});
-											$scope.closeAllAlerts();
+											$scope.form.displayAlert('danger', error.message);
 										}
 										else {
 											$scope.alerts.push({
 												'type': 'success',
 												'msg': "Users added to project."
 											});
-											$scope.closeAllAlerts();
+											closeAllAlerts($scope, $timeout);
 											$scope.modalInstance.close();
 											$scope.form.formData = {};
 										}
@@ -318,7 +308,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$http', '$timeout'
 						'type': 'danger',
 						'msg': error.message
 					});
-					$scope.closeAllAlerts();
+					closeAllAlerts($scope, $timeout);
 				}
 				else {
 					let projectCount = 0;
@@ -382,7 +372,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$http', '$timeout'
 
 		$scope.getList();
 
-		// injectFiles.injectCss("sections/saas/projects.css");
+		// injectFiles.injectCss("custom/modules/member/projects.css");
 	}]);
 
 projectApp.controller('addProject', ['$scope', function ($scope) {

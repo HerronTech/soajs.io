@@ -20,3 +20,14 @@ var overlayLoading = {
 		}
 	}
 };
+
+var closeAlert = function ($scope, index) {
+	if ($scope.alerts) {
+		$scope.alerts.splice(index, 1);
+	}
+};
+var closeAllAlerts = function ($scope, $timeout) {
+	$timeout(function () {
+		$scope.alerts = [];
+	}, 10000);
+};

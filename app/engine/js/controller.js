@@ -27,7 +27,8 @@ let apiConfiguration = {
 //angular needs the list of domains that the app communicates with if not same as app domain
 let whitelistedDomain = ['localhost', '127.0.0.1', mydomainAPI + '.' + myApplicationDomain];
 
-
+let interfaceDomain;
+interfaceDomain = myApplicationDomain.split(":")[0];
 /**
  * Create New Angular Module and add dependency modules
  * @type {module}

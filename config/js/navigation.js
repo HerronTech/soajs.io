@@ -66,6 +66,16 @@ let navigation = [
 		"scripts": ["custom/modules/store/controller.js"]
 	},
 	{
+		"id": "forget-pw",
+		"url": "/forgetPw",
+		"title": "SOAJS.IO | Password",
+		"tplPath": "custom/modules/member/login/directives/forgetPw.html",
+		"scripts": [
+			"custom/modules/member/login/config.js",
+			"custom/modules/member/login/controller.js"
+		],
+	},
+	{
 		"id": "addProject",
 		"label": "Add Project",
 		"url": "/member/project/add",

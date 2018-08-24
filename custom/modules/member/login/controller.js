@@ -27,7 +27,7 @@ var loginConfig = {
 				'type': 'password',
 				'placeholder': "Enter Password",
 				'value': '',
-				'fieldMsg': '<a href="/members/forgetPw"> Forgot your password? </a>',
+				'fieldMsg': '<a href="/forgetPw"> Forgot your password? </a>',
 				'tooltip': "Passwords are alphanumeric and support _ character only",
 				'required': true
 			}
@@ -37,6 +37,12 @@ var loginConfig = {
 
 loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localStorage', 'ngDataApi', '$location', 'isUserLoggedIn',
 	function ($scope, $cookies, $timeout, $localStorage, ngDataApi, $location, isUserLoggedIn) {
+
+		$scope.alerts = [];
+
+		if (isUserLoggedIn($scope)) {
+			$location.path('/member/profile');
+		}
 
 		let innerPage = {
 			header: "Member Area",
@@ -107,12 +113,12 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 											'type': 'danger',
 											'msg': error.message
 										});
-										$scope.closeAllAlerts();
+										closeAllAlerts($scope, $timeout);
 									}
 									else {
 										if (Object.hasOwnProperty.call(response, "access_token")) {
-											$cookies.put('access_token', response.access_token, { 'domain': myApplicationDomain });
-											$cookies.put('refresh_token', response.refresh_token, { 'domain': myApplicationDomain });
+											$cookies.put('access_token', response.access_token, { 'domain': interfaceDomain });
+											$cookies.put('refresh_token', response.refresh_token, { 'domain': interfaceDomain });
 											uracLogin();
 										}
 									}
@@ -141,7 +147,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 									'type': 'danger',
 									'msg': error.message
 								});
-								$scope.closeAllAlerts();
+								closeAllAlerts($scope, $timeout);
 							}
 							else {
 								myUser = response;
@@ -164,13 +170,13 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 									'type': 'danger',
 									'msg': error.message
 								});
-								$scope.closeAllAlerts();
+								closeAllAlerts($scope, $timeout);
 							}
 							else {
 								myUser.locked = response.locked || false;
 								$localStorage.soajs_user = myUser;
-								$cookies.put("soajs_username", myUser.username, { 'domain': myApplicationDomain });
-								$cookies.put("ht_dashboard_key", response.extKey, { 'domain': myApplicationDomain });
+								$cookies.put("soajs_username", myUser.username, { 'domain': interfaceDomain });
+								$cookies.put("ht_dashboard_key", response.extKey, { 'domain': interfaceDomain });
 								getPermissions();
 							}
 						});
@@ -189,7 +195,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 									'type': 'danger',
 									'msg': error.message
 								});
-								$scope.closeAllAlerts();
+								closeAllAlerts($scope, $timeout);
 							}
 							else {
 								$localStorage.acl_access = response.acl;
@@ -211,4 +217,71 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 
 		buildForm($scope, null, formConfig);
 
+	}]);
+
+
+loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataApi', '$location', 'isUserLoggedIn',
+	function ($scope, $cookies, $timeout, ngDataApi, $location, isUserLoggedIn) {
+
+		if (isUserLoggedIn($scope)) {
+			$location.path('/member/profile');
+		}
+
+		let innerPage = {
+			header: "Member Area",
+			slogan: "Login & Register",
+			image: "custom/modules/member/images/member.jpg"
+		};
+		
+		$scope.updateParentScope('innerPage', innerPage);
+		
+		$scope.$on("$destroy", function () {
+			$scope.removeFromParentScope('innerPage');
+		});
+
+		$scope.alerts = [];
+		var formConfig = forgetPwConfig.formConf;
+		formConfig.actions = [
+			{
+				'type': 'submit',
+				'label': 'Submit',
+				'btn': 'primary',
+				'action': function (formData) {
+
+					$scope.alerts = [];
+					var postData = {
+						'username': formData.username
+					};
+					overlayLoading.show();
+
+					var options1 = {
+						"method": "get",
+						"routeName": "/urac/forgotPassword",
+						"params": postData
+					};
+					getSendDataFromServer($scope, ngDataApi, options1, function (error, response) {
+						overlayLoading.hide();
+						if (error) {
+							$scope.alerts.push({
+								'type': 'danger',
+								'msg': error.message
+							});
+						}
+						else {
+							$scope.alerts.push({
+								'type': 'success',
+								'msg': "A reset link has been sent to your email address."
+							});
+							$timeout(function () {
+								$location.path('/login');
+							}, 5000);
+						}
+						closeAllAlerts($scope, $timeout);
+					});
+				}
+			}
+		];
+		
+		buildForm($scope, null, formConfig);
+		
 	}]);

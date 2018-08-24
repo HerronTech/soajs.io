@@ -1,6 +1,7 @@
 "use strict";
 var storeAppSrv = app.components;
-storeAppSrv.service('storePageSrv', ['$http', function ($http) {
+
+storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', function ($http, $location, $cookies) {
 	
 	$scope.download = function (id) {
 		
