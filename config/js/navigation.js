@@ -24,14 +24,14 @@ let navigation = [
 		"topMenu": true,
 	},
 	/*
-	{
-		"id": "contact-anchor",
-		"label": "Contact Us",
-		"title": "SOAJS | Contact Us",
-		"url": "/#contact",
-		"topMenu": true,
-	},
-	*/
+	 {
+	 "id": "contact-anchor",
+	 "label": "Contact Us",
+	 "title": "SOAJS | Contact Us",
+	 "url": "/#contact",
+	 "topMenu": true,
+	 },
+	 */
 	{
 		"id": "terms",
 		"label": "Terms & Conditions",
@@ -41,21 +41,21 @@ let navigation = [
 		"scripts": ["custom/modules/legal/controller.js"]
 	},
 	{
-		"id": "terms",
+		"id": "disclaimer",
 		"label": "Legal Disclaimer",
 		"url": "/legal/disclaimer",
 		"title": "SOAJS.IO | Legal Disclaimer",
 		"tplPath": "custom/modules/legal/directives/disclaimer.tmpl",
 		"scripts": ["custom/modules/legal/controller.js"]
 	},
-    {
-        "id": "privacy",
-        "label": "Privacy Policy",
-        "url": "/legal-privacy",
-        "title": "SOAJS.IO | Privacy Policy",
-        "tplPath": "custom/modules/legal/directives/privacy.tmpl",
-        "scripts": ["custom/modules/legal/controller.js"]
-    },
+	{
+		"id": "privacy",
+		"label": "Privacy Policy",
+		"url": "/legal/privacy",
+		"title": "SOAJS.IO | Privacy Policy",
+		"tplPath": "custom/modules/legal/directives/privacy.tmpl",
+		"scripts": ["custom/modules/legal/controller.js"]
+	},
 	{
 		"id": "store-anchor",
 		"label": "Store",
@@ -66,6 +66,14 @@ let navigation = [
 		"scripts": ["custom/modules/store/controller.js"]
 	},
 	{
+		"id": "addProject",
+		"label": "Add Project",
+		"url": "/member/project/add",
+		"title": "SOAJS.IO | Add Project",
+		"tplPath": "custom/modules/member/project/directives/add.html",
+		"scripts": ["custom/modules/member/project/controller.js"],
+	},
+	{
 		"id": "member-area",
 		"label": "Member Area",
 		"url": "#",
@@ -74,15 +82,16 @@ let navigation = [
 		"children": [
 			{
 				"label": "User Area",
+				"id": "user-area",
 				"entries": [
 					{
 						"id": "member-join",
 						"label": "Join",
 						"url": "/join",
 						"topMenu": true,
-                        "title": "SOAJS.IO | Join",
-						"tplPath": "custom/modules/member/directives/main.html",
-						"scripts": ["custom/modules/member/controller.js"],
+						"title": "SOAJS.IO | Join",
+						"tplPath": "custom/modules/member/register/directives/main.html",
+						"scripts": ["custom/modules/member/register/controller.js"],
 					},
 					{
 						"id": "member-login",
@@ -90,8 +99,29 @@ let navigation = [
 						"url": "/login",
 						"topMenu": true,
 						"title": "SOAJS.IO | Login",
-						"tplPath": "custom/modules/member/directives/main.html",
-						"scripts": ["custom/modules/member/controller.js"],
+						"tplPath": "custom/modules/member/login/directives/main.html",
+						"scripts": ["custom/modules/member/login/controller.js"],
+					},
+					{
+						"id": "profile",
+						"label": "Profile",
+						"url": "/member/profile",
+						"topMenu": true,
+						"title": "SOAJS.IO | Profile",
+						"tplPath": "custom/modules/member/account/directives/profile.html",
+						"scripts": ["custom/modules/member/account/controller.js"],
+					},
+					{
+						"id": "projects",
+						"label": "Projects",
+						"url": "/member/projects",
+						"topMenu": true,
+						"title": "SOAJS.IO | Projects",
+						"tplPath": "custom/modules/member/project/directives/list.html",
+						"scripts": [
+							"custom/modules/member/config.js",
+							"custom/modules/member/project/controller.js"
+						],
 					}
 				]
 			},
@@ -104,8 +134,8 @@ let navigation = [
 						"url": "/member-billing",
 						"topMenu": true,
 						"title": "SOAJS.IO | Billing",
-						"tplPath": "custom/modules/member/directives/main.html",
-						"scripts": ["custom/modules/member/controller.js"],
+						"tplPath": "custom/modules/member/account/directives/billing.html",
+						"scripts": ["custom/modules/member/account/controller.js"],
 					}
 				]
 			}
