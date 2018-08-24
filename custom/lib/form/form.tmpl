@@ -18,15 +18,15 @@
 			</alert>
 		</div>
 		<div ng-show="form.msgs && form.msgs.header" class="header-msg" ng-bind-html="form.msgs.header|toTrustedHtml"></div>
-		<div ng-include="'app/lib/form/inputs.tmpl'"></div>
+		<div ng-include="'custom/lib/form/inputs.tmpl'"></div>
 	</div>
 	<div ng-class="{'footer': !form.modal, 'modal-footer': form.modal}">
 		<br ng-if="!form.modal"/>
 		<div ng-class="{'submittedForm': form.submitted === true}">
 			<div class="note">
-				<alert type="danger" close="form.closeNote()">
+				<uib-alert type="danger" close="form.closeNote()">
 					Missing Required Fields
-				</alert>
+				</uib-alert>
 			</div>
 		</div>
 		<div ng-show="form.msgs.footer" class="footer-msg" ng-bind-html="form.msgs.footer|toTrustedHtml"></div>

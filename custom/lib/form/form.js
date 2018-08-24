@@ -30,9 +30,9 @@ function buildFormWithModal($scope, $modal, opts, cb) {
 				backdropClass: "backdrop-soajs",
 				backdrop: formConfig.backdrop,
 				keyboard: false,
-				controller: function ($scope, $modalInstance) {
+				controller: function ($scope, $uibModalInstance) {
 					$scope.form = formContext.form;
-					formContext.modalInstance = $modalInstance;
+					formContext.modalInstance = $uibModalInstance;
 					formContext.modalScope = $scope;
 					fixBackDrop();
 					if (cb && typeof(cb) === 'function') {
@@ -64,6 +64,7 @@ function buildForm(context, modal, configuration, cb) {
 		alerts: [],
 		label: configuration.label,
 		id: configuration.name,
+		name: configuration.name,
 		msgs: configuration.msgs,
 		action: configuration.action,
 		entries: configuration.entries,
@@ -586,6 +587,13 @@ function buildForm(context, modal, configuration, cb) {
 			cb();
 		}, 1000);
 	}
+}
+
+function fixBackDrop() {
+	var overlayHeight = jQuery(document).height();
+	setTimeout(function () {
+		jQuery(".modal-backdrop").css('height', overlayHeight + 'px');
+	}, 20);
 }
 
 app.directive('ngformInputs', function () {
