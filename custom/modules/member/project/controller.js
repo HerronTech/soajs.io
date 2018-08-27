@@ -40,7 +40,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 				"routeName": "/bridge/checkPendingProjects",
 				"params": {}
 			};
-			getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
+			invokeApi($scope, ngDataApi, reqOptions, function (error, data) {
 				overlayLoading.hide();
 				$timeout(function () {
 					$scope.getList();
@@ -109,7 +109,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 									"removeResource": false
 								}
 							};
-							getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
+							invokeApi($scope, ngDataApi, reqOptions, function (error, data) {
 								overlayLoading.hide();
 								if (error) {
 									$scope.form.displayAlert('danger', error.message);
@@ -150,7 +150,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 						"soajs_project": project.name
 					}
 				};
-				getSendDataFromServer($scope, ngDataApi, reqOptions, function (error, data) {
+				invokeApi($scope, ngDataApi, reqOptions, function (error, data) {
 					overlayLoading.hide();
 					if (error) {
 						$scope.alerts.push({
@@ -210,7 +210,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 				}
 			};
 
-			getSendDataFromServer($scope, ngDataApi, opts, function (error, response) {
+			invokeApi($scope, ngDataApi, opts, function (error, response) {
 				if (error) {
 					$scope.alerts.push({
 						'type': 'danger',
@@ -261,7 +261,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 										"data": postData
 									};
 
-									getSendDataFromServer($scope, ngDataApi, opts, function (error) {
+									invokeApi($scope, ngDataApi, opts, function (error) {
 										if (error) {
 											$scope.form.displayAlert('danger', error.message);
 										}
@@ -297,7 +297,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 			$scope.projects.active = [];
 			$scope.projects.pending = [];
 			overlayLoading.show();
-			getSendDataFromServer($scope, ngDataApi, {
+			invokeApi($scope, ngDataApi, {
 				"method": "get",
 				"routeName": "/projects/projects/list",
 				"params": {}
@@ -342,7 +342,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 										}
 									}
 								};
-								getSendDataFromServer($scope, ngDataApi, options, function (error, response) {
+								invokeApi($scope, ngDataApi, options, function (error, response) {
 									if (error) {
 										console.log(error);
 									} else {
@@ -558,7 +558,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 			}
 
 			overlayLoading.show();
-			getSendDataFromServer($scope, ngDataApi, {
+			invokeApi($scope, ngDataApi, {
 				"method": "post",
 				"routeName": "/projects/project",
 				"data": {

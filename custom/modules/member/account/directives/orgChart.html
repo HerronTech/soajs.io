@@ -46,7 +46,7 @@
 					</section>
 				</uib-tab>
 				<uib-tab ng-show="access.adminGroup.list" heading="Groups">
-					<uib-tab-heading></uib-tab-heading>
+					<uib-tab-heading>Groups</uib-tab-heading>
 					<section ng-controller="groupsCtrl as gridCtrl">
 						<div ng-show="alerts && alerts.length > 0">
 							<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">

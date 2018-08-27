@@ -212,7 +212,7 @@ accountApp.controller('orgChart', ['$scope', '$timeout', '$uibModal', 'ngDataApi
 
 		let innerPage = {
 			header: "Member Area",
-			slogan: "My Profile",
+			slogan: "My Organization",
 			image: "custom/modules/member/images/member.jpg"
 		};
 
@@ -228,6 +228,32 @@ accountApp.controller('orgChart', ['$scope', '$timeout', '$uibModal', 'ngDataApi
 		$scope.access = {};
 		constructModulePermissions($scope, $localStorage, $scope.access, membersConfig.permissions);
 
+		$scope.getProjects = function () {
+			$scope.projects = {};
+			$scope.projects.active = [];
+			$scope.projects.names = [];
+			overlayLoading.show();
+			invokeApi($scope, ngDataApi, {
+				"method": "get",
+				"routeName": "/projects/projects/list",
+				"params": {}
+			}, function (error, data) {
+				overlayLoading.hide();
+				if (error) {
+				}
+				else {
+					data.forEach(function (project) {
+						$scope.projects.names.push(project.name);
+						if (project.status === 'pending') {
+							return;
+						}
+						$scope.projects.active.push(project);
+					});
+				}
+			});
+		};
+
+		$scope.getProjects();
 	}]);
 
 accountApp.controller('membersCtrl', ['$scope', '$timeout', '$uibModal', 'ngDataApi', '$cookies', '$localStorage', 'membersHelper', 'isUserLoggedIn',
