@@ -47,7 +47,7 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 			};
 			currentScope.store.alert = {};
 			overlayLoading.show();
-			getSendDataFromServer(currentScope, ngDataApi, options, function (error, response) {
+			invokeApi(currentScope, ngDataApi, options, function (error, response) {
 				overlayLoading.hide();
 				if (error) {
 					currentScope.store.alert = { 'type': 'danger', 'msg': error.message };
@@ -67,7 +67,7 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 
 		currentScope.store.alert = {};
 		overlayLoading.show();
-		getSendDataFromServer(currentScope, ngDataApi, options, function (error, response) {
+		invokeApi(currentScope, ngDataApi, options, function (error, response) {
 			overlayLoading.hide();
 			if (error) {
 				currentScope.store.alert = { 'type': 'danger', 'msg': error.message };
