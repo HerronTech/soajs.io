@@ -66,6 +66,39 @@ let navigation = [
 		"scripts": ["custom/modules/store/controller.js", "custom/modules/store/services/store.js"]
 	},
 	{
+		"id": "store-ci-anchor",
+		"label": "Continuous Integration Recipes",
+		"url": "/store/ci",
+		"title": "SOAJS.IO | Continuous Integration Recipes",
+		"tplPath": "custom/modules/store/directives/ci.html",
+		"scripts": ["custom/modules/store/controller.js", "custom/modules/store/services/store.js"]
+	},
+	{
+		"id": "store-catalogs-anchor",
+		"label": "Catalog Deployment Recipes",
+		"url": "/store/catalogs",
+		"title": "SOAJS.IO | Catalog Deployment Recipes",
+		"tplPath": "custom/modules/store/directives/catalogs.html",
+		"scripts": ["custom/modules/store/controller.js", "custom/modules/store/services/store.js"]
+	},
+	{
+		"id": "store-envtmpl-anchor",
+		"label": "Environment Templates",
+		"url": "/store/env",
+		"title": "SOAJS.IO | Environment Templates",
+		"tplPath": "custom/modules/store/directives/env.html",
+		"scripts": ["custom/modules/store/controller.js", "custom/modules/store/services/store.js"]
+	},
+	{
+		"id": "store-iac-anchor",
+		"label": "Infra as Code Templates",
+		"url": "/store/iac",
+		"title": "SOAJS.IO | Infra as Code Templates",
+		"tplPath": "custom/modules/store/directives/iac.html",
+		"scripts": ["custom/modules/store/controller.js", "custom/modules/store/services/store.js"]
+	},
+	
+	{
 		"id": "forget-pw",
 		"url": "/forgetPw",
 		"title": "SOAJS.IO | Password",

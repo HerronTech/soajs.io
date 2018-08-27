@@ -1,3 +1,7 @@
+#catalogs div.headerIcons {
+    font-size:48px;
+}
+
 #catalogs div.storeElement{
     height:300px;
     margin:0 0 40px 0;

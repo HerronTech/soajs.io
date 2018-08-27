@@ -47,3 +47,87 @@ storeApp.controller('storeCtrl', ['$scope', '$http', '$cookies', 'injectFiles', 
 		$scope.removeFromParentScope('innerPage');
 	});
 }]);
+
+var storeCIApp = app.components;
+storeCIApp.controller('storeCICtrl', ['$scope', 'injectFiles', function ($scope, injectFiles) {
+	
+	let innerPage = {
+		header: "Continuous Integration Recipes",
+		slogan: "Browse & Download Recipes and templates",
+		image: "custom/modules/store/images/store.jpg"
+	};
+	
+	//upon start inject a custom css file
+	injectFiles.injectCss("/custom/modules/store/store.css");
+	
+	//upon start call parent method and update page headlines
+	$scope.updateParentScope('innerPage', innerPage);
+	
+	//when leaving this module, trigger remove page headlines
+	$scope.$on("$destroy", function () {
+		$scope.removeFromParentScope('innerPage');
+	});
+}]);
+
+var storeCATApp = app.components;
+storeCATApp.controller('storeCATCtrl', ['$scope', 'injectFiles', function ($scope, injectFiles) {
+	
+	let innerPage = {
+		header: "Datalog Deployment Recipes",
+		slogan: "Browse & Download Recipes and templates",
+		image: "custom/modules/store/images/store.jpg"
+	};
+	
+	//upon start inject a custom css file
+	injectFiles.injectCss("/custom/modules/store/store.css");
+	
+	//upon start call parent method and update page headlines
+	$scope.updateParentScope('innerPage', innerPage);
+	
+	//when leaving this module, trigger remove page headlines
+	$scope.$on("$destroy", function () {
+		$scope.removeFromParentScope('innerPage');
+	});
+}]);
+
+var storeENVApp = app.components;
+storeENVApp.controller('storeENVCtrl', ['$scope', 'injectFiles', function ($scope, injectFiles) {
+	
+	let innerPage = {
+		header: "Environment Templates",
+		slogan: "Browse & Download Recipes and templates",
+		image: "custom/modules/store/images/store.jpg"
+	};
+	
+	//upon start inject a custom css file
+	injectFiles.injectCss("/custom/modules/store/store.css");
+	
+	//upon start call parent method and update page headlines
+	$scope.updateParentScope('innerPage', innerPage);
+	
+	//when leaving this module, trigger remove page headlines
+	$scope.$on("$destroy", function () {
+		$scope.removeFromParentScope('innerPage');
+	});
+}]);
+
+var storeIACApp = app.components;
+storeIACApp.controller('storeIACCtrl', ['$scope', 'injectFiles', function ($scope, injectFiles) {
+	
+	let innerPage = {
+		header: "Infra As Code Templates",
+		slogan: "Browse & Download Recipes and templates",
+		image: "custom/modules/store/images/store.jpg"
+	};
+	
+	//upon start inject a custom css file
+	injectFiles.injectCss("/custom/modules/store/store.css");
+	
+	//upon start call parent method and update page headlines
+	$scope.updateParentScope('innerPage', innerPage);
+	
+	//when leaving this module, trigger remove page headlines
+	$scope.$on("$destroy", function () {
+		$scope.removeFromParentScope('innerPage');
+	});
+}]);
