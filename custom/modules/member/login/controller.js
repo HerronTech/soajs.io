@@ -1,10 +1,15 @@
 "use strict";
 var loginApp = app.components;
 
-loginApp.controller('logoutCtrl', ['$scope', 'ngDataApi', function ($scope, ngDataApi) {
+loginApp.controller('logoutCtrl', ['$scope', '$location', 'ngDataApi', function ($scope, $location, ngDataApi) {
 
+	$scope.start = function () {
+		ngDataApi.logout();
+		$scope.$parent.$emit('refreshWelcome', {});
+		$location.path('/member/login');
+	};
 
-
+	$scope.start();
 }]);
 
 loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localStorage', 'ngDataApi', '$location', 'isUserLoggedIn',
@@ -213,8 +218,6 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 								} else {
 									$location.path('/member/profile');
 								}
-								//
-								// $scope.$parent.$emit("loadUserInterface", {});
 							}
 						});
 					}
