@@ -63,7 +63,7 @@ let navigation = [
 		"topMenu": true,
 		"title": "SOAJS.IO | Store",
 		"tplPath": "custom/modules/store/directives/main.html",
-		"scripts": ["custom/modules/store/controller.js"]
+		"scripts": ["custom/modules/store/controller.js", "custom/modules/store/services/store.js"]
 	},
 	{
 		"id": "forget-pw",

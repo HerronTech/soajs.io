@@ -1,6 +1,6 @@
 "use strict";
 var storeApp = app.components;
-storeApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', function ($scope, $http, injectFiles) {
+storeApp.controller('storeCtrl', ['$scope', '$http', '$cookies', 'injectFiles', 'storePageSrv', function ($scope, $http, $cookies, injectFiles, storePageSrv) {
 	
 	let innerPage = {
 		header: "SOAJS Store",
@@ -8,24 +8,12 @@ storeApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', function ($s
         image: "custom/modules/store/images/store.jpg"
 	};
 	
-	/**
-	 * method that mocks the api call to retrieve list of available store entries
-	 */
+	let username = $cookies.get('soajs_username', { 'domain': interfaceDomain });
+	$scope.isUserLoggedIn = (username && username !== '');
 	
-	function sortCatalogsByType(catalogEntries) {
-		let types = ['infra','cd','template','ci'];
-		
-		let newArray  = [];
-		types.forEach((oneType) => {
-			catalogEntries.forEach((oneCatalog) => {
-				if(oneCatalog.type === oneType) {
-					newArray.push(oneCatalog);
-				}
-			});
-		});
-		return newArray;
-	}
+	$scope.store = {alert : [] };
 	
+	//hide and show the catalog entries based on the type passed as parameter
 	$scope.hideCatalogEntries = function(type) {
 		$scope.allCatalogs.forEach((oneCtlg) => {
 			if(oneCtlg.type === type){
@@ -34,62 +22,27 @@ storeApp.controller('storeCtrl', ['$scope', '$http', 'injectFiles', function ($s
 		});
 	};
 	
+	/**
+	 * method that fetches all the entries in the store catalog
+	 */
 	$scope.listAllCatalogs = function(){
-		$http.get("custom/modules/store/list.json").success(function (response) {
-			
-			$scope.allCatalogs = angular.copy(response);
-			
-			$scope.allCatalogs = sortCatalogsByType($scope.allCatalogs);
-			
-			$scope.noCdCatalogs = false;
-			$scope.noCiCatalogs = false;
-			$scope.noTempCatalogs = false;
-			$scope.noInfraCatalogs = false;
-			
-			$scope.catalogs = {
-				ci: [],
-				cd: [],
-				envTemplate: [],
-				infra: []
-			};
-			
-			response.forEach((oneCtlg) => {
-				oneCtlg.expanded = false;
-				oneCtlg.hide = false;
-				
-				if (oneCtlg.type === 'ci') {
-					$scope.catalogs.ci.push(oneCtlg);
-				}
-				if (oneCtlg.type === 'cd') {
-					$scope.catalogs.cd.push(oneCtlg);
-				}
-				if (oneCtlg.type === 'template') {
-					$scope.catalogs.envTemplate.push(oneCtlg);
-				}
-				if (oneCtlg.type === 'infra') {
-					$scope.catalogs.infra.push(oneCtlg);
-				}
-			});
-			
-			if ($scope.catalogs.cd.length === 0) {
-				$scope.noCdCatalogs = true;
-			}
-			if ($scope.catalogs.ci.length === 0) {
-				$scope.noCiCatalogs = true;
-			}
-			if ($scope.catalogs.envTemplate.length === 0) {
-				$scope.noTempCatalogs = true;
-			}
-			if ($scope.catalogs.infra.length === 0) {
-				$scope.noInfraCatalogs = true;
-			}
-		});
+		storePageSrv.listAllCatalogs($scope);
 	};
 	
+	/**
+	 * method that triggers downloading a single catalog entry
+	 */
+	$scope.download = function(entryId) {
+		storePageSrv.download($scope, entryId);
+	};
+	
+	//upon start inject a custom css file
 	injectFiles.injectCss("/custom/modules/store/store.css");
 	
+	//upon start call parent method and update page headlines
 	$scope.updateParentScope('innerPage', innerPage);
 	
+	//when leaving this module, trigger remove page headlines
 	$scope.$on("$destroy", function () {
 		$scope.removeFromParentScope('innerPage');
 	});
