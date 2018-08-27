@@ -117,55 +117,75 @@ let navigation = [
 		"scripts": ["custom/modules/member/project/controller.js"],
 	},
 	{
+		"id": "member-area-login",
+		"label": "Member Area",
+		"url": "/login",
+		"topMenu": true,
+		"title": "SOAJS.IO | Login to Member Area",
+		"tplPath": "custom/modules/member/login/directives/main.html",
+		"scripts": ["custom/modules/member/login/controller.js"],
+	},
+	{
 		"id": "member-area",
 		"label": "Member Area",
 		"url": "#",
-		"topMenu": true,
+		"topMenu": false,
 		"title": "SOAJS.IO | Member Area",
 		"children": [
 			{
 				"label": "",
 				"id": "user-area",
 				"entries": [
-					// {
-					// 	"id": "member-join",
-					// 	"label": "Join",
-					// 	"url": "/join",
-					// 	"topMenu": true,
-					// 	"title": "SOAJS.IO | Join",
-					// 	"tplPath": "custom/modules/member/register/directives/main.html",
-					// 	"scripts": ["custom/modules/member/register/controller.js"],
-					// },
 					{
-						"id": "member-login",
-						"label": "Login",
-						"url": "/login",
+						"id": "profile",
+						"label": "Profile",
+						"url": "/member/profile",
+						"topMenu": true,
+						"title": "SOAJS.IO | Profile",
+						"tplPath": "custom/modules/member/account/directives/profile.html",
+						"scripts": ["custom/modules/member/account/controller.js"],
+					},
+					{
+						"id": "member-logout",
+						"label": "Logout",
+						"url": "/logout",
 						"topMenu": true,
 						"title": "SOAJS.IO | Login",
 						"tplPath": "custom/modules/member/login/directives/main.html",
 						"scripts": ["custom/modules/member/login/controller.js"],
+					}
+				]
+			},
+			{
+				"label": "",
+				"id": "user-projects",
+				"entries": [
+					{
+						"id": "projects",
+						"label": "My Projects",
+						"url": "/member/projects",
+						"topMenu": true,
+						"title": "SOAJS.IO | Projects",
+						"tplPath": "custom/modules/member/project/directives/list.html",
+						"scripts": [
+							"custom/modules/member/config.js",
+							"custom/modules/member/project/controller.js"
+						]
 					},
-					// {
-					// 	"id": "profile",
-					// 	"label": "Profile",
-					// 	"url": "/member/profile",
-					// 	"topMenu": true,
-					// 	"title": "SOAJS.IO | Profile",
-					// 	"tplPath": "custom/modules/member/account/directives/profile.html",
-					// 	"scripts": ["custom/modules/member/account/controller.js"],
-					// },
-					// {
-					// 	"id": "projects",
-					// 	"label": "Projects",
-					// 	"url": "/member/projects",
-					// 	"topMenu": true,
-					// 	"title": "SOAJS.IO | Projects",
-					// 	"tplPath": "custom/modules/member/project/directives/list.html",
-					// 	"scripts": [
-					// 		"custom/modules/member/config.js",
-					// 		"custom/modules/member/project/controller.js"
-					// 	],
-					// }
+					{
+						"id": "chart",
+						"label": "My Organization",
+						"url": "/member/orgChart",
+						"topMenu": true,
+						"title": "SOAJS.IO | Chart",
+						"tplPath": "custom/modules/member/account/directives/orgChart.html",
+						"scripts": [
+							"custom/modules/member/config.js",
+							"custom/modules/member/account/services/groups.js",
+							"custom/modules/member/account/services/members.js",
+							"custom/modules/member/account/controller.js"
+						]
+					}
 				]
 			}
 		]

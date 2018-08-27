@@ -199,6 +199,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							}
 							else {
 								$localStorage.acl_access = response.acl;
+								
 								var redirectUrl = $location.search().redirectUrl;
 								if (redirectUrl) {
 									$location.path(redirectUrl).search('redirectUrl', null);
