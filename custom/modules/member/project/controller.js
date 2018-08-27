@@ -21,8 +21,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 		$scope.projects.pending = [];
 		if (!isUserLoggedIn($scope)) {
 			// $scope.$parent.$emit("loadUserInterface", {});
-			// $scope.$parent.go("/members/login");
-			$location.path('/login');
+			$location.path('/member/login');
 		}
 
 		$scope.access = {
@@ -393,7 +392,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 
 		if (!isUserLoggedIn($scope)) {
 			// $scope.$parent.$emit("loadUserInterface", {});
-			$location.path('/login')
+			$location.path('/member/login')
 		}
 
 		$scope.hiddenTableBody = true;

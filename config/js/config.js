@@ -37,3 +37,5 @@ let appDirectives = {
 
 //google recaptcha public key
 const sitekey = "6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj";
+
+let cloudUri = "cloud.soajs.io";

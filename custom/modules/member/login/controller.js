@@ -1,42 +1,48 @@
 "use strict";
 var loginApp = app.components;
 
-var loginConfig = {
-	name: 'loginForm',
-	formConf: {
-		'name': 'login',
-		'label': "Login",
-		'msgs': {
-			'footer': ''
-		},
-		'entries': [
-			{
-				'name': 'username',
-				'label': 'Username',
-				'hideLabel': true,
-				'type': 'text',
-				'placeholder': 'Enter Username',
-				'value': '',
-				'tooltip': "Usernames are alphanumeric and support  _ & -  character only",
-				'required': true
-			},
-			{
-				'name': 'password',
-				'label': "Password",
-				'hideLabel': true,
-				'type': 'password',
-				'placeholder': "Enter Password",
-				'value': '',
-				'fieldMsg': '<a href="/forgetPw"> Forgot your password? </a>',
-				'tooltip': "Passwords are alphanumeric and support _ character only",
-				'required': true
-			}
-		]
-	}
-};
+loginApp.controller('logoutCtrl', ['$scope', 'ngDataApi', function ($scope, ngDataApi) {
+
+
+
+}]);
 
 loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localStorage', 'ngDataApi', '$location', 'isUserLoggedIn',
 	function ($scope, $cookies, $timeout, $localStorage, ngDataApi, $location, isUserLoggedIn) {
+
+		let loginConfig = {
+			name: 'loginForm',
+			formConf: {
+				'name': 'login',
+				'label': "Login",
+				'msgs': {
+					'footer': ''
+				},
+				'entries': [
+					{
+						'name': 'username',
+						'label': 'Username',
+						'hideLabel': true,
+						'type': 'text',
+						'placeholder': 'Enter Username',
+						'value': '',
+						'tooltip': "Usernames are alphanumeric and support  _ & -  character only",
+						'required': true
+					},
+					{
+						'name': 'password',
+						'label': "Password",
+						'hideLabel': true,
+						'type': 'password',
+						'placeholder': "Enter Password",
+						'value': '',
+						'fieldMsg': '<a href="/forgetPw"> Forgot your password? </a>',
+						'tooltip': "Passwords are alphanumeric and support _ character only",
+						'required': true
+					}
+				]
+			}
+		};
 
 		$scope.alerts = [];
 
@@ -199,7 +205,8 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							}
 							else {
 								$localStorage.acl_access = response.acl;
-								
+								$scope.$parent.$emit('refreshWelcome', {});
+
 								var redirectUrl = $location.search().redirectUrl;
 								if (redirectUrl) {
 									$location.path(redirectUrl).search('redirectUrl', null);
@@ -219,7 +226,6 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 		buildForm($scope, null, formConfig);
 
 	}]);
-
 
 loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataApi', '$location', 'isUserLoggedIn',
 	function ($scope, $cookies, $timeout, ngDataApi, $location, isUserLoggedIn) {
@@ -274,7 +280,7 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 								'msg': "A reset link has been sent to your email address."
 							});
 							$timeout(function () {
-								$location.path('/login');
+								$location.path('/member/login');
 							}, 5000);
 						}
 						closeAllAlerts($scope, $timeout);

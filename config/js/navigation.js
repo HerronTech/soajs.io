@@ -119,7 +119,7 @@ let navigation = [
 	{
 		"id": "member-area-login",
 		"label": "Member Area",
-		"url": "/login",
+		"url": "/member/login",
 		"topMenu": true,
 		"title": "SOAJS.IO | Login to Member Area",
 		"tplPath": "custom/modules/member/login/directives/main.html",
@@ -151,7 +151,7 @@ let navigation = [
 						"url": "/logout",
 						"topMenu": true,
 						"title": "SOAJS.IO | Login",
-						"tplPath": "custom/modules/member/login/directives/main.html",
+						"tplPath": "custom/modules/member/login/directives/logout.html",
 						"scripts": ["custom/modules/member/login/controller.js"],
 					}
 				]
