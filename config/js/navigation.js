@@ -143,7 +143,10 @@ let navigation = [
 						"topMenu": true,
 						"title": "SOAJS.IO | Profile",
 						"tplPath": "custom/modules/member/account/directives/profile.html",
-						"scripts": ["custom/modules/member/account/controller.js"],
+						"scripts": [
+							"custom/modules/member/account/config.js",
+							"custom/modules/member/account/controller.js"
+						],
 					},
 					{
 						"id": "member-logout",

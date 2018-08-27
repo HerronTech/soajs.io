@@ -26,8 +26,11 @@ var closeAlert = function ($scope, index) {
 		$scope.alerts.splice(index, 1);
 	}
 };
-var closeAllAlerts = function ($scope, $timeout) {
+var closeAllAlerts = function (scope, $timeout) {
 	$timeout(function () {
-		$scope.alerts = [];
+		scope.alerts = [];
+		if (!scope.$$phase) {
+			scope.$apply();
+		}
 	}, 10000);
 };

@@ -33,6 +33,12 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
 		};
+		
+		$scope.closeAllAlerts = function () {
+			$timeout(function () {
+				$scope.alerts = [];
+			}, 30000);
+		};
 
 		$scope.checkPending = function () {
 			let reqOptions = {
@@ -377,7 +383,18 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 
 projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
 	function ($scope, $location, $timeout, isUserLoggedIn, ngDataApi, injectFiles) {
-
+		
+		$scope.alerts = [];
+		$scope.closeAlert = function (index) {
+			$scope.alerts.splice(index, 1);
+		};
+		
+		$scope.closeAllAlerts = function () {
+			$timeout(function () {
+				$scope.alerts = [];
+			}, 30000);
+		};
+		
 		let innerPage = {
 			header: "Member Area",
 			slogan: "Login & Register",

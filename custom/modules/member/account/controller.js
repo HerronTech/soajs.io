@@ -16,26 +16,159 @@ accountApp.controller('billingCtrl', ['$scope', function ($scope) {
 	});
 }]);
 
-accountApp.controller('changeSecurityCtrl', ['$scope', function ($scope) {
+accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$uibModal', '$localStorage', 'ngDataApi', function ($scope, $timeout, $uibModal, $localStorage,ngDataApi) {
 
-	let innerPage = {
-		header: "Member Area",
-		slogan: "My Billing",
-		image: "custom/modules/member/images/member.jpg"
+	$scope.$parent.$on('xferData', function (event, args) {
+		$scope.memberData = args.memberData;
+	});
+	
+	$scope.closeAlert = function (index) {
+		$scope.alerts.splice(index, 1);
 	};
 
-	$scope.updateParentScope('innerPage', innerPage);
+	$scope.closeAllAlerts = function () {
+		$timeout(function () {
+			$scope.alerts = [];
+		}, 30000);
+	};
 
-	$scope.$on("$destroy", function () {
-		$scope.removeFromParentScope('innerPage');
-	});
+	$scope.changeEmail = function () {
+		$scope.alerts = [];
+		var config = changeEmailConfig.formConf;
+		var options = {
+			form: config,
+			'timeout': $timeout,
+			'name': 'changeEmail',
+			'label': 'Change Email',
+			'actions': [
+				{
+					'type': 'submit',
+					'label': 'Change Email',
+					'btn': 'primary',
+					'action': function (formData) {
+						var postData = {
+							'email': formData.email
+						};
+						overlayLoading.show();
+						getSendDataFromServer($scope, ngDataApi, {
+							"method": "send",
+							"headers": {
+								"key": apiConfiguration.key
+							},
+							"routeName": "/urac/account/changeEmail",
+							"params": { "uId": $scope.memberData._id },
+							"data": postData
+						}, function (error) {
+							overlayLoading.hide();
+							if (error) {
+								$scope.form.displayAlert('danger', error.message);
+							}
+							else {
+								$scope.alerts.push({
+									'type': 'success',
+									'msg': "A link will be sent to your new email address to validate the change."
+								});
+								$scope.modalInstance.close();
+								$scope.form.formData = {};
+							}
+						});
+					}
+				},
+				{
+					'type': 'reset',
+					'label': 'Cancel',
+					'btn': 'danger',
+					'action': function () {
+						$scope.modalInstance.dismiss('cancel');
+						$scope.form.formData = {};
+					}
+				}
+			]
+		};
+		buildFormWithModal($scope, $uibModal, options);
+	};
+
+	$scope.changePassword = function () {
+		$scope.alerts = [];
+		var config = changePwConfig.formConf;
+		var options = {
+			form: config,
+			'timeout': $timeout,
+			'name': 'changePassword',
+			'label': 'Change Password',
+			'actions': [
+				{
+					'type': 'submit',
+					'label': 'Change Password',
+					'btn': 'primary',
+					'action': function (formData) {
+						var postData = {
+							'password': formData.password,
+							'oldPassword': formData.oldPassword,
+							'confirmation': formData.confirmPassword
+						};
+						if (formData.password !== formData.confirmPassword) {
+							$scope.form.displayAlert('danger', "Your password and confirm password fields do not match!");
+							return;
+						}
+						overlayLoading.show();
+						getSendDataFromServer($scope, ngDataApi, {
+							"method": "send",
+							"headers": {
+								"key": apiConfiguration.key
+							},
+							"routeName": "/urac/account/changePassword",
+							"params": {
+								"uId": $scope.memberData._id
+							},
+							"data": postData
+						}, function (error) {
+							overlayLoading.hide();
+							if (error) {
+								$scope.form.displayAlert('danger', error.message);
+							}
+							else {
+								$scope.alerts.push({
+									'type': 'success',
+									'msg': "Password changed successfully."
+								});
+								$scope.closeAllAlerts();
+								$scope.modalInstance.close();
+								$scope.form.formData = {};
+							}
+						});
+					}
+				},
+				{
+					'type': 'reset',
+					'label': "Cancel",
+					'btn': 'danger',
+					'action': function () {
+						$scope.modalInstance.dismiss('cancel');
+						$scope.form.formData = {};
+					}
+				}
+			]
+		};
+		buildFormWithModal($scope, $uibModal, options);
+	};
+
 }]);
 
 accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngDataApi', '$cookies', '$localStorage', 'isUserLoggedIn',
 	function ($scope, $timeout, $uibModal, ngDataApi, $cookies, $localStorage, isUserLoggedIn) {
 
 		$scope.alerts = [];
-
+		$scope.closeAlert = function (index) {
+			$scope.alerts.splice(index, 1);
+		};
+		
+		$scope.closeAllAlerts = function () {
+			$timeout(function () {
+				$scope.alerts = [];
+			}, 30000);
+		};
+		
 		let innerPage = {
 			header: "Member Area",
 			slogan: "My Profile",
@@ -96,7 +229,7 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 				},
 				// {
 				// 	'name': 'profile',
-				// 	'label': translation.profile[LANG],
+				// 	'label': "Profile",
 				// 	'type': 'jsoneditor',
 				// 	'options': {
 				// 		'mode': 'code',
@@ -112,7 +245,7 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 				// 	'height': '300px',
 				// 	"value": {},
 				// 	'required': false,
-				// 	'tooltip': translation.fillYourAdditionalProfileInformation[LANG],
+				// 	'tooltip': 'Fill Your Additional Profile Information',
 				// 	'fieldMsg': 'This JSON Object can hold additional profile configuration i.e.: age, gender, nationality etc...'
 				// }
 			],
@@ -204,11 +337,20 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 		}
 	}]);
 
-
 accountApp.controller('orgChart', ['$scope', '$timeout', '$uibModal', 'ngDataApi', '$cookies', '$localStorage', 'isUserLoggedIn',
 	function ($scope, $timeout, $uibModal, ngDataApi, $cookies, $localStorage, isUserLoggedIn) {
 
 		$scope.alerts = [];
+		
+		$scope.closeAlert = function (index) {
+			$scope.alerts.splice(index, 1);
+		};
+		
+		$scope.closeAllAlerts = function () {
+			$timeout(function () {
+				$scope.alerts = [];
+			}, 30000);
+		};
 
 		let innerPage = {
 			header: "Member Area",
@@ -258,7 +400,7 @@ accountApp.controller('orgChart', ['$scope', '$timeout', '$uibModal', 'ngDataApi
 
 accountApp.controller('membersCtrl', ['$scope', '$timeout', '$uibModal', 'ngDataApi', '$cookies', '$localStorage', 'membersHelper', 'isUserLoggedIn',
 	function ($scope, $timeout, $uibModal, ngDataApi, $cookies, $localStorage, membersHelper, isUserLoggedIn) {
-		
+
 		$scope.members = angular.extend($scope);
 		$scope.members.access = $scope.$parent.access;
 		
@@ -297,7 +439,7 @@ accountApp.controller('membersCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 		}, 50);
 	}]);
 
-accountApp.controller('groupsCtrl', ['$scope', '$timeout','$localStorage', 'groupsHelper', function ($scope, $timeout,$localStorage, groupsHelper) {
+accountApp.controller('groupsCtrl', ['$scope', '$timeout', '$localStorage', 'groupsHelper', function ($scope, $timeout, $localStorage, groupsHelper) {
 	$scope.key = apiConfiguration.key;
 	$scope.groups = angular.extend($scope);
 	$scope.groups.access = $scope.$parent.access;

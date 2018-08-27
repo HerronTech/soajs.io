@@ -118,6 +118,7 @@ groupsService.service('groupsHelper', ['ngDataApi', '$timeout', '$uibModal', fun
 									'type': 'success',
 									'msg': "Group Added Successfully"
 								});
+								currentScope.$parent.closeAllAlerts();
 								currentScope.modalInstance.close();
 								currentScope.form.formData = {};
 								currentScope.listGroups();
@@ -179,7 +180,7 @@ groupsService.service('groupsHelper', ['ngDataApi', '$timeout', '$uibModal', fun
 									'type': 'success',
 									'msg': "Group Updated Successfully"
 								});
-								closeAllAlerts(currentScope.$parent, $timeout);
+								currentScope.$parent.closeAllAlerts();
 								currentScope.modalInstance.close();
 								currentScope.form.formData = {};
 								currentScope.listGroups();
@@ -330,6 +331,7 @@ groupsService.service('groupsHelper', ['ngDataApi', '$timeout', '$uibModal', fun
 											'type': 'success',
 											'msg': "Users added to groups."
 										});
+										currentScope.$parent.closeAllAlerts();
 										currentScope.modalInstance.close();
 										currentScope.form.formData = {};
 										currentScope.listGroups();

@@ -1,20 +1,48 @@
 "use strict";
 var loginApp = app.components;
 
-loginApp.controller('logoutCtrl', ['$scope', '$location', 'ngDataApi', function ($scope, $location, ngDataApi) {
-
+loginApp.controller('logoutCtrl', ['$scope', '$location', '$cookies', 'ngDataApi', function ($scope, $location, $cookies, ngDataApi) {
+	
 	$scope.start = function () {
-		ngDataApi.logout();
-		$scope.$parent.$emit('refreshWelcome', {});
-		$location.path('/member/login');
+		function clearData() {
+			ngDataApi.logout();
+			$scope.$parent.$emit('refreshWelcome', {});
+			$location.path('/member/login');
+		}
+		
+		function logout() {
+			overlayLoading.show();
+			
+			getSendDataFromServer($scope, ngDataApi, {
+				"method": "delete",
+				"routeName": "/oauth/refreshToken/" + $cookies.get("refresh_token", { 'domain': interfaceDomain }),
+				"headers": {
+					"key": apiConfiguration.key
+				}
+			}, function (error, response) {
+				
+				getSendDataFromServer($scope, ngDataApi, {
+					"method": "delete",
+					"routeName": "/oauth/accessToken/" + $cookies.get("access_token", { 'domain': interfaceDomain }),
+					"headers": {
+						"key": apiConfiguration.key
+					}
+				}, function (error, response) {
+					overlayLoading.hide();
+					clearData();
+				});
+			});
+		}
+		
+		logout();
 	};
-
+	
 	$scope.start();
 }]);
 
 loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localStorage', 'ngDataApi', '$location', 'isUserLoggedIn',
 	function ($scope, $cookies, $timeout, $localStorage, ngDataApi, $location, isUserLoggedIn) {
-
+		
 		let loginConfig = {
 			name: 'loginForm',
 			formConf: {
@@ -48,25 +76,25 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 				]
 			}
 		};
-
+		
 		$scope.alerts = [];
-
+		
 		if (isUserLoggedIn($scope)) {
 			$location.path('/member/profile');
 		}
-
+		
 		let innerPage = {
 			header: "Member Area",
 			slogan: "Login & Register",
 			image: "custom/modules/member/images/member.jpg"
 		};
-
+		
 		$scope.updateParentScope('innerPage', innerPage);
-
+		
 		$scope.$on("$destroy", function () {
 			$scope.removeFromParentScope('innerPage');
 		});
-
+		
 		var formConfig = loginConfig.formConf;
 		formConfig.actions = [
 			{
@@ -82,7 +110,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 				'label': 'Login',
 				'btn': 'primary',
 				'action': function (formData) {
-
+					
 					$scope.alerts = [];
 					var postData = {
 						'username': formData.username,
@@ -90,7 +118,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 						'grant_type': "password"
 					};
 					var authValue;
-
+					
 					function loginOauth() {
 						var options1 = {
 							"token": false,
@@ -107,7 +135,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							}
 							else {
 								authValue = response.data;
-
+								
 								var options2 = {
 									"method": "post",
 									"routeName": "/oauth/token",
@@ -137,11 +165,11 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							}
 						});
 					}
-
+					
 					overlayLoading.show();
 					loginOauth();
 					var myUser;
-
+					
 					function uracLogin() {
 						var options = {
 							"method": "get",
@@ -167,12 +195,14 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							}
 						});
 					}
-
+					
 					function getKeys() {
 						getSendDataFromServer($scope, ngDataApi, {
 							"method": "get",
 							"routeName": "/key/permission/get",
-							"params": { "main": false }
+							"params": {
+								"main": false
+							}
 						}, function (error, response) {
 							if (error) {
 								overlayLoading.hide();
@@ -192,7 +222,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							}
 						});
 					}
-
+					
 					function getPermissions() {
 						getSendDataFromServer($scope, ngDataApi, {
 							"method": "get",
@@ -211,32 +241,32 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							else {
 								$localStorage.acl_access = response.acl;
 								$scope.$parent.$emit('refreshWelcome', {});
-
+								
 								var redirectUrl = $location.search().redirectUrl;
 								if (redirectUrl) {
 									$location.path(redirectUrl).search('redirectUrl', null);
 								} else {
-									$location.path('/member/profile');
+									$location.path('/member/projects');
 								}
 							}
 						});
 					}
-
+					
 				}
 			}
 		];
-
+		
 		buildForm($scope, null, formConfig);
-
+		
 	}]);
 
 loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataApi', '$location', 'isUserLoggedIn',
 	function ($scope, $cookies, $timeout, ngDataApi, $location, isUserLoggedIn) {
-
+		
 		if (isUserLoggedIn($scope)) {
 			$location.path('/member/profile');
 		}
-
+		
 		let innerPage = {
 			header: "Member Area",
 			slogan: "Login & Register",
@@ -248,7 +278,7 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 		$scope.$on("$destroy", function () {
 			$scope.removeFromParentScope('innerPage');
 		});
-
+		
 		$scope.alerts = [];
 		var formConfig = forgetPwConfig.formConf;
 		formConfig.actions = [
@@ -257,13 +287,13 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 				'label': 'Submit',
 				'btn': 'primary',
 				'action': function (formData) {
-
+					
 					$scope.alerts = [];
 					var postData = {
 						'username': formData.username
 					};
 					overlayLoading.show();
-
+					
 					var options1 = {
 						"method": "get",
 						"routeName": "/urac/forgotPassword",

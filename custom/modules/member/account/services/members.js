@@ -325,7 +325,7 @@ membersService.service('membersHelper', ['ngDataApi', '$timeout', '$uibModal', f
 						},
 						{
 							'type': 'reset',
-							'label': translation.cancel[LANG],
+							'label': "Cancel",
 							'btn': 'danger',
 							'action': function () {
 								currentScope.modalInstance.dismiss('cancel');
