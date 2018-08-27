@@ -28,6 +28,10 @@ let appDirectives = {
 	footer: {
 		name: "appFooter",
 		template: "custom/theme/default/directives/footer.tmpl"
+	},
+	overlay: {
+		name: "overlay",
+		template: "custom/theme/default/directives/overlay.tmpl"
 	}
 };
 
