@@ -41,6 +41,9 @@
 					<br/>
 					<hr>
 					<br/>
+					
+					<uib-alert ng-show="store.alert.msg" type="{{store.alert.type}}" ng-bind-html="store.alert.msg|toTrustedHtml"></uib-alert>
+					
 					<div class="row">
 						<div ng-repeat="onectlg in allCatalogs" class="storeElement col-lg-6 col-md-6 col-sm-12 col-xs-12" ng-hide="onectlg.hide" tooltip="Last Modified on {{onectlg.ts|date}}">
 							<div class="content">
@@ -86,3 +89,24 @@
 		</div>
 	</div>
 </div>
+<script type="text/ng-template" id="loginPage.tmpl">
+	<div id="catalogsModal">
+		<div class="modal-header blue-bg white-text">
+			<h3>Login to Download</h3>
+		</div>
+		<div class="modal-body">
+			<alert type="info">
+				<p>
+					Login to to download <b>recipes</b> and <b>templates</b> from the Store.
+				</p>
+				<p>
+					If you do not have an account, you can register for free.
+				</p>
+			</alert>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary btn-sm" ng-click="go('/login')">Login</button>
+			<button class="btn btn-danger btn-sm " ng-click="cancel()">Cancel</button>
+		</div>
+	</div>
+</script>
