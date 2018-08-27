@@ -220,25 +220,25 @@ app.directive('nglist', function () {
 	};
 });
 
-app.directive('nglistHeader', function () {
-	return {
-		restrict: 'E',
-		templateUrl: 'custom/lib/grid/header.tmpl',
-		controllerAs: 'myGrid',
-		controller: function ($scope) {
-		}
-	};
-});
-
-app.directive('nglistFooter', function () {
-	return {
-		restrict: 'E',
-		templateUrl: 'custom/lib/grid/footer.tmpl',
-		controllerAs: 'myGrid',
-		controller: function ($scope) {
-		}
-	};
-});
+// app.directive('nglistHeader', function () {
+// 	return {
+// 		restrict: 'E',
+// 		templateUrl: 'custom/lib/grid/header.tmpl',
+// 		controllerAs: 'myGrid',
+// 		controller: function ($scope) {
+// 		}
+// 	};
+// });
+//
+// app.directive('nglistFooter', function () {
+// 	return {
+// 		restrict: 'E',
+// 		templateUrl: 'custom/lib/grid/footer.tmpl',
+// 		controllerAs: 'myGrid',
+// 		controller: function ($scope) {
+// 		}
+// 	};
+// });
 
 app.directive('nglistPagination', function () {
 	return {
@@ -250,12 +250,21 @@ app.directive('nglistPagination', function () {
 	};
 });
 
-app.directive('nglistBody', function () {
-	return {
-		restrict: 'E',
-		templateUrl: 'custom/lib/grid/body.tmpl',
-		controllerAs: 'myGrid',
-		controller: function ($scope) {
+// app.directive('nglistBody', function () {
+// 	return {
+// 		restrict: 'E',
+// 		templateUrl: 'custom/lib/grid/body.tmpl',
+// 		controllerAs: 'myGrid',
+// 		controller: function ($scope) {
+// 		}
+// 	};
+// });
+
+app.filter('filterPicker', function ($filter) {
+	return function (value, filterName) {
+		if (Array.isArray(filterName) && filterName.length === 0) {
+			return value;
 		}
-	};
+		return $filter(filterName)(value);
+	}
 });

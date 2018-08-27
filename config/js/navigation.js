@@ -148,7 +148,16 @@ let navigation = [
 							"custom/modules/member/account/services/members.js",
 							"custom/modules/member/account/controller.js"
 						],
-					}
+					},
+					{
+						"id": "member-logout",
+						"label": "Logout",
+						"url": "/logout",
+						"topMenu": true,
+						"title": "SOAJS.IO | Logout",
+						"tplPath": "custom/modules/member/login/directives/main.html",
+						"scripts": ["custom/modules/member/login/controller.js"],
+					},
 				]
 			},
 			{
