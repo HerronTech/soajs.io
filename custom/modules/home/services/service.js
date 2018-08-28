@@ -2,7 +2,7 @@
 var homeAppSrv = app.components;
 homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	
-	let apiAddress = window.location.protocol + "://" + window.location.port + "api.soajs.io";
+	let apiAddress = window.location.protocol + "://api.soajs.io:" + window.location.port;
 	
 	/**
 	 * Load icons from json file and hook them to scope.
