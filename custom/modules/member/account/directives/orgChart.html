@@ -1,0 +1,77 @@
+<div class='row section-padding' ng-controller="orgChart">
+	<div class="container">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<div ng-show="alerts && alerts.length > 0">
+				<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+					{{alert.msg}}
+				</uib-alert>
+				<br/>
+			</div>
+
+			<uib-tabset id="membersSection">
+				<uib-tab>
+					<uib-tab-heading>Members</uib-tab-heading>
+					<section ng-controller="membersCtrl as gridCtrl" class="membersCtrl">
+						<div ng-show="alerts && alerts.length > 0">
+							<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+								{{alert.msg}}
+							</uib-alert>
+							<br/>
+						</div>
+
+						<!--<div class="" style="display: none">-->
+							<!--<select style="" class="form-control">-->
+								<!--<option>Choose Project</option>-->
+								<!--<option ng-repeat="project in projects.active"> {{project.name}}</option>-->
+							<!--</select>-->
+							<!--<br>-->
+						<!--</div>-->
+						<div class="clearfix">
+							<div ng-if="members.access.adminUser.addUser" class="col-xs-6">
+								<a href="" ng-click="addMember()" class="btn btn-sm btn-primary">
+									<span class="glyphicon glyphicon-plus"></span> Add New Member
+								</a>
+							</div>
+							<div ng-if="members.access.adminUser.list" class="col-xs-6 text-right">
+								<a class="btn btn-sm btn-primary" ng-click="members.listMembers()" href="">
+									<span class="glyphicon glyphicon-refresh"></span> Refresh
+								</a>
+							</div>
+						</div>
+						<br/>
+						<nglist></nglist>
+
+					</section>
+				</uib-tab>
+				<uib-tab ng-show="access.adminGroup.list" heading="Groups">
+					<uib-tab-heading>Groups</uib-tab-heading>
+					<section ng-controller="groupsCtrl as gridCtrl">
+						<div ng-show="alerts && alerts.length > 0">
+							<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+								{{alert.msg}}
+							</uib-alert>
+							<br/>
+						</div>
+						<div class="clearfix">
+							<div ng-if="groups.access.adminGroup.add" class="col-xs-6">
+								<a href="" ng-click="groups.addGroup()" class="btn btn-sm btn-primary">
+									<span class="glyphicon glyphicon-plus"></span> Add New Group</a>
+							</div>
+							<div class="col-xs-6 text-right">
+								<a class="btn btn-sm btn-primary" ng-click="groups.listGroups()" href="">
+									<span class="glyphicon glyphicon-refresh"></span> Refresh
+								</a>
+							</div>
+
+						</div>
+
+						<br/>
+						<nglist></nglist>
+					</section>
+				</uib-tab>
+
+		</div>
+		<hr>
+	</div>
+</div>
+</div>

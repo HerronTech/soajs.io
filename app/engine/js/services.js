@@ -3,20 +3,16 @@
 //custom service that adds extra logic over native $http when communicating back and forth with different types of apis
 app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http, $cookies, $localStorage) {
 	
-	function logoutUser(scope) {
-		$cookies.remove('soajs_username', { 'domain': myApplicationDomain });
-		$cookies.remove('access_token', { 'domain': myApplicationDomain });
-		$cookies.remove('refresh_token', { 'domain': myApplicationDomain });
+	function logoutUser() {
+		$cookies.remove('soajs_username', { 'domain': interfaceDomain });
+		$cookies.remove('access_token', { 'domain': interfaceDomain });
+		$cookies.remove('refresh_token', { 'domain': interfaceDomain });
 		
-		$cookies.remove('soajs_dashboard_key', { 'domain': myApplicationDomain });
-		$cookies.remove('myEnv', { 'domain': myApplicationDomain });
-		$cookies.remove('soajs_auth', { 'domain': myApplicationDomain });
-		
-		$cookies.remove('soajs_current_route', { 'domain': myApplicationDomain });
-		
+		$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
+		$cookies.remove('soajs_auth', { 'domain': interfaceDomain });
+
 		$localStorage.soajs_user = null;
 		$localStorage.acl_access = null;
-		scope.$parent.enableInterface = false;
 	}
 	
 	function revalidateTokens(scope, config, cb) {
@@ -44,17 +40,17 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 			getNewAccessToken.headers.Authorization = authValue;
 			delete getNewAccessToken.params;
 			getNewAccessToken.data = {
-				'refresh_token': $cookies.get('refresh_token', { 'domain': myApplicationDomain }),
+				'refresh_token': $cookies.get('refresh_token', { 'domain': interfaceDomain }),
 				'grant_type': "refresh_token"
 			};
 			
 			$http(getNewAccessToken).success(function (response) {
-				$cookies.put('access_token', response.access_token, { 'domain': myApplicationDomain });
-				$cookies.put('refresh_token', response.refresh_token, { 'domain': myApplicationDomain });
+				$cookies.put('access_token', response.access_token, { 'domain': interfaceDomain });
+				$cookies.put('refresh_token', response.refresh_token, { 'domain': interfaceDomain });
 				
 				//repeat the main call
 				let MainAPIConfig = angular.copy(config);
-				MainAPIConfig.params.access_token = $cookies.get('access_token', { 'domain': myApplicationDomain });
+				MainAPIConfig.params.access_token = $cookies.get('access_token', { 'domain': interfaceDomain });
 				$http(MainAPIConfig).success(function (response, status, headers, config) {
 					returnAPIResponse(scope, response, config, cb)
 				}).error(function (errData, status, headers, config) {
@@ -135,8 +131,8 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 				
 				//if soajs api response and valid
 				if (response.result) {
-					if (response.soajsauth && $cookies.get('soajs_auth', { 'domain': myApplicationDomain })) {
-						$cookies.put("soajs_auth", response.soajsauth, { 'domain': myApplicationDomain });
+					if (response.soajsauth && $cookies.get('soajs_auth', { 'domain': interfaceDomain })) {
+						$cookies.put("soajs_auth", response.soajsauth, { 'domain': interfaceDomain });
 					}
 					
 					let resp = {};
@@ -211,7 +207,7 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 			json: true
 		};
 		
-		let soajsAuthCookie = $cookies.get('soajs_auth', { 'domain': myApplicationDomain });
+		let soajsAuthCookie = $cookies.get('soajs_auth', { 'domain': interfaceDomain });
 		if (soajsAuthCookie && soajsAuthCookie.indexOf("Basic ") !== -1) {
 			config.headers.soajsauth = soajsAuthCookie.replace(/\"/g, '');
 		}
@@ -219,14 +215,14 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 		if (opts.headers.key) {
 			config.headers.key = opts.headers.key;
 		}
-		else if ($cookies.get("soajs_dashboard_key", { 'domain': myApplicationDomain })) {
-			config.headers.key = $cookies.get("soajs_dashboard_key", { 'domain': myApplicationDomain }).replace(/\"/g, '');
+		else if ($cookies.get("soajs_dashboard_key", { 'domain': interfaceDomain })) {
+			config.headers.key = $cookies.get("soajs_dashboard_key", { 'domain': interfaceDomain }).replace(/\"/g, '');
 		}
 		else {
 			config.headers.key = apiConfiguration.key;
 		}
 		
-		let access_token = $cookies.get('access_token', { 'domain': myApplicationDomain });
+		let access_token = $cookies.get('access_token', { 'domain': interfaceDomain });
 		if (access_token && config.token) {
 			config.params.access_token = access_token;
 		}
@@ -282,7 +278,7 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 //services that returns true if user is logged in
 app.service('isUserLoggedIn', ['$cookies', '$localStorage', 'ngDataApi', function ($cookies, $localStorage, ngDataApi) {
 	return function (currentScope) {
-		if ($cookies.get('soajs_username', { 'domain': myApplicationDomain }) && $cookies.get('access_token', { 'domain': myApplicationDomain })) {
+		if ($cookies.get('soajs_username', { 'domain': interfaceDomain }) && $cookies.get('access_token', { 'domain': interfaceDomain })) {
 			return true;
 		}
 		else {

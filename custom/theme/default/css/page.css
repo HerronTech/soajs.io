@@ -31,56 +31,64 @@ body, html {
     margin-bottom: 0px;
     padding-bottom: 10px;
 }
+
 .navbar.scrolling {
     background-color: white;
     border-bottom: 1px grey solid;
 }
+
 .navbar-default {
     background: none;
     border: none;
     box-shadow: none;
 }
-.navbar-default .navbar-nav>li>a {
+
+.navbar-default .navbar-nav > li > a {
     color: #FFFFFF;
     text-shadow: none;
 }
-.navbar-default .navbar-nav>li>a:hover {
-     color: #F4B500;
-     text-shadow: none;
- }
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.open>a {
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #F4B500;
+    text-shadow: none;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .open > a {
     background-image: none;
     box-shadow: none;
 }
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:focus,
-.navbar-default .navbar-nav>.active>a:hover,
-.navbar-default .navbar-nav>.open>a,
-.navbar-default .navbar-nav>.open>a:focus,
-.navbar-default .navbar-nav>.open>a:hover {
-    color: #F4B500;
-    background-color: transparent;
-}
-.navbar-default.scrolling .navbar-nav>li>a {
-    color: #383838;
-}
-.navbar-default.scrolling .navbar-nav>.active>a,
-.navbar-default.scrolling .navbar-nav>.active>a:focus,
-.navbar-default.scrolling .navbar-nav>.active>a:hover,
-.navbar-default.scrolling .navbar-nav>.open>a,
-.navbar-default.scrolling .navbar-nav>.open>a:focus,
-.navbar-default.scrolling .navbar-nav>.open>a:hover {
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover {
     color: #F4B500;
     background-color: transparent;
 }
 
-nav #logo{
-    height:26px;
-    max-height:26px;
-    width:100%; /* force logo to follow the container width it belongs to*/
-    min-width:145px;
-    display:table;
+.navbar-default.scrolling .navbar-nav > li > a {
+    color: #383838;
+}
+
+.navbar-default.scrolling .navbar-nav > .active > a,
+.navbar-default.scrolling .navbar-nav > .active > a:focus,
+.navbar-default.scrolling .navbar-nav > .active > a:hover,
+.navbar-default.scrolling .navbar-nav > .open > a,
+.navbar-default.scrolling .navbar-nav > .open > a:focus,
+.navbar-default.scrolling .navbar-nav > .open > a:hover {
+    color: #F4B500;
+    background-color: transparent;
+}
+
+nav #logo {
+    height: 26px;
+    max-height: 26px;
+    width: 100%; /* force logo to follow the container width it belongs to*/
+    min-width: 145px;
+    display: table;
     background-image: url('/config/images/soajsio-white.png');
     background-repeat: no-repeat;
     background-position: 0 0;
@@ -88,22 +96,23 @@ nav #logo{
     background-size: 100%;
 }
 
-nav #logo.blueLogo{
+nav #logo.blueLogo {
     background-image: url('/config/images/soajsio.png');
 }
 
 /**
     Header Styles
  */
-#inner-page-header{
-    padding-top:100px;
+#inner-page-header {
+    padding-top: 100px;
     height: 300px;
     opacity: 1;
     background: #325169; /* #393958 or 325169*/
     color: #fff;
     text-align: center;
-    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
 }
+
 #inner-page-header > img {
     position: absolute;
     top: 0;
@@ -118,19 +127,17 @@ nav #logo.blueLogo{
    Footer Syles
  */
 
-
-
 /**
     Common Styles
  */
 form.ng-submitted textarea.ng-valid,
-form.ng-submitted input.ng-valid{
+form.ng-submitted input.ng-valid {
     border: solid 1px #5cb85c;
     box-shadow: 1px 1px 2px 1px #5cb85c;
 }
 
 form.ng-submitted textarea.ng-invalid,
-form.ng-submitted input.ng-invalid{
+form.ng-submitted input.ng-invalid {
     border: solid 1px #d9534f;
     box-shadow: 1px 1px 2px 1px #d9534f;
 }
@@ -138,19 +145,123 @@ form.ng-submitted input.ng-invalid{
 .white-text {
     color: white;
 }
+
 .gray-text {
     color: #383838;
 }
+
 .orange-text {
-     color: #F4B500;
- }
+    color: #F4B500;
+}
+
 .blue-bg {
     background-color: #325169;
 }
+
 .darkblue-bg {
     background-color: #30414f;
 }
+
 .section-padding {
     padding-bottom: 60px;
     padding-top: 60px;
+}
+
+.glyphicon-refresh-animate {
+    -animation: spin 1.2s infinite linear;
+    -webkit-animation: spin2 1.2s infinite linear;
+    font-size: 96px;
+}
+
+@-webkit-keyframes spin2 {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
+}
+
+#overlay, #overlayLoading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    display: none;
+}
+
+#overlayLoading .bg {
+    background-color: #464543;
+    color: #464543;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+
+#overlayLoading .content {
+    opacity: 0.9;
+    text-align: center;
+    border-radius: 10px;
+    position: fixed;
+    width: 20%;
+    left: 40%;
+    top: 10%;
+    margin: 0 auto;
+}
+
+#overlay .content {
+    width: 80%;
+    opacity: 1.3;
+    left: 10%;
+    overflow: scroll;
+}
+
+/**************
+ clear divisions
+**************/
+.clearfix {
+    display: inline-block;
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    font-size: 0;
+    visibility: hidden;
+}
+
+/* Hides from IE-mac \*/
+.clearfix {
+    display: block;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: " "
+}
+
+#membersSection section {
+    padding-top: 10px;
+}
+
+.formback {
+    padding: 20px;
+    background-color: lightsteelblue;
 }

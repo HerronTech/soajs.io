@@ -1,0 +1,810 @@
+[
+    {
+      "_id": "5b7fe4c859433b5212cdf3d9",
+      "type": "infra",
+      "name": "Google Kubernetes Engine",
+      "short_description": "<p>This Template uses GKE to provision a complete Kubernetes Deployment on Google Cloud.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "GKE",
+          "url": "https://cloud.google.com/_static/images/cloud/products/logos/svg/kubernetes-engine.svg"
+        },
+        {
+          "label": "Google Cloud",
+          "url": "https://dashboard.snapcraft.io/site_media/appmedia/2018/04/cloud_icon_256.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe4ce59433b5212cdf3da",
+      "type": "infra",
+      "name": "Docker Swarm Engine",
+      "short_description": "<p>This Template uses Cloud Formation to provision a complete Docker Swarm Deployment on AWS.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Cloud Formation",
+          "url": "https://raw.githubusercontent.com/ippontech/blog-usa/master/images/2017/02/cloudformlogo.png"
+        },
+        {
+          "label": "AWS",
+          "url": "https://amazonwebservices.gallerycdn.vsassets.io/extensions/amazonwebservices/aws-vsts-tools/1.1.3/1533764116143/images/logo.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe4d459433b5212cdf3db",
+      "type": "infra",
+      "name": "VM Layer with Instances having public IP addresses - Advanced",
+      "short_description": "<p>This template uses Terraform to create a VM Layer where all instances have an exposed public IP address.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Terraform",
+          "url": "https://chocolatey.org/content/packageimages/terraform.0.11.7.png"
+        },
+        {
+          "label": "Microsoft Azure",
+          "url": "https://dtb5pzswcit1e.cloudfront.net/assets/images/product_logos/icon_microsoft_azure_open_service_broker@2x.png"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe4de59433b5212cdf3dc",
+      "type": "infra",
+      "name": "VM Layer with Instances having public IP addresses - Quick Start",
+      "short_description": "<p>This template uses Terraform to create a VM Layer where all instances have an exposed public IP address.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Terraform",
+          "url": "https://chocolatey.org/content/packageimages/terraform.0.11.7.png"
+        },
+        {
+          "label": "Microsoft Azure",
+          "url": "https://dtb5pzswcit1e.cloudfront.net/assets/images/product_logos/icon_microsoft_azure_open_service_broker@2x.png"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe4e459433b5212cdf3dd",
+      "type": "infra",
+      "name": "VM Layer with Instances having public IP addresses - Simplified",
+      "short_description": "<p>This template uses Terraform to create a VM Layer where all instances have an exposed public IP address.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Terraform",
+          "url": "https://chocolatey.org/content/packageimages/terraform.0.11.7.png"
+        },
+        {
+          "label": "Microsoft Azure",
+          "url": "https://dtb5pzswcit1e.cloudfront.net/assets/images/product_logos/icon_microsoft_azure_open_service_broker@2x.png"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe4ea59433b5212cdf3de",
+      "type": "infra",
+      "name": "VM Layer with Load Balancer as an entry point - Simplified",
+      "short_description": "<p>This template uses terraform to create a VM Layer and deploy a load balancer that redirects traffic to all VM Layer instances.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Terraform",
+          "url": "https://chocolatey.org/content/packageimages/terraform.0.11.7.png"
+        },
+        {
+          "label": "Microsoft Azure",
+          "url": "https://dtb5pzswcit1e.cloudfront.net/assets/images/product_logos/icon_microsoft_azure_open_service_broker@2x.png"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe4f059433b5212cdf3df",
+      "type": "infra",
+      "name": "VM Layer with Load Balancer as an entry point - Quick Start",
+      "short_description": "<p>This template uses terraform to create a VM Layer and deploy a load balancer that redirects traffic to all VM Layer instances.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Terraform",
+          "url": "https://chocolatey.org/content/packageimages/terraform.0.11.7.png"
+        },
+        {
+          "label": "Microsoft Azure",
+          "url": "https://dtb5pzswcit1e.cloudfront.net/assets/images/product_logos/icon_microsoft_azure_open_service_broker@2x.png"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe4f659433b5212cdf3e0",
+      "type": "infra",
+      "name": "VM Layer with Load Balancer as an entry point - Advanced",
+      "short_description": "<p>This template uses terraform to create a VM Layer and deploy a load balancer that redirects traffic to all VM Layer instances.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Terraform",
+          "url": "https://chocolatey.org/content/packageimages/terraform.0.11.7.png"
+        },
+        {
+          "label": "Microsoft Azure",
+          "url": "https://dtb5pzswcit1e.cloudfront.net/assets/images/product_logos/icon_microsoft_azure_open_service_broker@2x.png"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe98959433b5212cdf3f1",
+      "type": "template",
+      "name": "Blank Environment",
+      "short_description": "<p>This templates will create a blank environment.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe99b59433b5212cdf3f2",
+      "type": "template",
+      "name": "SOAJS Microservices Environment",
+      "short_description": "<p>This template will create an environment with SOAJS API Gateway configured, deployed & ready to use. You can leverage this environment to deploy microservices.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe9a159433b5212cdf3f3",
+      "type": "template",
+      "name": "NGINX & SOAJS Microservices Environment",
+      "short_description": "<p>This template will create an environment with Nginx & SOAJS API Gateway configured, deployed & ready to use. You can leverage this environment to deploy microservices & static content.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "Nginx",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/fa443219-42e0-4886-96b4-8733de694b72-c641a5d6-1ebf-44ee-9607-aef9b4ca1a3b-logo_large.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe9aa59433b5212cdf3f4",
+      "type": "template",
+      "name": "SOAJS Portal Environment",
+      "short_description": "<p>This templates will create an environment with SOAJS PORTAL (SOAJS API Gateway, URAC, oAuth & Nginx) configured, deployed and ready to use.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "Nginx",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/fa443219-42e0-4886-96b4-8733de694b72-c641a5d6-1ebf-44ee-9607-aef9b4ca1a3b-logo_large.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe9b459433b5212cdf3f5",
+      "type": "template",
+      "name": "MemSQL Environment using VM Technology",
+      "short_description": "<p>This template allows you to deploy an environment with memSQL server running as a virtual machine.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "MemSQL Database",
+          "url": "https://cdn.slidesharecdn.com/profile-photo-MemSQL-96x96.jpg?cb=1533661091"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fe9bb59433b5212cdf3f6",
+      "type": "template",
+      "name": "Mongo Environment using VM Technology",
+      "short_description": "<p>This template allows you to deploy an environment with MongoDB server running as a virtual machine.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Mongo Database",
+          "url": "https://redash.io/assets/images/integrations/mongodb.png"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fecd159433b5212cdf3fc",
+      "type": "ci",
+      "name": "SOAJS Microservice and MongoDB Recipe",
+      "short_description": "<p>This CI Recipe triggers an automated build on Travis using Grunt and Mocha to execute Unit & Integration Tests.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "Travis",
+          "url": "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1437657351/n1u0kd6v6mdbmdomuviq.png"
+        },
+        {
+          "label": "NodeJs",
+          "url": "https://www.shareicon.net/data/256x256/2015/09/11/99371_javascript_512x512.png"
+        },
+        {
+          "label": "Grunt",
+          "url": "https://gruntjs.com/img/og.png"
+        },
+        {
+          "label": "Mocha",
+          "url": "https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/076/square_256/mocha.png"
+        },
+        {
+          "label": "Mongo Database",
+          "url": "https://redash.io/assets/images/integrations/mongodb.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fed4e59433b5212cdf3ff",
+      "type": "ci",
+      "name": "NodeJS Microservice and MongoDB Recipe",
+      "short_description": "<p>This CI Recipe triggers an automated build on Travis using Grunt and Mocha to execute Unit & Integration Tests.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "NodeJs",
+          "url": "https://www.shareicon.net/data/256x256/2015/09/11/99371_javascript_512x512.png"
+        },
+        {
+          "label": "Travis",
+          "url": "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1437657351/n1u0kd6v6mdbmdomuviq.png"
+        },
+        {
+          "label": "Grunt",
+          "url": "https://gruntjs.com/img/og.png"
+        },
+        {
+          "label": "Mocha",
+          "url": "https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/076/square_256/mocha.png"
+        },
+        {
+          "label": "Mongo Database",
+          "url": "https://redash.io/assets/images/integrations/mongodb.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fee0a59433b5212cdf400",
+      "type": "ci",
+      "name": "Java Microservice Recipe",
+      "short_description": "<p>This CI Recipe triggers an automated build on Travis using Oracle JDK to execute Unit & Integration Tests.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Java",
+          "url": "https://tutesfornewdevelopers.files.wordpress.com/2017/12/download-java-for-mac-and-windows-free.png?w=256"
+        },
+        {
+          "label": "Travis",
+          "url": "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1437657351/n1u0kd6v6mdbmdomuviq.png"
+        },
+        {
+          "label": "Oracle",
+          "url": "https://www.shareicon.net/data/256x256/2015/09/01/94016_oracle_512x512.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fef1159433b5212cdf401",
+      "type": "ci",
+      "name": "SOAJS Microservice and Elasticsearch Recipe",
+      "short_description": "<p>This CI Recipe triggers an automated build on Travis using Grunt and Mocha to execute Unit & Integration Tests.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "Travis",
+          "url": "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1437657351/n1u0kd6v6mdbmdomuviq.png"
+        },
+        {
+          "label": "NodeJs",
+          "url": "https://www.shareicon.net/data/256x256/2015/09/11/99371_javascript_512x512.png"
+        },
+        {
+          "label": "Grunt",
+          "url": "https://gruntjs.com/img/og.png"
+        },
+        {
+          "label": "Mocha",
+          "url": "https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/076/square_256/mocha.png"
+        },
+        {
+          "label": "ElasticSearch Database",
+          "url": "https://ria.gallerycdn.vsassets.io/extensions/ria/elastic/0.13.3/1530754501320/Microsoft.VisualStudio.Services.Icons.Default"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fef6659433b5212cdf402",
+      "type": "ci",
+      "name": "NodeJS Microservice and Elasticsearch Recipe",
+      "short_description": "<p>This CI Recipe triggers an automated build on Travis using Grunt and Mocha to execute Unit & Integration Tests.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "NodeJs",
+          "url": "https://www.shareicon.net/data/256x256/2015/09/11/99371_javascript_512x512.png"
+        },
+        {
+          "label": "Travis",
+          "url": "https://res-5.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_256,w_256,f_auto,q_auto:eco/v1437657351/n1u0kd6v6mdbmdomuviq.png"
+        },
+        {
+          "label": "Grunt",
+          "url": "https://gruntjs.com/img/og.png"
+        },
+        {
+          "label": "Mocha",
+          "url": "https://d2eip9sf3oo6c2.cloudfront.net/tags/images/000/001/076/square_256/mocha.png"
+        },
+        {
+          "label": "ElasticSearch Database",
+          "url": "https://ria.gallerycdn.vsassets.io/extensions/ria/elastic/0.13.3/1530754501320/Microsoft.VisualStudio.Services.Icons.Default"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffa559433b5212cdf40c",
+      "type": "cd",
+      "name": "SOAJS Daemon Recipe",
+      "short_description": "<p>This recipe allows you to deploy a daemons built using the SOAJS framework in a Container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "NodeJs",
+          "url": "https://www.shareicon.net/data/256x256/2015/09/11/99371_javascript_512x512.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffac59433b5212cdf40d",
+      "type": "cd",
+      "name": "SOAJS API Gateway Recipe",
+      "short_description": "<p>This recipe allows you to deploy the SOAJS API Gateway in a Container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "NodeJs",
+          "url": "https://www.shareicon.net/data/256x256/2015/09/11/99371_javascript_512x512.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffb259433b5212cdf40e",
+      "type": "cd",
+      "name": "Java Microservice Recipe",
+      "short_description": "<p>This recipe allows you to deploy a Java Application in a Container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Java",
+          "url": "https://tutesfornewdevelopers.files.wordpress.com/2017/12/download-java-for-mac-and-windows-free.png?w=256"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffb959433b5212cdf40f",
+      "type": "cd",
+      "name": "Portal Nginx Recipe",
+      "short_description": "<p>This recipe allows you to deploy the portal nginx server in a container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "Nginx",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/fa443219-42e0-4886-96b4-8733de694b72-c641a5d6-1ebf-44ee-9607-aef9b4ca1a3b-logo_large.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffc159433b5212cdf410",
+      "type": "cd",
+      "name": "Nodejs Recipe",
+      "short_description": "<p>This recipe allows you to deploy a NodeJS application in a Container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "NodeJs",
+          "url": "https://www.shareicon.net/data/256x256/2015/09/11/99371_javascript_512x512.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffc759433b5212cdf411",
+      "type": "cd",
+      "name": "MongoDB Server Recipe",
+      "short_description": "<p>This recipe allows you to deploy a Standalone MongoDB server in a Container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Mongo Database",
+          "url": "https://redash.io/assets/images/integrations/mongodb.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffce59433b5212cdf412",
+      "type": "cd",
+      "name": "Nginx Server Recipe",
+      "short_description": "<p>This recipe allows you to deploy an nginx server in a Container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Nginx",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/fa443219-42e0-4886-96b4-8733de694b72-c641a5d6-1ebf-44ee-9607-aef9b4ca1a3b-logo_large.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffd459433b5212cdf413",
+      "type": "cd",
+      "name": "SOAJS Microservice Recipe",
+      "short_description": "<p>This recipe allows you to deploy a services built using the SOAJS framework in a container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "SOAJS",
+          "url": "https://logo.clearbit.com/www.soajs.org"
+        },
+        {
+          "label": "NodeJs",
+          "url": "https://www.shareicon.net/data/256x256/2015/09/11/99371_javascript_512x512.png"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffde59433b5212cdf414",
+      "type": "cd",
+      "name": "Elasticsearch Server Recipe",
+      "short_description": "<p>This recipe allows you to deploy an ElasticSearch Server in a container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "ElasticSearch Database",
+          "url": "https://ria.gallerycdn.vsassets.io/extensions/ria/elastic/0.13.3/1530754501320/Microsoft.VisualStudio.Services.Icons.Default"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7fffe859433b5212cdf415",
+      "type": "cd",
+      "name": "Kubernetes Machine Public IP White Lister",
+      "short_description": "<p>This recipe allows you to deploy a container in Daemonset Mode on Kubernetes. The container reads the Machine public IP address and using the supplied environment variables, formulates a CURL request to post the value of the collected IP address.</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7ffff159433b5212cdf416",
+      "type": "cd",
+      "name": "MemSQL Recipe in a Container",
+      "short_description": "<p>This recipe allows you to deploy a MemSQL server in a container</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "MemSQL Database",
+          "url": "https://cdn.slidesharecdn.com/profile-photo-MemSQL-96x96.jpg?cb=1533661091"
+        },
+        {
+          "label": "Docker Swarm",
+          "url": "https://d1q6f0aelx0por.cloudfront.net/product-logos/3a29d766-ea80-400c-b981-7f6c02d36fd8-swarm.png"
+        },
+        {
+          "label": "Kubernetes",
+          "url": "https://cdn-images-1.medium.com/max/1600/1*7zB3cmxgYiu1J-KqLC5gPw.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b7ffff859433b5212cdf417",
+      "type": "cd",
+      "name": "Mongo in a VM Layer",
+      "short_description": "<p>This recipe allows you to deploy a mongo server in all the instances of a Virtual Machine Layer</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "Mongo Database",
+          "url": "https://redash.io/assets/images/integrations/mongodb.png"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    },
+    {
+      "_id": "5b80000059433b5212cdf418",
+      "type": "cd",
+      "name": "MemSQL in a VM Layer",
+      "short_description": "<p>This recipe allows you to deploy a MemSQL server in all the instances of a Virtual Machine Layer</p>",
+      "description": "",
+      "icons": [
+        {
+          "label": "MemSQL Database",
+          "url": "https://cdn.slidesharecdn.com/profile-photo-MemSQL-96x96.jpg?cb=1533661091"
+        },
+        {
+          "label": "Virtual Machine",
+          "url": "https://www.vminstall.com/wp-content/uploads/2014/02/Best-Virtual-Machine-for-Windows.png"
+        }
+      ],
+      "filters": [],
+      "v": 1,
+      "ts": 1535107224422
+    }
+  ]

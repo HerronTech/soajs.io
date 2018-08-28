@@ -1,0 +1,76 @@
+#catalogs div.headerIcons {
+    font-size:48px;
+}
+
+#catalogs div.storeElement{
+    height:300px;
+    margin:0 0 40px 0;
+}
+
+#catalogs div.storeElement .content{
+    margin:0 5px 0px 5px;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    height:298px;
+}
+
+#catalogs div.storeElement .header {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    /*background-color: #eeeeee;*/
+    width:100%;
+    padding: 5px 0;
+    overflow: hidden;
+    height: 45px;
+}
+
+#catalogs div.storeElement .body{
+    border-top: solid 1px #cccccc;
+    padding: 20px 0;
+    height:200px;
+    width:100%;
+    overflow: scroll;
+}
+
+#catalogs div.storeElement .body .mainIcon{
+    font-size:80px;
+}
+
+#catalogs div.storeElement .footer{
+    margin-top:4px;
+    border-top: solid 1px #cccccc;
+    display:table;
+    width:100%;
+}
+
+#catalogs div.storeElement .footer .col{
+    padding-left:0;
+    padding-right:0;
+}
+
+#catalogs div.storeElement .footer img {
+    border: solid 1px #eeeeee;
+    padding: 1px 2px;
+    border-radius: 8px;
+    display: table;
+    width:100%;
+    text-align: center;
+}
+
+#catalogs div.storeElement .footer .worksWith {
+    font-size:17px;
+    padding: 10px 0 7px 15px;
+}
+
+#catalogs div.storeElement .footer .techList {
+    padding: 10px 0 7px 0;
+}
+
+#catalogs div.storeElement .footer .tagIcon {
+    padding: 10px 0 6px 0;
+    border-left: 1px solid #cccccc;
+    font-size:24px;
+    padding-left: 11px;
+    background-color:#eeeeee;
+    border-bottom-right-radius: 8px;
+}

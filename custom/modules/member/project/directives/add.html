@@ -1,0 +1,882 @@
+<div class='row section-padding' ng-controller="addProject">
+	<div class="container">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+			<h2>Create New Project</h2>
+			<hr>
+			<div>
+				<a class="pull-right btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="/member/projects">
+					<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<b>Back to my projects</b>
+				</a>
+			</div>
+			<div id="step0"></div>
+			<div id="step1" ng-show="step['1']" class="steps">
+				<p class="stepMessageDetails">
+					<!--Select a package from the list below, and -->
+					Follow the wizard steps to create your project.
+					( For additional instructions,
+					<a download href="/PDF/HC-HowtoCreateaProject.pdf" target="blank" title="Download Help Manual">
+						<span class="glyphicon glyphicon-file"></span>&nbsp;Download Manual
+					</a> )
+				</p>
+				<form name="submitDetails">
+					<table style="display: none" width="100%" class="packagesTable">
+						<thead>
+							<tr>
+								<!--<th class="noBorder"></th>-->
+								<th colspan="2" class="noBorder" width="60%" style="text-align: left; padding-left:0;">
+									<a ng-show="hiddenTableBody" ng-click="hiddenTableBody=false;" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" style="margin-left: 0">
+										<span class="glyphicon glyphicon-plus"></span>&nbsp;Show packages details
+									</a>
+
+									<a ng-show="!hiddenTableBody" ng-click="hiddenTableBody=true;" class="btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" style="margin-left: 0">
+										<span class="glyphicon glyphicon-minus"></span>&nbsp;Hide packages details
+									</a>
+								</th>
+								<th>
+									<span for="SOA-l7">SOA-l7</span>
+								</th>
+								<th>
+									<span for="MC-l7">MC-l7</span>
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td colspan="4" class="categoryTitle">Adaptive framework</td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell" width="2%"></td>
+								<td class="ruleLabel" width="58%">Daemon catalog</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell">
+								</td>
+								<td class="ruleLabel">
+									SOAJS framework to build new API and daemon
+								</td>
+								<td>
+									<span class="fa fa-check"> </span>
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell">
+								</td>
+								<td class="ruleLabel">
+									SOAJS middleware to modernize and transform existing API
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell">
+								</td>
+								<td class="ruleLabel">
+									SOAJS SDK to build portal modules
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell">
+								</td>
+								<td class="ruleLabel">
+									Portal
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									oAuth 2.0 (multi grant type)
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									User registration & access control (URAC)
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td colspan="4" class="categoryTitle">Fast delivery platform</td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell">
+								</td>
+								<td class="ruleLabel">
+									Deployment catalog
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell">
+								</td>
+								<td class="ruleLabel">
+									Continuous integration
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell">
+								</td>
+								<td class="ruleLabel">
+									Continuous delivery
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Deploy manager
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Advanced continuous integration
+								</td>
+								<td><span class="fa fa-times"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Workflow driven CI/CD
+								</td>
+								<td><span class="fa fa-times"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td colspan="4" class="categoryTitle">Multi Cloud</td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Multi cloud environment
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">High availability and auto scaling</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Container orchestration
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">Manual environment support</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">Local development environment support</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">Node deployment multi provider automation</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">Cloud environment cloning</td>
+								<td><span class="fa fa-times"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">Multi provider cloud environment</td>
+								<td><span class="fa fa-times"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">Multi region cloud environment</td>
+								<td><span class="fa fa-times"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">Hybrid deployment options</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td colspan="4" class="categoryTitle">Hybrid integration</td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Resource management & control
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Resource deployment and backup
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Advanced deployment recipes
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Advanced integration recipes
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td colspan="4" class="categoryTitle">Analytics & operating</td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Heartbeat and health check
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Resource metric
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Resource analytics
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Log monitoring
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Log analytic & correlation
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									API analytics
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td colspan="4" class="categoryTitle">API management</td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									API catalog
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									API test simulation
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									API security (key, ACL, ..)
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">API multi-tenancy
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									API productization
+								</td>
+								<td><span class="fa fa-check"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									API endpoint
+								</td>
+								<td><span class="fa fa-times"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									API traffic control
+								</td>
+								<td><span class="fa fa-times"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									API gateway
+								</td>
+								<td><span class="fa fa-times"> </span></td>
+								<td><span class="fa fa-times"> </span></td>
+							</tr>
+
+							<tr class="table-row">
+								<td colspan="4" class="categoryTitle">Per unit</td>
+							</tr>
+							<tr class="table-row">
+								<td class="emptyFirstCell" width="2%"></td>
+								<td class="ruleLabel" width="58%">Number of repos</td>
+								<td>7</td>
+								<td>7</td>
+							</tr>
+							<tr class="table-row">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">Number of users</td>
+								<td>3</td>
+								<td>3</td>
+							</tr>
+							<tr class="table-row">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">Number of cloud environment</td>
+								<td>6</td>
+								<td>6</td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td colspan="4" class="categoryTitle">Training & support</td>
+							</tr>
+
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Updates & upgrades
+								</td>
+								<td class="sharedSaas">Automated</td>
+								<td class="sharedSaas">Automated</td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									SLA
+								</td>
+								<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-check"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Platform extended training
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Custom recipes for integration & deployment
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									SOAJS API development blueprints training
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									SOAJS daemon development blueprints training
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+							<tr class="table-row" ng-show="!hiddenTableBody">
+								<td class="emptyFirstCell"></td>
+								<td class="ruleLabel">
+									Dedicated support per day
+								</td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+								<td class="sharedSaas"><span class="fa fa-times"> </span></td>
+							</tr>
+
+						</tbody>
+						<tfoot>
+
+							<tr class="table-row">
+								<td colspan="2" class="categoryTitle">Price / Month</td>
+								<td>$ 2,500</td>
+								<td>$ 1,250</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="noBorder">
+									<a href="" target="blank">
+										<span class="icon icon-file-pdf"></span>
+									</a>
+								</td>
+								<td style="padding: 0px">
+									<label class="packageSelectButton clickableRadioButton">
+										<input value="SOA-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="SOA-l7" ng-required="true"/>
+									</label>
+								</td>
+								<td style="padding: 0px">
+									<label class="packageSelectButton clickableRadioButton">
+										<input value="MC-l7" ng-model="project.ht_package" type="radio" name="ht_package" id="MC-l7" ng-required="true"/>
+									</label>
+								</td>
+							</tr>
+						</tfoot>
+					</table>
+					<br>
+
+					<div class="form-group">
+						<label>
+							Project Name
+						</label>
+						<input name="projectName" ng-model="project.name" type="text" placeholder="Name" class="form-control" tooltip="Enter your project name..." ng-required="true" ng-pattern="/^[a-z0-9]+$/"/>
+						<span ng-if="submitDetails.projectName.$error.pattern === true" style="color:red; font-size:13px">
+							Must be lowercase and alphanumeric only (no special characters or spaces).
+						</span>
+					</div>
+					<div class="form-group">
+						<label>
+							Project Description
+						</label>
+						<input name="projectDescription" ng-model="project.description" type="text" placeholder="Description" class="form-control" tooltip="Enter your project Description ..." ng-required="true"/>
+					</div>
+					<br>
+					<div ng-if="submitDetails.$submitted && !submitDetails.$valid">
+						<uib-alert type="danger">
+							<span ng-if="!submitDetails.ht_package.$valid">Please select a package to proceed.</br></span>
+							<span ng-if="!submitDetails.projectName.$valid">Make sure you enter a project name.</br></span>
+							<span ng-if="!submitDetails.projectDescription.$valid">Make sure you enter a project description.</span>
+						</uib-alert>
+						<!-- <alert type="danger">
+							Missing fields. Make sure you choose a package, and enter your project name and description.
+						</alert> -->
+					</div>
+
+					<div class="pull-right">
+						<a ng-click="goToStep('2', submitDetails)" class="btn btn-sm btn-warning actionBtn white-text">
+							<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Next
+						</a>
+					</div>
+				</form>
+			</div>
+
+			<div id="step2" ng-show="step['2']" class="steps">
+				<br/>
+				<br/>
+				<uib-alert type="info">
+					<h4>Project Details:</h4>
+					<hr>
+					<table width="100%" class="infoTable">
+						<tr>
+							<td><b>Name</b></td>
+							<td width="70%">{{project.name}}</td>
+						</tr>
+						<tr>
+							<td><b>Package</b></td>
+							<td width="85%">{{project.ht_package}}</td>
+						</tr>
+					</table>
+				</uib-alert>
+
+				<p class="stepMessageDetails">
+					Select a Cloud Provider from the list below to provision your Infrastructure. You can always add
+					more providers after creating your project.
+				</p>
+
+				<!--Choose your Infrastructure providers to deploy the environments of your project.-->
+				<form>
+					<uib-accordion close-others="true">
+						<uib-accordion-group ng-click="setInfra('aws')" is-open="data.infraAws">
+							<uib-accordion-heading>
+								<!-- <input id="awsRadio" ng-checked="data.infraAws" name="chooseInfra" type="radio" value="aws" ng-model="data.infra"/> -->
+								Amazon Web Services ( AWS )
+							</uib-accordion-heading>
+							<div>
+								<uib-alert type="warning" class="fieldMsg">
+									Enter your <b>Key ID</b> and <b>Secret Access Key</b> to connect <b>Amazon Web
+									Services</b> and deploy machines on it,
+									<a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html?icmpid=docs_iam_console" target="_blank">Learn
+										More</a>.
+
+									<a href="https://aws.amazon.com" class="btn btn-warning pull-right actionBtn" target="_blank">Create
+										AWS Account</a>
+								</uib-alert>
+
+								<div class="form-group">
+									<label>Key Id</label>
+									<input ng-model="project.infra.aws.api.keyId" type="text" placeholder="Key Id" class="form-control" tooltip="Enter your AWS Key Id..." ng-required="true"/>
+									<div class="fieldMsg hint">
+										Users need an access keys to make programmatic calls to AWS Services using
+										the APIs.
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Secret Access Key</label>
+									<input ng-model="project.infra.aws.api.secretAccessKey" type="password" placeholder="Secret Access Key" class="form-control" tooltip="Enter your AWS secretAccessKey..." ng-required="true"/>
+									<div class="fieldMsg hint">
+										Secret Access Keys work in conjunction with Key ID to authorize calls made
+										to AWS APIs.
+									</div>
+								</div>
+							</div>
+						</uib-accordion-group>
+						<uib-accordion-group ng-click="setInfra('google')" is-open="data.infraGoogle">
+							<uib-accordion-heading>
+								<!-- <input id="gcRadio" ng-checked="data.infraGoogle" name="chooseInfra" type="radio" value="google" ng-model="data.infra"/> -->
+								Google Cloud ( GC )
+							</uib-accordion-heading>
+							<div>
+								<uib-alert type="warning" class="fieldMsg">
+									Enter your <b>Project Id</b> and <b>Project Token</b> to connect to <b>Google
+									Cloud</b> and deploy machines on it,
+									<a href="https://cloud.google.com/iam/docs/service-accounts?hl=en_US&_ga=2.168863714.-2125465392.1514424027" target="_blank">Learn
+										More</a>.
+									<a href="https://cloud.google.com" class="btn btn-warning pull-right actionBtn" target="_blank">Create
+										GC Account</a>
+								</uib-alert>
+								<div class="form-group">
+									<label>Project ID </label>
+									<input ng-model="project.infra.google.api.project" type="text" placeholder="Project Id" class="form-control" tooltip="Enter your Google project Id..." ng-required="true"/>
+									<div class="fieldMsg hint">
+										Google Cloud allows deployment within already created projects only. Enter
+										the Google Project Name you which to use for your deployments.
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Token</label>
+										<textarea rows="5" ng-model="project.infra.google.api.token" type="text" placeholder="Token" class="form-control" tooltip="Enter the token associated with this project..." required>
+										</textarea>
+									<div class="fieldMsg hint">
+										Tokens allow you to communicate with Google Cloud APIs to manage your
+										deployments.
+										Generate a Key Token in Google Cloud IAM / Service Accounts section and copy
+										it here.
+									</div>
+								</div>
+								<!--<div class="form-group">-->
+								<!--<input ng-model="project.infra.google.api.token.private_key" type="text" placeholder="Private Key" class="form-control" tooltip="Enter the token associated with this project..." required/>-->
+								<!--</div>-->
+								<!--<div class="form-group">-->
+								<!--<input ng-model="project.infra.google.api.token.client_email" type="text" placeholder="" class="form-control" tooltip="Enter the token associated with this project..." required/>-->
+								<!--</div>-->
+								<!--<div class="form-group">-->
+								<!--<input ng-model="project.infra.google.api.token.client_id" type="text" placeholder="" class="form-control" tooltip="Enter the token associated with this project..." required/>-->
+								<!--</div>-->
+							</div>
+						</uib-accordion-group>
+					</uib-accordion>
+					<div>
+						<a ng-click="goToStep('1')" class="btn btn-sm btn-warning actionBtn white-text">
+							<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back
+						</a>
+						<a ng-click="validateInfra()" class="pull-right btn btn-sm btn-warning actionBtn white-text">
+							<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Next
+						</a>
+						<a ng-click="skipInfra()" class="pull-right btn btn-sm btn-primary actionBtn comet-hover white-txt-hover">
+							<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Skip
+						</a>
+					</div>
+				</form>
+			</div>
+			<div id="step3" ng-show="step['3']" class="steps">
+				<br/>
+				<br/>
+				<uib-alert type="info">
+					<h4>Project Details:</h4>
+					<hr>
+					<table width="100%" class="infoTable">
+						<tr>
+							<td><b>Name</b></td>
+							<td width="70%">{{project.name}}</td>
+						</tr>
+						<tr>
+							<td><b>Package</b></td>
+							<td width="85%">{{project.ht_package}}</td>
+						</tr>
+						<tr>
+							<td><b>Cloud Provider</b></td>
+							<td width="85%" ng-show="project.infra.aws">Amazon Web Services ( AWS )</td>
+							<td width="85%" ng-show="project.infra.google">Google Cloud ( GC )</td>
+						</tr>
+						<tr ng-if="clusterSettings[project.ht_package]">
+							<td colspan="2">
+								<hr>
+								<p>
+									You have chosen package: <b style="color:#31708f;">{{project.ht_package}}</b> we
+									recommend that your resource flavor offers a minimum of:
+								</p>
+								<table width="100%" class="infoTableDetails">
+									<tr>
+										<td>Storage</td>
+										<td>{{clusterSettings[project.ht_package].storageCapacity}}</td>
+										<td>Network</td>
+										<td>{{clusterSettings[project.ht_package].connectivity}}</td>
+									</tr>
+									<tr>
+										<td>RAM</td>
+										<td>{{clusterSettings[project.ht_package].ram}}</td>
+										<td>IOPs</td>
+										<td>{{clusterSettings[project.ht_package].storageIOPs}}</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</uib-alert>
+
+				<p class="stepMessageDetails">
+					<b>Herron Tech </b> requires a <b>MongoDB Atlas</b> resource to persist your project's information
+					(Cloud Orchestration, API Management, Analytics ... etc).<br/>
+				</p>
+
+				<form name="submitResource">
+					<uib-accordion close-others="true">
+						<!--<accordion-group ng-click="setCluster(true)" is-open="false">-->
+						<!--<accordion-heading>-->
+						<!--<input ng-checked="data.newCluster" name="deployCluster" type="radio" value="true"/>-->
+						<!--Deploy a new-->
+						<!--Cluster-->
+						<!--</accordion-heading>-->
+						<!--<div>-->
+						<!--<form>-->
+						<!--<div class="form-group">-->
+						<!--<input ng-model="project.resource.projectName" type="text" placeholder="Project Name" class="form-control" tooltip="Enter your atlas project name..." required/>-->
+						<!--</div>-->
+						<!--<div class="form-group">-->
+						<!--<input ng-model="project.resource.clusterName" type="text" placeholder="Cluster Name" class="form-control" tooltip="Enter your cluster name..." required/>-->
+						<!--</div>-->
+						<!--</form>-->
+						<!--</div>-->
+						<!--</accordion-group>-->
+						<uib-accordion-group ng-click="setCluster(false)" is-open="true">
+							<uib-accordion-heading>
+								<!--<input ng-checked="data.existingCluster" name="deployCluster" type="radio" value="false"/>-->
+								<!--Use existing Cluster-->
+								MongoDB Atlas
+							</uib-accordion-heading>
+							<div>
+								<uib-alert type="warning" class="fieldMsg">
+									Enter your Project, Cluster and API Key to connect to MongoDB Atlas and provision
+									your
+									Database,
+									<a target="_blank" href="https://docs.atlas.mongodb.com/configure-api-access/#generate-api-keys">Learn
+										More</a>
+									<a href="https://cloud.mongodb.com" class="btn btn-warning pull-right actionBtn" target="_blank">Create
+										Atlas Account</a>
+								</uib-alert>
+
+								<div class="form-group">
+									<label>Atlas Project Name</label>
+									<input ng-model="project.resource.projectName" type="text" placeholder="Project Name" class="form-control" tooltip="Enter your Atlas project name..." ng-required="true"/>
+								</div>
+								<div class="form-group">
+									<label>Atlas Cluster Name</label>
+									<input ng-model="project.resource.clusterName" type="text" placeholder="Cluster Name" class="form-control" tooltip="Enter your Atlas cluster name..." ng-required="true"/>
+								</div>
+
+								<div class="form-group">
+									<label>Atlas Organization Id</label>
+									<input ng-model="project.resource.api.orgId" type="text" placeholder="Organization Id" class="form-control" tooltip="Enter the organization Id where the project is created..." ng-required="true"/>
+								</div>
+								<div class="form-group">
+									<label>Atlas Username</label>
+									<input ng-model="project.resource.api.username" type="text" placeholder="API Username" class="form-control" tooltip="Enter your atlas username..." ng-required="true"/>
+									<div class="fieldMsg hint">
+										Atlas requires your username to communicate with its API.
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Atlas API Token</label>
+									<input ng-model="project.resource.api.token" type="password" placeholder="API Token / Password" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
+									<div class="fieldMsg hint">
+										Generate an API Key and paste it here to enable communication with Atlas API.
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>Database Username</label>
+									<input ng-model="project.resource.credentials.username" type="text" placeholder="Username" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
+									<div class="fieldMsg hint">
+
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Database Password</label>
+									<input ng-model="project.resource.credentials.password" type="password" placeholder="Password" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
+									<div class="fieldMsg hint">
+
+									</div>
+								</div>
+
+								<!--<div style="display: none">-->
+								<!--<div class="fieldMsg">-->
+								<!--Whitelist your IP so that it can connect to your chosen server.-->
+								<!--</div>-->
+								<!--<div class="form-group">-->
+								<!--<label>IP Description </label>-->
+								<!--<input ng-model="project.IPentries[0].comment" type="text" placeholder="Comment" class="form-control" tooltip="Enter a description of your IP..." ng-required="true"/>-->
+								<!--<div class="fieldMsg hint">-->
+								<!---->
+								<!--</div>-->
+								<!--</div>-->
+								<!---->
+								<!--<div class="form-group">-->
+								<!--<label>IP Address </label>-->
+								<!--<input ng-model="project.IPentries[0].ipAddress" type="text" placeholder="IP Address" class="form-control" tooltip="Enter your IP..."/>-->
+								<!--<div class="fieldMsg hint">-->
+								<!---->
+								<!--</div>-->
+								<!--</div>-->
+								<!--</div>-->
+
+							</div>
+						</uib-accordion-group>
+					</uib-accordion>
+					<div ng-if="submitResource.$submitted && !submitResource.$valid">
+						<uib-alert type="danger">
+							Please fill all the fields above!
+						</uib-alert>
+					</div>
+					<div>
+						<a ng-click="goToStep('2')" class="btn btn-sm btn-warning actionBtn white-text">
+							<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back
+						</a>
+
+						<a ng-click="submitProject(submitResource)" class="pull-right btn btn-sm btn-warning actionBtn white-text">
+							<span class="glyphicon glyphicon-play"></span>&nbsp;Create Project
+						</a>
+
+					</div>
+				</form>
+			</div>
+			<div id="step4" ng-show="step['4']" class="steps">
+				<br/>
+				<br/>
+				<uib-alert type="info">
+					<h4>Project Details:</h4>
+					<hr>
+					<table width="100%" class="infoTable">
+						<tr>
+							<td><b>Name</b></td>
+							<td width="70%">{{project.name}}</td>
+						</tr>
+						<tr>
+							<td><b>Package</b></td>
+							<td>{{project.ht_package}}</td>
+						</tr>
+						<tr>
+							<td><b>Cloud Provider</b></td>
+							<td ng-show="project.infra.aws">Amazon Web Services ( AWS )</td>
+							<td ng-show="project.infra.google">Google Cloud ( GC )</td>
+						</tr>
+						<tr>
+							<td><b>Atlas Project Name</b></td>
+							<td>{{project.resource.projectName}}</td>
+						</tr>
+						<tr>
+							<td><b>Atlas Cluster Name</b></td>
+							<td>{{project.resource.clusterName}}</td>
+						</tr>
+					</table>
+				</uib-alert>
+
+			</div>
+			<br>
+
+			<div ng-show="alerts && alerts.length > 0">
+				<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+					{{alert.msg}}
+				</uib-alert>
+				<br/>
+			</div>
+
+		</div>
+	</div>
+</div>

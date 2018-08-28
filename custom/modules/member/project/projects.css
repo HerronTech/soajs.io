@@ -1,0 +1,195 @@
+.actionBtn {
+    font-size: 12px;
+    padding: 5px 10px !important;
+}
+
+.actionBtn2 {
+    padding: 10px 20px !important;
+}
+
+.red-danger {
+    background-color: #a84041 !important;
+    border-color: #a84041 !important;
+    color: white;
+}
+
+.description {
+    font-style: italic;
+    font-size: 13px;
+}
+
+.yellowbar {
+    background-color: #f3c047;
+    height: 3px;
+    width: 92px;
+    margin: 15px auto;
+}
+
+.margin-top-bottom-5 {
+    margin: 5px 0;
+}
+
+.projectLabel {
+    background-color: #F5F2F2;
+}
+
+.small-accordion-header {
+    font-size: 14px;
+}
+
+.panelScroller {
+    min-height: 530px;
+    /*overflow: scroll;*/
+}
+
+.pending-project .panelScroller {
+    min-height: 130px;
+}
+
+.fieldMsg {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.fieldMsg.hint {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.packagesTable tr th {
+    font-size: 15px;
+    border: 1px solid #efefef;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+.packagesTable tr td {
+    font-size: 13px;
+    text-align: center;
+    padding: 5px 10px;
+    border: 1px solid #efefef;
+}
+
+.packagesTable tr td.categoryTitle {
+    font-weight: bold;
+    text-align: left;
+}
+
+.packagesTable tr th.noBorder,
+.packagesTable tr td.noBorder {
+    border: none;
+}
+
+.packagesTable tr td.ruleLabel {
+    text-align: left;
+    border-left: none;
+}
+
+.packagesTable tr td.emptyFirstCell {
+    border-right: none;
+}
+
+.packagesTable .fa-check {
+    color: green;
+}
+
+.packagesTable .fa-times {
+    color: red;
+}
+
+.steps label {
+    font-size: 15px;
+}
+
+ul.package_cluster_settings li {
+    line-height: normal;
+}
+
+.main .panel-heading h4.panel-title {
+    font-family: inherit;
+}
+
+.steps .panel-heading h4.panel-title {
+    text-transform: none;
+}
+
+.packageSelectButton:hover {
+    cursor: pointer;
+}
+
+.clickableRadioButton {
+    display: block;
+    min-height: 100%;
+    height: auto !important;
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 5px
+}
+
+table.infoTable {
+    border-collapse: collapse;
+}
+
+table.infoTable td {
+    padding: 2px 5px;
+    border: solid 1px transparent;
+}
+
+.stepMessageDetails {
+    font-size: 17px !important;
+}
+
+table.infoTableDetails td {
+    border: solid 1px #A6E1E4;
+}
+
+.hiddenTableBody {
+    display: none;
+}
+
+accordion h4 a {
+    outline: 0;
+}
+
+.onPremise {
+    background-color: #F7F7F7;
+}
+
+.ruleLabel {
+    width: 35%;
+}
+
+@media (max-width: 520px) {
+
+    .packagesTable tr th, .packagesTable tr td {
+        font-size: 11px;
+        word-break: break-all;
+    }
+
+    body .packagesTable tr td.emptyFirstCell {
+        padding-left: 0;
+        padding-right: 2px;
+    }
+
+    .packagesTable tr td {
+        padding-left: 3px;
+        padding-right: 3px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .packagesTable tr th, .packagesTable tr td {
+        font-size: 9px;
+    }
+
+    .ruleLabel {
+        width: 25%;
+    }
+
+    .packagesTable tr td {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+}
