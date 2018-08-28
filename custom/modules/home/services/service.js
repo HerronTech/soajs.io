@@ -2,7 +2,7 @@
 var homeAppSrv = app.components;
 homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	
-	let apiAddress = apiConfiguration.domain;
+	let apiAddress = window.location.protocol + "//api.soajs.io:" + window.location.port;
 	
 	/**
 	 * Load icons from json file and hook them to scope.
@@ -24,7 +24,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 		delete postData.alert;
 		$http({
 			method: 'POST',
-			url: apiAddress + '/sendMessage',
+			url: apiAddress + '/io/sendMessage',
 			headers: {'Content-Type': 'application/json'},
 			data: postData,
 		}).success(function (data, status, headers, config) {
@@ -67,7 +67,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 		delete postData.alert;
 		$http({
 			method: 'POST',
-			url: apiAddress + '/sendRequest',
+			url: apiAddress + '/io/sendRequest',
 			headers: {'Content-Type': 'application/json'},
 			data: postData,
 		}).success(function (data, status, headers, config) {
@@ -106,7 +106,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 		delete postData.alert;
 		$http({
 			method: 'POST',
-			url: apiAddress + '/sendMessage',
+			url: apiAddress + '/io/subscribe',
 			headers: {'Content-Type': 'application/json'},
 			data: postData,
 		}).success(function (data, status, headers, config) {
