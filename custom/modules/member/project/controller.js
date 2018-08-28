@@ -6,7 +6,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 
 		let innerPage = {
 			header: "Member Area",
-			slogan: "Login & Register",
+			slogan: "List Projects",
 			image: "custom/modules/member/images/member.jpg"
 		};
 
@@ -20,7 +20,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 		$scope.projects.active = [];
 		$scope.projects.pending = [];
 		if (!isUserLoggedIn($scope)) {
-			// $scope.$parent.$emit("loadUserInterface", {});
+			$scope.$parent.$emit("refreshWelcome", {});
 			$location.path('/member/login');
 		}
 
@@ -378,11 +378,13 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 
 		$scope.getList();
 
-		// injectFiles.injectCss("custom/modules/member/projects.css");
+		injectFiles.injectCss("custom/modules/member/project/projects.css");
 	}]);
 
 projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
 	function ($scope, $location, $timeout, isUserLoggedIn, ngDataApi, injectFiles) {
+		
+		injectFiles.injectCss("custom/modules/member/project/projects.css");
 		
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
@@ -397,7 +399,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 		
 		let innerPage = {
 			header: "Member Area",
-			slogan: "Login & Register",
+			slogan: "Add Project",
 			image: "custom/modules/member/images/member.jpg"
 		};
 
@@ -408,8 +410,8 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 		});
 
 		if (!isUserLoggedIn($scope)) {
-			// $scope.$parent.$emit("loadUserInterface", {});
-			$location.path('/member/login')
+			$scope.$parent.$emit("refreshWelcome", {});
+			$location.path('/member/login');
 		}
 
 		$scope.hiddenTableBody = true;

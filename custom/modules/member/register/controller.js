@@ -1,11 +1,11 @@
 "use strict";
 var registerApp = app.components;
-registerApp.controller('registerCtrl', ['$scope', function ($scope) {
+registerApp.controller('registerCtrl', ['$scope', '$timeout', 'ngDataApi', function ($scope, $timeout, ngDataApi) {
 	
 	let innerPage = {
 		header: "Member Area",
 		slogan: "Login & Register",
-        image: "custom/modules/member/images/member.jpg"
+		image: "custom/modules/member/images/member.jpg"
 	};
 	
 	$scope.updateParentScope('innerPage', innerPage);
@@ -17,27 +17,13 @@ registerApp.controller('registerCtrl', ['$scope', function ($scope) {
 	$scope.openForm = true;
 	$scope.confirm = {};
 
-	var pageData = {
-		title: "JOIN US - TO GET INVITED"
-	};
-	// $scope.$parent.$emit('refreshPageTitle', pageData);
-
-	$scope.captchaKey = sitekey;
-
+	$scope.siteKey = sitekey;
+	
 	$scope.alerts = [];
 	$scope.contact = {
 		firstName: '',
 		lastName: '',
 		email: '',
-		phone: '',
-		address: '',
-		company: '',
-		companySize: '',
-		sector: '',
-		position: '',
-		aboutUs: '',
-		lookingFor: '',
-		usingSoajs: '',
 		captcha: null
 	};
 
@@ -93,15 +79,6 @@ registerApp.controller('registerCtrl', ['$scope', function ($scope) {
 						firstName: '',
 						lastName: '',
 						email: '',
-						phone: '',
-						address: '',
-						company: '',
-						companySize: '',
-						sector: '',
-						position: '',
-						aboutUs: '',
-						usingSoajs: '',
-						lookingFor: '',
 						captcha: null
 					};
 

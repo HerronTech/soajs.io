@@ -83,14 +83,8 @@ function buildForm(context, modal, configuration, cb) {
 		context.form.alerts.splice(i, 1);
 	};
 
-	context.form.displayAlert = function (type, msg, isCode, service, orgMesg) {
+	context.form.displayAlert = function (type, msg) {
 		context.form.alerts = [];
-		if (isCode) {
-			var msgT = getCodeMessage(msg, service, orgMesg);
-			if (msgT) {
-				msg = msgT;
-			}
-		}
 		context.form.alerts.push({'type': type, 'msg': msg});
 		context.form.closeAllAlerts();
 	};
@@ -102,7 +96,7 @@ function buildForm(context, modal, configuration, cb) {
 		else {
 			context.form.timeout(function () {
 				context.form.alerts = [];
-			}, 7000);
+			}, 10000);
 		}
 	};
 

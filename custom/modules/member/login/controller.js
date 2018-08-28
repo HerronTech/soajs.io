@@ -69,15 +69,13 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 						'type': 'password',
 						'placeholder': "Enter Password",
 						'value': '',
-						'fieldMsg': '<a href="/forgetPw"> Forgot your password? </a>',
+						'fieldMsg': '<a href="/forgetPassword"> Forgot your password? </a>',
 						'tooltip': "Passwords are alphanumeric and support _ character only",
 						'required': true
 					}
 				]
 			}
 		};
-		
-		$scope.alerts = [];
 		
 		if (isUserLoggedIn($scope)) {
 			$location.path('/member/profile');
@@ -96,13 +94,14 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 		});
 		
 		var formConfig = loginConfig.formConf;
+		formConfig.timeout = $timeout;
 		formConfig.actions = [
 			{
 				'type': 'reset',
 				'label': 'Register',
 				'btn': 'warning',
 				'action': function () {
-					$location.path('/join');
+					$location.path('/member/join');
 				}
 			},
 			{
@@ -111,7 +110,6 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 				'btn': 'primary',
 				'action': function (formData) {
 					
-					$scope.alerts = [];
 					var postData = {
 						'username': formData.username,
 						'password': formData.password,
@@ -128,10 +126,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 						getSendDataFromServer($scope, ngDataApi, options1, function (error, response) {
 							if (error) {
 								overlayLoading.hide();
-								$scope.alerts.push({
-									'type': 'danger',
-									'msg': error.message
-								});
+								$scope.form.displayAlert('danger', error.message);
 							}
 							else {
 								authValue = response.data;
@@ -148,11 +143,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 								getSendDataFromServer($scope, ngDataApi, options2, function (error, response) {
 									if (error) {
 										overlayLoading.hide();
-										$scope.alerts.push({
-											'type': 'danger',
-											'msg': error.message
-										});
-										closeAllAlerts($scope, $timeout);
+										$scope.form.displayAlert('danger', error.message);
 									}
 									else {
 										if (Object.hasOwnProperty.call(response, "access_token")) {
@@ -182,11 +173,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							if (error) {
 								overlayLoading.hide();
 								ngDataApi.logout($scope);
-								$scope.alerts.push({
-									'type': 'danger',
-									'msg': error.message
-								});
-								closeAllAlerts($scope, $timeout);
+								$scope.form.displayAlert('danger', error.message);
 							}
 							else {
 								myUser = response;
@@ -207,11 +194,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							if (error) {
 								overlayLoading.hide();
 								ngDataApi.logout($scope);
-								$scope.alerts.push({
-									'type': 'danger',
-									'msg': error.message
-								});
-								closeAllAlerts($scope, $timeout);
+								$scope.form.displayAlert('danger', error.message);
 							}
 							else {
 								myUser.locked = response.locked || false;
@@ -232,11 +215,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 							if (error) {
 								$localStorage.soajs_user = null;
 								ngDataApi.logout($scope);
-								$scope.alerts.push({
-									'type': 'danger',
-									'msg': error.message
-								});
-								closeAllAlerts($scope, $timeout);
+								$scope.form.displayAlert('danger', error.message);
 							}
 							else {
 								$localStorage.acl_access = response.acl;
@@ -279,8 +258,8 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 			$scope.removeFromParentScope('innerPage');
 		});
 		
-		$scope.alerts = [];
 		var formConfig = forgetPwConfig.formConf;
+		formConfig.timeout = $timeout;
 		formConfig.actions = [
 			{
 				'type': 'submit',
@@ -288,7 +267,6 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 				'btn': 'primary',
 				'action': function (formData) {
 					
-					$scope.alerts = [];
 					var postData = {
 						'username': formData.username
 					};
@@ -302,21 +280,14 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 					getSendDataFromServer($scope, ngDataApi, options1, function (error, response) {
 						overlayLoading.hide();
 						if (error) {
-							$scope.alerts.push({
-								'type': 'danger',
-								'msg': error.message
-							});
+							$scope.form.displayAlert('danger', error.message);
 						}
 						else {
-							$scope.alerts.push({
-								'type': 'success',
-								'msg': "A reset link has been sent to your email address."
-							});
+							$scope.form.displayAlert('success', "A reset link has been sent to your email address.");
 							$timeout(function () {
 								$location.path('/member/login');
-							}, 5000);
+							}, 8000);
 						}
-						closeAllAlerts($scope, $timeout);
 					});
 				}
 			}
@@ -324,4 +295,189 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 		
 		buildForm($scope, null, formConfig);
 		
+	}]);
+
+loginApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', '$timeout', '$location', '$route',
+	function ($scope, ngDataApi, $routeParams, $timeout, $location, $route) {
+		
+		var formConfig = resetPwConfig.formConf;
+		formConfig.timeout = $timeout;
+		formConfig.actions = [
+			{
+				'type': 'submit',
+				'label': 'Submit',
+				'btn': 'primary',
+				'action': function (formData) {
+					var postData = {
+						'password': formData.password,
+						'confirmation': formData.confirmPassword
+					};
+					if (formData.password !== formData.confirmPassword) {
+						$scope.form.displayAlert('danger', "Password And Confirm Fields Do Not Match!");
+						return;
+					}
+					getSendDataFromServer($scope, ngDataApi, {
+						"method": "send",
+						"routeName": "/urac/resetPassword",
+						"headers": {
+							"key": apiConfiguration.key
+						},
+						"params": {
+							"token": $routeParams.token
+						},
+						"data": postData
+					}, function (error) {
+						if (error) {
+							$scope.form.displayAlert('danger', error.message);
+						}
+						else {
+							$scope.form.displayAlert('success', "Your password was reset.");
+							$timeout(function () {
+								$location.path('/member/login');
+							}, 6000);
+						}
+					});
+				}
+			}
+		];
+		
+		buildForm($scope, null, formConfig);
+		
+	}]);
+
+loginApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserLoggedIn', '$location', '$timeout',
+	function ($scope, ngDataApi, $route, isUserLoggedIn, $location, $timeout) {
+		$scope.alerts = [];
+		$scope.closeAlert = function (index) {
+			$scope.alerts.splice(index, 1);
+		};
+		
+		$scope.closeAllAlerts = function () {
+			$timeout(function () {
+				$scope.alerts = [];
+			}, 30000);
+		};
+		
+		$scope.validateChangeEmail = function () {
+			getSendDataFromServer($scope, ngDataApi, {
+				"method": "get",
+				"routeName": "/urac/changeEmail/validate",
+				"headers": {
+					"key": apiConfiguration.key
+				},
+				"params": {
+					"token": $route.current.params.token
+				}
+			}, function (error) {
+				if (error) {
+					$scope.alerts.push({
+						'type': 'danger',
+						'msg': error.message
+					});
+				}
+				else {
+					$scope.alerts.push({
+						'type': 'success',
+						'msg': "Your Email was Changed Successfully"
+					});
+					setTimeout(function () {
+						$location.path('/member/profile');
+					}, 5000);
+				}
+			});
+		};
+		
+		$scope.validateJoin = function () {
+			getSendDataFromServer($scope, ngDataApi, {
+				"method": "get",
+				"routeName": "/urac/join/validate",
+				"headers": {
+					"key": apiConfiguration.key
+				},
+				"params": {
+					"token": $route.current.params.token
+				}
+			}, function (error, response) {
+				if (error) {
+					$scope.alerts.push({
+						'type': 'danger',
+						'msg': error.message
+					});
+				}
+				else {
+					$scope.alerts.push({
+						'type': 'success',
+						'msg': "Your Email was Validated Successfully. You can login now"
+					});
+					setTimeout(function () {
+						$location.path('/member/login');
+					}, 5000);
+				}
+			});
+		};
+		
+		if ($route.current.originalPath === '/members/joinValidate') {
+			$scope.validateJoin();
+		}
+		else if ($route.current.originalPath === '/members/validateEmail') {
+			$scope.validateChangeEmail();
+		}
+		
+	}]);
+
+loginApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', 'isUserLoggedIn', '$timeout', '$location',
+	function ($scope, ngDataApi, $routeParams, isUserLoggedIn, $timeout, $location) {
+		
+		$scope.hideForm = false;
+		$scope.alerts = [];
+		$scope.closeAlert = function (index) {
+			$scope.alerts.splice(index, 1);
+		};
+		
+		var formConfig = setPasswordConfig.formConf;
+		formConfig.timeout = $timeout;
+		formConfig.actions = [
+			{
+				'type': 'submit',
+				'label': "Submit",
+				'btn': 'primary',
+				'action': function (formData) {
+					var postData = {
+						'password': formData.password,
+						'confirmation': formData.confirmPassword
+					};
+					if (formData.password !== formData.confirmPassword) {
+						$scope.form.displayAlert('danger', "Password And Confirm Fields Do Not Match!");
+						return;
+					}
+					getSendDataFromServer($scope, ngDataApi, {
+						"method": "send",
+						"routeName": "/urac/resetPassword",
+						"headers": {
+							"key": apiConfiguration.key
+						},
+						"params": {
+							"token": $routeParams.token
+						},
+						"data": postData
+					}, function (error) {
+						if (error) {
+							$scope.form.displayAlert('danger', error.message);
+						}
+						else {
+							$scope.alerts.push({
+								'type': 'success',
+								'msg': "Password Set Successfully"
+							});
+							$scope.hideForm = true;
+							$timeout(function () {
+								$location.path('/member/login');
+							}, 5000);
+						}
+					});
+				}
+			}
+		];
+		
+		buildForm($scope, null, formConfig);
 	}]);

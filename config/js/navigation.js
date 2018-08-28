@@ -100,7 +100,7 @@ let navigation = [
 	
 	{
 		"id": "forget-pw",
-		"url": "/forgetPw",
+		"url": "/forgetPassword",
 		"title": "SOAJS.IO | Password",
 		"tplPath": "custom/modules/member/login/directives/forgetPw.html",
 		"scripts": [
@@ -109,12 +109,51 @@ let navigation = [
 		],
 	},
 	{
+		'id': 'resetPw',
+		'title': 'SOAJS.IO | Reset Password',
+		'url': '/member/resetPw',
+		'tplPath': 'custom/modules/member/login/directives/resetPw.html',
+		'scripts': [
+			"custom/modules/member/login/config.js",
+			"custom/modules/member/login/controller.js"
+		]
+	},
+	{
+		'id': 'setPw',
+		'title': 'SOAJS.IO | Set Password',
+		'url': '/member/newPassword',
+		'tplPath': 'custom/modules/member/login/directives/setNewPw.html',
+		'scripts': [
+			"custom/modules/member/login/config.js",
+			"custom/modules/member/login/controller.js"
+		]
+	},
+	{
+		'id': 'validateEmail',
+		'title': 'SOAJS.IO | Validate Email',
+		'url': '/member/validateEmail',
+		'tplPath': 'custom/modules/member/login/directives/validate.html',
+		'scripts': [
+			"custom/modules/member/login/config.js",
+			"custom/modules/member/login/controller.js"
+		]
+	},
+	{
 		"id": "addProject",
 		"label": "Add Project",
 		"url": "/member/project/add",
 		"title": "SOAJS.IO | Add Project",
 		"tplPath": "custom/modules/member/project/directives/add.html",
 		"scripts": ["custom/modules/member/project/controller.js"],
+	},
+	{
+		"id": "member-join",
+		"label": "",
+		"url": "/member/join",
+		"topMenu": true,
+		"title": "SOAJS.IO | Join",
+		"tplPath": "custom/modules/member/register/directives/main.html",
+		"scripts": ["custom/modules/member/register/controller.js"],
 	},
 	{
 		"id": "member-area-login",
