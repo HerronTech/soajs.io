@@ -77,8 +77,6 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 			}
 		};
 		
-		$scope.alerts = [];
-		
 		if (isUserLoggedIn($scope)) {
 			$location.path('/member/profile');
 		}
@@ -112,7 +110,6 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 				'btn': 'primary',
 				'action': function (formData) {
 					
-					$scope.alerts = [];
 					var postData = {
 						'username': formData.username,
 						'password': formData.password,
@@ -261,11 +258,6 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 			$scope.removeFromParentScope('innerPage');
 		});
 		
-		$scope.alerts = [];
-		$scope.closeAlert = function (index) {
-			$scope.alerts.splice(index, 1);
-		};
-
 		var formConfig = forgetPwConfig.formConf;
 		formConfig.timeout = $timeout;
 		formConfig.actions = [
@@ -275,7 +267,6 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 				'btn': 'primary',
 				'action': function (formData) {
 					
-					$scope.alerts = [];
 					var postData = {
 						'username': formData.username
 					};
@@ -292,15 +283,11 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 							$scope.form.displayAlert('danger', error.message);
 						}
 						else {
-							$scope.alerts.push({
-								'type': 'success',
-								'msg': "A reset link has been sent to your email address."
-							});
+							$scope.form.displayAlert('success', "A reset link has been sent to your email address.");
 							$timeout(function () {
 								$location.path('/member/login');
 							}, 8000);
 						}
-						closeAllAlerts($scope, $timeout);
 					});
 				}
 			}
@@ -312,11 +299,7 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 
 loginApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', '$timeout', '$location', '$route',
 	function ($scope, ngDataApi, $routeParams, $timeout, $location, $route) {
-		$scope.alerts = [];
-		$scope.closeAlert = function (index) {
-			$scope.alerts.splice(index, 1);
-		};
-
+		
 		var formConfig = resetPwConfig.formConf;
 		formConfig.timeout = $timeout;
 		formConfig.actions = [
@@ -330,11 +313,7 @@ loginApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', '$tim
 						'confirmation': formData.confirmPassword
 					};
 					if (formData.password !== formData.confirmPassword) {
-						$scope.alerts.push({
-							'type': 'danger',
-							'msg': "Password And Confirm Fields Do Not Match!"
-						});
-						closeAllAlerts($scope, $timeout);
+						$scope.form.displayAlert('danger', "Password And Confirm Fields Do Not Match!");
 						return;
 					}
 					getSendDataFromServer($scope, ngDataApi, {
@@ -352,11 +331,7 @@ loginApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', '$tim
 							$scope.form.displayAlert('danger', error.message);
 						}
 						else {
-							$scope.alerts.push({
-								'type': 'success',
-								'msg': "Your password was reset."
-							});
-							closeAllAlerts($scope, $timeout);
+							$scope.form.displayAlert('success', "Your password was reset.");
 							$timeout(function () {
 								$location.path('/member/login');
 							}, 6000);
@@ -395,10 +370,16 @@ loginApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserLog
 				}
 			}, function (error) {
 				if (error) {
-					$scope.form.displayAlert('danger', error.message);
+					$scope.alerts.push({
+						'type': 'danger',
+						'msg': error.message
+					});
 				}
 				else {
-					$scope.form.displayAlert('success', "Your Email was Changed Successfully");
+					$scope.alerts.push({
+						'type': 'success',
+						'msg': "Your Email was Changed Successfully"
+					});
 					setTimeout(function () {
 						$location.path('/member/profile');
 					}, 5000);
@@ -410,16 +391,27 @@ loginApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserLog
 			getSendDataFromServer($scope, ngDataApi, {
 				"method": "get",
 				"routeName": "/urac/join/validate",
-				"params": { "token": $route.current.params.token }
+				"headers": {
+					"key": apiConfiguration.key
+				},
+				"params": {
+					"token": $route.current.params.token
+				}
 			}, function (error, response) {
 				if (error) {
-					$scope.form.displayAlert('danger', error.message);
+					$scope.alerts.push({
+						'type': 'danger',
+						'msg': error.message
+					});
 				}
 				else {
-					$scope.form.displayAlert('success', 'Your Email was Validated Successfully. You can login now');
+					$scope.alerts.push({
+						'type': 'success',
+						'msg': "Your Email was Validated Successfully. You can login now"
+					});
 					setTimeout(function () {
 						$location.path('/member/login');
-					}, 3000);
+					}, 5000);
 				}
 			});
 		};
@@ -440,12 +432,6 @@ loginApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', '
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
-		};
-		
-		$scope.closeAllAlerts = function () {
-			$timeout(function () {
-				$scope.alerts = [];
-			}, 30000);
 		};
 		
 		var formConfig = setPasswordConfig.formConf;
@@ -479,11 +465,14 @@ loginApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', '
 							$scope.form.displayAlert('danger', error.message);
 						}
 						else {
-							$scope.form.displayAlert('success', "Password Set Successfully");
+							$scope.alerts.push({
+								'type': 'success',
+								'msg': "Password Set Successfully"
+							});
 							$scope.hideForm = true;
 							$timeout(function () {
 								$location.path('/member/login');
-							}, 3000);
+							}, 5000);
 						}
 					});
 				}
@@ -491,13 +480,4 @@ loginApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', '
 		];
 		
 		buildForm($scope, null, formConfig);
-		
-		// if (!isUserLoggedIn($scope)) {
-		// 	buildForm($scope, null, formConfig);
-		// }
-		// else {
-		// 	$scope.$parent.displayAlert('danger', translation.youAlreadyLoggedInLogOutFirst[LANG]);
-		// 	var url = $scope.$parent.mainMenu.links[0].entries[0].url;
-		// 	$scope.$parent.go(url.replace("#", ""));
-		// }
 	}]);

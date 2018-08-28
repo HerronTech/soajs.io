@@ -96,7 +96,7 @@ function buildForm(context, modal, configuration, cb) {
 		else {
 			context.form.timeout(function () {
 				context.form.alerts = [];
-			}, 7000);
+			}, 10000);
 		}
 	};
 

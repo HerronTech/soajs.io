@@ -17,22 +17,13 @@ registerApp.controller('registerCtrl', ['$scope', '$timeout', 'ngDataApi', funct
 	$scope.openForm = true;
 	$scope.confirm = {};
 
-	$scope.captchaKey = sitekey;
-
+	$scope.siteKey = sitekey;
+	
 	$scope.alerts = [];
 	$scope.contact = {
 		firstName: '',
 		lastName: '',
 		email: '',
-		phone: '',
-		address: '',
-		company: '',
-		companySize: '',
-		sector: '',
-		position: '',
-		aboutUs: '',
-		lookingFor: '',
-		usingSoajs: '',
 		captcha: null
 	};
 
@@ -88,15 +79,6 @@ registerApp.controller('registerCtrl', ['$scope', '$timeout', 'ngDataApi', funct
 						firstName: '',
 						lastName: '',
 						email: '',
-						phone: '',
-						address: '',
-						company: '',
-						companySize: '',
-						sector: '',
-						position: '',
-						aboutUs: '',
-						usingSoajs: '',
-						lookingFor: '',
 						captcha: null
 					};
 
