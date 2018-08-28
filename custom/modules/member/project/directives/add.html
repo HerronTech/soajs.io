@@ -526,11 +526,11 @@
 					</div>
 					<br>
 					<div ng-if="submitDetails.$submitted && !submitDetails.$valid">
-						<alert type="danger">
+						<uib-alert type="danger">
 							<span ng-if="!submitDetails.ht_package.$valid">Please select a package to proceed.</br></span>
 							<span ng-if="!submitDetails.projectName.$valid">Make sure you enter a project name.</br></span>
 							<span ng-if="!submitDetails.projectDescription.$valid">Make sure you enter a project description.</span>
-						</alert>
+						</uib-alert>
 						<!-- <alert type="danger">
 							Missing fields. Make sure you choose a package, and enter your project name and description.
 						</alert> -->

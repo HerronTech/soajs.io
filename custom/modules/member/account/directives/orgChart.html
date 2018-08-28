@@ -16,9 +16,9 @@
 					<section ng-controller="membersCtrl as gridCtrl" class="membersCtrl">
 
 						<div ng-show="alerts && alerts.length > 0">
-							<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+							<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
 								{{alert.msg}}
-							</alert>
+							</uib-alert>
 							<br/>
 						</div>
 
@@ -49,9 +49,9 @@
 					<uib-tab-heading>Groups</uib-tab-heading>
 					<section ng-controller="groupsCtrl as gridCtrl">
 						<div ng-show="alerts && alerts.length > 0">
-							<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+							<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
 								{{alert.msg}}
-							</alert>
+							</uib-alert>
 							<br/>
 						</div>
 						<div>
