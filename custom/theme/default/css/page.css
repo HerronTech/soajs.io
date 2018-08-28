@@ -237,3 +237,7 @@ form.ng-submitted input.ng-invalid{
     display: table;
     content: " "
 }
+
+#membersSection section{
+    padding-top: 10px;
+}

@@ -16,7 +16,7 @@ accountApp.controller('billingCtrl', ['$scope', function ($scope) {
 	});
 }]);
 
-accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$uibModal', '$localStorage', 'ngDataApi', function ($scope, $timeout, $uibModal, $localStorage,ngDataApi) {
+accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$uibModal', '$localStorage', 'ngDataApi', function ($scope, $timeout, $uibModal, $localStorage, ngDataApi) {
 
 	$scope.$parent.$on('xferData', function (event, args) {
 		$scope.memberData = args.memberData;
@@ -155,8 +155,13 @@ accountApp.controller('changeSecurityCtrl', ['$scope', '$timeout', '$uibModal', 
 
 }]);
 
-accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngDataApi', '$cookies', '$localStorage', 'isUserLoggedIn',
-	function ($scope, $timeout, $uibModal, ngDataApi, $cookies, $localStorage, isUserLoggedIn) {
+accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngDataApi', '$cookies', '$localStorage', '$location', 'isUserLoggedIn',
+	function ($scope, $timeout, $uibModal, ngDataApi, $cookies, $localStorage, $location, isUserLoggedIn) {
+
+		if (!isUserLoggedIn($scope)) {
+			$scope.$parent.$emit("refreshWelcome", {});
+			$location.path('/member/login');
+		}
 
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
@@ -337,8 +342,13 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 		}
 	}]);
 
-accountApp.controller('orgChart', ['$scope', '$timeout', '$uibModal', 'ngDataApi', '$cookies', '$localStorage', 'isUserLoggedIn',
-	function ($scope, $timeout, $uibModal, ngDataApi, $cookies, $localStorage, isUserLoggedIn) {
+accountApp.controller('orgChart', ['$scope', '$timeout', '$uibModal', 'ngDataApi', '$cookies', '$localStorage', '$location', 'isUserLoggedIn',
+	function ($scope, $timeout, $uibModal, ngDataApi, $cookies, $localStorage, $location, isUserLoggedIn) {
+
+		if (!isUserLoggedIn($scope)) {
+			$scope.$parent.$emit("refreshWelcome", {});
+			$location.path('/member/login');
+		}
 
 		$scope.alerts = [];
 		

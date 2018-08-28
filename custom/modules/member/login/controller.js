@@ -386,7 +386,8 @@ loginApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserLog
 				}
 			});
 		};
-		
+
+		// Not used now
 		$scope.validateJoin = function () {
 			getSendDataFromServer($scope, ngDataApi, {
 				"method": "get",
@@ -416,10 +417,10 @@ loginApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserLog
 			});
 		};
 		
-		if ($route.current.originalPath === '/members/joinValidate') {
-			$scope.validateJoin();
-		}
-		else if ($route.current.originalPath === '/members/validateEmail') {
+		// if ($route.current.originalPath === '/member/joinValidate') {
+		// 	$scope.validateJoin();
+		// }
+		if ($route.current.originalPath === '/member/validateEmail') {
 			$scope.validateChangeEmail();
 		}
 		
