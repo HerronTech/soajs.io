@@ -186,7 +186,10 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 			$scope.removeFromParentScope('innerPage');
 		});
 
-		// var profileObj;
+		let profileObj = {
+			phone: "",
+			company: ""
+		};
 		var formConfig = {
 			'form': {
 				'name': 'editProfile',
@@ -196,6 +199,15 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 			'name': 'editProfile',
 			'label': 'Edit Profile',
 			'entries': [
+				{
+					'name': 'username',
+					'label': "Username",
+					'type': 'text',
+					'placeholder': "Enter Username",
+					'value': '',
+					'tooltip': "Usernames are alphanumeric and support  _ & -  character only",
+					'required': true
+				},
 				{
 					'name': 'firstName',
 					'label': 'First Name',
@@ -224,13 +236,22 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 					'required': true
 				},
 				{
-					'name': 'username',
-					'label': "Username",
+					'name': 'phone',
+					'label': "Phone",
 					'type': 'text',
-					'placeholder': "Enter Username",
+					'placeholder': "",
 					'value': '',
-					'tooltip': "Usernames are alphanumeric and support  _ & -  character only",
-					'required': true
+					'tooltip': '',
+					'required': false
+				},
+				{
+					'name': 'company',
+					'label': "Company",
+					'type': 'text',
+					'placeholder': "",
+					'value': '',
+					'tooltip': '',
+					'required': false
 				},
 				// {
 				// 	'name': 'profile',
@@ -261,11 +282,11 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 					'label': 'Edit Profile',
 					'btn': 'warning',
 					'action': function (formData) {
-						// if (formData.profile) {
-						// 	profileObj = formData.profile;
-						// }
+						profileObj.phone = formData.phone;
+						profileObj.company = formData.company;
+
 						var postData = {
-							// 'profile': profileObj,
+							'profile': profileObj,
 							'username': formData.username,
 							'firstName': formData.firstName,
 							'lastName': formData.lastName
@@ -290,8 +311,7 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 								userCookie.firstName = formData.firstName;
 								userCookie.username = formData.username;
 								userCookie.lastName = formData.lastName;
-								// userCookie.profile = profileObj;
-
+								userCookie.profile = profileObj;
 								$localStorage.soajs_user = userCookie;
 								$scope.$parent.$emit('refreshWelcome', {});
 							}
@@ -322,9 +342,15 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 				}
 				else {
 					$scope.uId = response._id;
-					// var p = response.profile;
+					var myProfile = response.profile;
 					formConfig.data = response;
-					// formConfig.data.profile = p;
+					// formConfig.data.profile = myProfile;
+					if (myProfile.phone) {
+						formConfig.data.phone = myProfile.phone;
+					}
+					if (myProfile.company) {
+						formConfig.data.company = myProfile.company;
+					}
 					buildForm($scope, null, formConfig);
 
 					$scope.$parent.$emit('xferData', { 'memberData': response });
@@ -332,12 +358,11 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 			});
 		};
 
-		var userCookie = $localStorage.soajs_user;
+		let userCookie = $localStorage.soajs_user;
 		if (userCookie) {
 			if ((typeof(userCookie) !== "undefined") && (typeof(userCookie) === "object")) {
-				var uname = userCookie.username;
-				// profileObj = $localStorage.soajs_user.profile;
-				$scope.getProfile(uname);
+				profileObj = $localStorage.soajs_user.profile;
+				$scope.getProfile(userCookie.username);
 			}
 		}
 	}]);

@@ -264,7 +264,7 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 			{
 				'type': 'submit',
 				'label': 'Submit',
-				'btn': 'primary',
+				'btn': 'warning',
 				'action': function (formData) {
 					
 					var postData = {

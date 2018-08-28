@@ -17,32 +17,35 @@
 						more.
 					</div>
 					<br>
+					<div class="formback">
 
-					<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
+						<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
 
-						<div class="form-group">
-							<input ng-model="contact.firstName" type="text" placeholder="First Name *" class="form-control" tooltip="Enter your first name..." required/>
-						</div>
-						<div class="form-group">
-							<input ng-model="contact.lastName" type="text" placeholder="Last Name *" class="form-control" tooltip="Enter your last name..." required/>
-						</div>
-						<div class="form-group">
-							<input ng-model="contact.email" type="email" class="form-control" placeholder="Your Email *" tooltip="Enter your email address..." required/>
-						</div>
+							<div class="form-group">
+								<input ng-model="contact.firstName" type="text" placeholder="First Name *" class="form-control" tooltip="Enter your first name..." required/>
+							</div>
+							<div class="form-group">
+								<input ng-model="contact.lastName" type="text" placeholder="Last Name *" class="form-control" tooltip="Enter your last name..." required/>
+							</div>
+							<div class="form-group">
+								<input ng-model="contact.email" type="email" class="form-control" placeholder="Your Email *" tooltip="Enter your email address..." required/>
+							</div>
 
-						<div class="col-md-12 col-sm-12 form-group">
-							<div vc-recaptcha theme="'light'" key="siteKey" class="pull-left" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()"></div>
-							<input type="submit" class="btn anzac gray-txt white-txt-hover pull-right" value="Submit" ng-disabled="!contact.captcha && !contactForm.$valid"/>
-						</div>
+							<div class="col-md-12 col-sm-12 form-group">
+								<div vc-recaptcha theme="'light'" key="siteKey" class="pull-left" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()"></div>
+								<input type="submit" class="btn btn-warning pull-right" value="Submit" ng-disabled="!contact.captcha && !contactForm.$valid"/>
+							</div>
+							<br class="clearfix">
+						</form>
 						<br class="clearfix">
-					</form>
-					<br class="clearfix">
-					<div ng-show="alerts && alerts.length > 0">
-						<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
-							{{alert.msg}}
-						</uib-alert>
-						<br/>
+						<div ng-show="alerts && alerts.length > 0">
+							<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+								{{alert.msg}}
+							</uib-alert>
+							<br/>
+						</div>
 					</div>
+
 				</div>
 
 				<div ng-if="!openForm" id="step2">
