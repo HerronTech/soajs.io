@@ -259,7 +259,7 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 				{
 					'type': 'submit',
 					'label': 'Edit Profile',
-					'btn': 'primary',
+					'btn': 'warning',
 					'action': function (formData) {
 						// if (formData.profile) {
 						// 	profileObj = formData.profile;

@@ -115,6 +115,9 @@ input.searchInput {
     line-height: normal;
 }
 
+.leftAction .oneAction {
+}
+
 @media (max-width: 500px) {
     .grid table th {
         font-size: 13px;

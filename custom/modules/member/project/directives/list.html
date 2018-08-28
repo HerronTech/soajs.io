@@ -102,9 +102,7 @@
 									</div>
 									<hr>
 									<div class="row">
-										<div ng-if="project.mainResource" class="col-md-6">
-											<h4>Resource</h4>
-											<br/>
+										<div ng-if="project.mainResource" class="col-md-12">
 											<accordion close-others="false">
 												<accordion-group is-open="true">
 													<accordion-heading>
@@ -144,41 +142,6 @@
 															</div>
 															<div class="col-md-6">
 																{{project.mainResource.providerSettings.instanceSizeName}}
-															</div>
-														</div>
-														<hr class="yellowbar">
-													</div>
-												</accordion-group>
-											</accordion>
-										</div>
-										<div ng-if="project.infras.length" class="col-md-6">
-											<h4>Infrastructure</h4>
-											<br/>
-											<accordion close-others="false">
-												<accordion-group ng-repeat="(infra, infraData) in project.infra">
-													<accordion-heading>
-														<img height="24" ng-src="/custom/modules/member/project/images/infra/{{infra}}/logo.png">&nbsp;
-														<span class="small-accordion-header text-uppercase">{{infra}}</span>&nbsp;
-													</accordion-heading>
-
-													<div ng-repeat="deployment in infraData.deployment" class="one-deployment">
-														<div class="row margin-top-bottom-5">
-															<div class="col-md-6 projectLabel">
-																<label>Deployment Name</label>
-															</div>
-															<div class="col-md-6">{{deployment.name}}</div>
-														</div>
-														<div class="row margin-top-bottom-5">
-															<div class="col-md-6 projectLabel">
-																<label>Region</label>
-															</div>
-															<div class="col-md-6">{{deployment.zone}}</div>
-														</div>
-														<div class="row margin-top-bottom-5">
-															<div class="col-md-6 projectLabel">
-																<label>Environment(s)</label>
-															</div>
-															<div class="col-md-6">{{deployment.environments.join(' - ')}}
 															</div>
 														</div>
 														<hr class="yellowbar">

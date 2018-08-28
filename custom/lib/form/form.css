@@ -80,3 +80,7 @@ form.css-form .submittedForm .alert {
     padding-bottom: 8px;
     padding-top: 8px;
 }
+
+form.css-form .header h3 {
+    margin-top: 5px;
+}

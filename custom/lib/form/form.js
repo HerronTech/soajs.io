@@ -26,7 +26,7 @@ function buildFormWithModal($scope, $modal, opts, cb) {
 		$scope.form.openForm = function () {
 			var newModal = $modal.open({
 				template: "<ngform></ngform>",
-				size: 'lg',
+				size: 'md',
 				backdropClass: "backdrop-soajs",
 				backdrop: formConfig.backdrop,
 				keyboard: false,
@@ -85,7 +85,7 @@ function buildForm(context, modal, configuration, cb) {
 
 	context.form.displayAlert = function (type, msg) {
 		context.form.alerts = [];
-		context.form.alerts.push({'type': type, 'msg': msg});
+		context.form.alerts.push({ 'type': type, 'msg': msg });
 		context.form.closeAllAlerts();
 	};
 
@@ -107,9 +107,9 @@ function buildForm(context, modal, configuration, cb) {
 			if (fieldEntry.name === inputName) {
 				internalDataMap(fieldEntry, inputName);
 			}
-			else if (!Array.isArray(configuration.data[inputName]) && typeof(configuration.data[inputName]) === 'object' ){
-				for(let i in configuration.data[inputName]){
-					if(i === fieldEntry.name){
+			else if (!Array.isArray(configuration.data[inputName]) && typeof(configuration.data[inputName]) === 'object') {
+				for (let i in configuration.data[inputName]) {
+					if (i === fieldEntry.name) {
 						fieldEntry.value = configuration.data[inputName][i];
 						context.form.formData[inputName + '.' + i] = configuration.data[inputName][i];
 					}
@@ -117,9 +117,9 @@ function buildForm(context, modal, configuration, cb) {
 			}
 		}
 
-		function internalDataMap(fieldEntry, inputName){
+		function internalDataMap(fieldEntry, inputName) {
 			if (Array.isArray(fieldEntry.value)) {
-				for(let i=0; i < fieldEntry.value.length; i++){
+				for (let i = 0; i < fieldEntry.value.length; i++) {
 					let oneValue = fieldEntry.value[i];
 					if (Array.isArray(configuration.data[inputName])) {
 						if (configuration.data[inputName].indexOf(oneValue.v) !== -1) {
@@ -127,12 +127,12 @@ function buildForm(context, modal, configuration, cb) {
 							context.form.formData[inputName] = oneValue.v;
 							break;
 						}
-						else{
+						else {
 							delete oneValue.selected;
 						}
 					}
 					else {
-						if(fieldEntry.type === 'uiselect' && configuration.data[inputName] !== undefined && configuration.data[inputName] !== null){
+						if (fieldEntry.type === 'uiselect' && configuration.data[inputName] !== undefined && configuration.data[inputName] !== null) {
 							if (!Object.hasOwnProperty.call(configuration.data, inputName) || (oneValue.v.toString() === configuration.data[inputName].toString())) {
 								context.form.formData[inputName] = oneValue;
 								break;
@@ -144,7 +144,7 @@ function buildForm(context, modal, configuration, cb) {
 								context.form.formData[inputName] = oneValue.v;
 								break;
 							}
-							else{
+							else {
 								delete oneValue.selected;
 							}
 						}
@@ -163,7 +163,7 @@ function buildForm(context, modal, configuration, cb) {
 	function updateFormData(oneEntry, reload) {
 		if (!reload) {
 			if (oneEntry.value) {
-				if(oneEntry.type !== 'uiselect'){
+				if (oneEntry.type !== 'uiselect') {
 					if (Array.isArray(oneEntry.value)) {
 						context.form.formData[oneEntry.name] = [];
 						oneEntry.value.forEach(function (oneValue) {
@@ -232,7 +232,7 @@ function buildForm(context, modal, configuration, cb) {
 				oneEntry.editor = _editor;
 				_editor.$blockScrolling = Infinity;
 
-				if(!oneEntry.value){
+				if (!oneEntry.value) {
 					oneEntry.value = {};
 				}
 				oneEntry.ngModel = JSON.stringify(oneEntry.value, null, 2);
@@ -245,14 +245,14 @@ function buildForm(context, modal, configuration, cb) {
 
 				var heightUpdateFunction = function () {
 					var newHeight =
-					_editor.getSession().getScreenLength()
-					* _editor.renderer.lineHeight
-					+ _editor.renderer.scrollBar.getWidth() + 10;
+						_editor.getSession().getScreenLength()
+						* _editor.renderer.lineHeight
+						+ _editor.renderer.scrollBar.getWidth() + 10;
 
 					if (oneEntry.fixedHeight) {
 						newHeight = parseInt(oneEntry.height);
 					}
-					else if(parseInt(oneEntry.height) && parseInt(oneEntry.height) > newHeight){
+					else if (parseInt(oneEntry.height) && parseInt(oneEntry.height) > newHeight) {
 						newHeight = parseInt(oneEntry.height);
 					}
 
@@ -471,14 +471,14 @@ function buildForm(context, modal, configuration, cb) {
 		}
 	};
 
-	context.form.markSelected = function(entry) {
-		if(entry && entry.value && Array.isArray(entry.value)) {
-			if(!context.form.formData[entry.name]) {
+	context.form.markSelected = function (entry) {
+		if (entry && entry.value && Array.isArray(entry.value)) {
+			if (!context.form.formData[entry.name]) {
 				for (var i = 0; i < entry.value.length; i++) {
-					if(entry.value[i].selected) {
+					if (entry.value[i].selected) {
 						context.form.formData[entry.name] = entry.value[i].v;
-						if(entry.onAction && typeof(entry.onAction) === 'function') {
-							context.form.call(entry.onAction, entry.name , context.form.formData[entry.name], context.form);
+						if (entry.onAction && typeof(entry.onAction) === 'function') {
+							context.form.call(entry.onAction, entry.name, context.form.formData[entry.name], context.form);
 						}
 						break;
 					}
@@ -517,7 +517,7 @@ function buildForm(context, modal, configuration, cb) {
 		getSendDataFromServer(context, configuration.ngDataApi, options, function (error, data) {
 			switch (mediaType) {
 				case 'image':
-					var blob = new Blob([data], {type: config.metadata.mime});
+					var blob = new Blob([data], { type: config.metadata.mime });
 					var URL = window.URL || window.webkitURL;
 					config.src = URL.createObjectURL(blob);
 					break;

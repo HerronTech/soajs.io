@@ -150,7 +150,6 @@ let navigation = [
 		"id": "member-join",
 		"label": "",
 		"url": "/member/join",
-		"topMenu": true,
 		"title": "SOAJS.IO | Join",
 		"tplPath": "custom/modules/member/register/directives/main.html",
 		"scripts": ["custom/modules/member/register/controller.js"],
