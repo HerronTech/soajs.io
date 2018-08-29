@@ -432,7 +432,8 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 		};
 		
 		$scope.step = {
-			"1": true,
+			"0": true,
+			"1": false,
 			"2": false,
 			"3": false,
 			"4": false
@@ -488,6 +489,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 				}
 			}
 			$scope.step = {
+				"0": false,
 				"1": false,
 				"2": false,
 				"3": false,

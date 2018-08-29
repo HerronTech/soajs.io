@@ -4,12 +4,22 @@
 			
 			<h2>Create New Project</h2>
 			<hr>
-			<div>
+			<div class="row">
 				<a class="pull-right btn btn-sm actionBtn Casablanca gray-txt comet-hover white-txt-hover" href="/member/projects">
 					<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;<b>Back to my projects</b>
 				</a>
 			</div>
-			<div id="step0"></div>
+			<div class="row" id="step0" ng-show="step['0']">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<h3>SAAS</h3>
+					<a href="" ng-click="goToStep('1')" class="btn btn-sm btn-warning">Proceed</a>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<h3>Enterprise</h3>
+					<uib-alert type="warning" class="text-center">Coming Soon!</uib-alert>
+					<!--<a href="" ng-click="goToStep('5')" class="btn btn-sm btn-warning">Proceed</a>-->
+				</div>
+			</div>
 			<div id="step1" ng-show="step['1']" class="steps">
 				<p class="stepMessageDetails">
 					<!--Select a package from the list below, and -->
@@ -717,6 +727,7 @@
 					</div>
 				</form>
 			</div>
+			
 			<div id="step3" ng-show="step['3']" class="steps">
 				<br/>
 				<br/>
@@ -888,6 +899,7 @@
 					</div>
 				</form>
 			</div>
+			
 			<div id="step4" ng-show="step['4']" class="steps">
 				<br/>
 				<br/>
@@ -920,9 +932,18 @@
 				</uib-alert>
 			
 			</div>
-			<br>
+			
+			<div id="step5" ng-show="step['5']" class="steps">
+				<ol>
+					<li>fill the form and submit</li>
+					<li>create new enterprise project in a new collection</li>
+					<li>send email to soajs team about the new enterprise project</li>
+					<li>next step we will add the download installer and generate license features</li>
+				</ol>
+			</div>
 			
 			<div ng-show="alerts && alerts.length > 0">
+				<br />
 				<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
 					{{alert.msg}}
 				</uib-alert>
