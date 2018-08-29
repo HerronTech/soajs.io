@@ -3,19 +3,19 @@ var projectApp = app.components;
 
 projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$location', '$uibModal', 'isUserLoggedIn', 'ngDataApi', '$localStorage', 'injectFiles',
 	function ($scope, $cookies, $timeout, $location, $uibModal, isUserLoggedIn, ngDataApi, $localStorage, injectFiles) {
-
+		
 		let innerPage = {
 			header: "Member Area",
 			slogan: "List Projects",
 			image: "custom/modules/member/images/member.jpg"
 		};
-
+		
 		$scope.updateParentScope('innerPage', innerPage);
-
+		
 		$scope.$on("$destroy", function () {
 			$scope.removeFromParentScope('innerPage');
 		});
-
+		
 		$scope.projects = {};
 		$scope.projects.active = [];
 		$scope.projects.pending = [];
@@ -23,12 +23,12 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 			$scope.$parent.$emit("refreshWelcome", {});
 			$location.path('/member/login');
 		}
-
+		
 		$scope.access = {
 			members: {}
 		};
 		constructModulePermissions($scope, $localStorage, $scope.access.members, membersConfig.permissions);
-
+		
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
@@ -39,7 +39,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 				$scope.alerts = [];
 			}, 30000);
 		};
-
+		
 		$scope.checkPending = function () {
 			let reqOptions = {
 				"method": "get",
@@ -53,31 +53,31 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 				}, 2000);
 			});
 		};
-
+		
 		$scope.openProject = function (project) {
 			overlayLoading.show();
-			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
-			$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
-			$cookies.remove("soajs_dashboard_login", { 'domain': interfaceDomain });
+			$cookies.put('soajs_project', project.name, {'domain': interfaceDomain});
+			$cookies.remove('soajs_dashboard_key', {'domain': interfaceDomain});
+			$cookies.remove("soajs_dashboard_login", {'domain': interfaceDomain});
 			var path = cloudUri + '#/dashboard';
 			$timeout(function () {
 				overlayLoading.hide();
 				window.open(path, '_blank');
 			}, 500);
 		};
-
+		
 		$scope.editProject = function (project) {
 			overlayLoading.show();
-			$cookies.put('soajs_project', project.name, { 'domain': interfaceDomain });
-			$cookies.remove('soajs_dashboard_key', { 'domain': interfaceDomain });
-			$cookies.remove("soajs_dashboard_login", { 'domain': interfaceDomain });
+			$cookies.put('soajs_project', project.name, {'domain': interfaceDomain});
+			$cookies.remove('soajs_dashboard_key', {'domain': interfaceDomain});
+			$cookies.remove("soajs_dashboard_login", {'domain': interfaceDomain});
 			var path = cloudUri + '#/project/settings';
 			$timeout(function () {
 				overlayLoading.hide();
 				window.open(path, '_blank');
 			}, 500);
 		};
-
+		
 		$scope.deleteProject = function (project, pending) {
 			var formConf = {
 				'name': '',
@@ -89,7 +89,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 					}
 				]
 			};
-
+			
 			var modalOptions = {
 				form: formConf,
 				'timeout': $timeout,
@@ -105,7 +105,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 						'btn': 'primary',
 						'action': function (formData) {
 							overlayLoading.show();
-
+							
 							let reqOptions = {
 								"method": "delete",
 								"routeName": "/projects/project",
@@ -144,10 +144,10 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 					}
 				]
 			};
-
+			
 			if (pending) {
 				overlayLoading.show();
-
+				
 				let reqOptions = {
 					"method": "delete",
 					"routeName": "/projects/project",
@@ -178,9 +178,9 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 			else {
 				buildFormWithModal($scope, $uibModal, modalOptions);
 			}
-
+			
 		};
-
+		
 		$scope.manageUsers = function (project) {
 			$scope.userCookie = $localStorage.soajs_user;
 			var groupsConfig = {
@@ -202,7 +202,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 					]
 				}
 			};
-
+			
 			var userCookie = $scope.userCookie;
 			var tenantId = userCookie.tenant.id;
 			var opts = {
@@ -215,7 +215,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 					'tId': tenantId
 				}
 			};
-
+			
 			invokeApi($scope, ngDataApi, opts, function (error, response) {
 				if (error) {
 					$scope.alerts.push({
@@ -235,10 +235,10 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 							'selected': sel
 						});
 					}
-
+					
 					var config = angular.copy(groupsConfig.users);
 					config.entries[0].value = value;
-
+					
 					var options = {
 						timeout: $timeout,
 						form: config,
@@ -266,7 +266,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 										},
 										"data": postData
 									};
-
+									
 									invokeApi($scope, ngDataApi, opts, function (error) {
 										if (error) {
 											$scope.form.displayAlert('danger', error.message);
@@ -298,7 +298,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 				}
 			});
 		};
-
+		
 		$scope.getList = function () {
 			$scope.projects.active = [];
 			$scope.projects.pending = [];
@@ -321,13 +321,13 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 					data.forEach(function (project) {
 						project.collpased = projectCount > 0;
 						projectCount++;
-
+						
 						if (project.status === 'pending') {
 							$scope.projects.pending.push(project);
 							return;
 						}
 						$scope.projects.active.push(project);
-
+						
 						project.mainResource = {};
 						project.resources.forEach(function (resource) {
 							if (resource.main) {
@@ -357,7 +357,7 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 								});
 							}
 						});
-
+						
 						let i = 0;
 						if (project.infra) {
 							for (let oneInfra in project.infra) {
@@ -375,9 +375,9 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 				}
 			});
 		};
-
+		
 		$scope.getList();
-
+		
 		injectFiles.injectCss("custom/modules/member/project/projects.css");
 	}]);
 
@@ -402,20 +402,20 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 			slogan: "Add Project",
 			image: "custom/modules/member/images/member.jpg"
 		};
-
+		
 		$scope.updateParentScope('innerPage', innerPage);
-
+		
 		$scope.$on("$destroy", function () {
 			$scope.removeFromParentScope('innerPage');
 		});
-
+		
 		if (!isUserLoggedIn($scope)) {
 			$scope.$parent.$emit("refreshWelcome", {});
 			$location.path('/member/login');
 		}
-
+		
 		$scope.hiddenTableBody = true;
-
+		
 		$scope.clusterSettings = {
 			"SOA-l7": {
 				"storageCapacity": "80 GB",
@@ -430,14 +430,14 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 				"storageIOPs": "240"
 			}
 		};
-
+		
 		$scope.step = {
 			"1": true,
 			"2": false,
 			"3": false,
 			"4": false
 		};
-
+		
 		$scope.data = {
 			infraAws: false,
 			infraGoogle: false,
@@ -445,7 +445,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 			newCluster: false,
 			existingCluster: true
 		};
-
+		
 		$scope.project = {
 			ht_package: "SOA-l7",
 			name: "",
@@ -468,18 +468,18 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 				}
 			}
 		};
-
+		
 		$scope.alerts = [];
 		$scope.closeAlert = function (index) {
 			$scope.alerts.splice(index, 1);
 		};
-
+		
 		$scope.closeAllAlerts = function () {
 			$timeout(function () {
 				$scope.alerts = [];
 			}, 20000);
 		};
-
+		
 		$scope.goToStep = function (number, form) {
 			if (form) {
 				if (!form.$valid) {
@@ -495,7 +495,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 			};
 			$scope.step[number] = true;
 		};
-
+		
 		$scope.setInfra = function (infra) {
 			$scope.data.infra = infra;
 			if (infra === 'aws') {
@@ -533,7 +533,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 				$scope.data.infraAws = false;
 				$scope.data.infraGoogle = false;
 				if (!$scope.project.infra.azure) {
-					$scope.project.infra.azure= {
+					$scope.project.infra.azure = {
 						api: {
 							"project": "",
 							"token": ""
@@ -544,12 +544,12 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 				delete $scope.project.infra.aws;
 			}
 		};
-
+		
 		$scope.skipInfra = function () {
 			$scope.alerts = [];
 			$scope.goToStep('3');
 		};
-
+		
 		$scope.validateInfra = function () {
 			$scope.alerts = [];
 			var myToken;
@@ -571,7 +571,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 				$scope.goToStep('3');
 			}
 		};
-
+		
 		$scope.submitProject = function (form) {
 			$scope.alerts = [];
 			let successMsg = "Your project was created. It might take up to 10 minutes to be available in your active projects";
@@ -596,7 +596,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 					}
 				}
 			}
-
+			
 			overlayLoading.show();
 			invokeApi($scope, ngDataApi, {
 				"method": "post",
@@ -626,7 +626,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 				}
 			});
 		};
-
+		
 		$scope.setCluster = function (isNew) {
 			if (isNew) {
 				$scope.data.newCluster = true;
@@ -639,5 +639,5 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 				// $scope.project.resource.deployCluster = false;
 			}
 		};
-
+		
 	}]);

@@ -1,14 +1,6 @@
 <div class='row section-padding'>
 	<div class="container" ng-controller="listProjects">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-			<div ng-show="alerts && alerts.length > 0">
-				<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
-					{{alert.msg}}
-				</uib-alert>
-				<br/>
-			</div>
-
 			<h2>My projects</h2>
 			<hr>
 			<div>
@@ -18,53 +10,81 @@
 				</a>
 			</div>
 			<br>
+			
+			<div ng-show="alerts && alerts.length > 0">
+				<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+					{{alert.msg}}
+				</uib-alert>
+				<br/>
+			</div>
+			
 			<uib-tabset>
 				<uib-tab>
 					<uib-tab-heading>Active Projects</uib-tab-heading>
 					<br>
 					<div class="alert alert-warning" ng-if="projects.active.length === 0">
-						There are no active projects yet. Please click on <strong>"Create New Project"</strong> to
-						create a project. </br>
+						No projects available, click on <strong>"Create New Project"</strong> above to create your first project. </br>
 						<span ng-if="projects.pending.length === 1"><strong>Note:</strong> There is currently <strong>{{projects.pending.length}}
 							pending</strong> project. It should be activated in a few moments and will appear under this tab.</span>
 						<span ng-if="projects.pending.length > 1"><strong>Note:</strong> There are currently <strong>{{projects.pending.length}}
 							pending</strong> projects. They should be activated in a few moments and will appear under this tab.</span>
 					</div>
 					<uib-accordion close-others="false">
-						<uib-accordion-group class="blueAccordion" ng-repeat="project in projects.active">
+						<uib-accordion-group ng-repeat="project in projects.active" is-open="$first">
 							<uib-accordion-heading>
-								<span class="icon icon-barcode"></span>{{project.name}}
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="pull-left hidden-xs">
+											{{project.name}}
+										</div>
+										<div class="hidden-lg hidden-md hidden-sm">
+											{{project.name}}
+										</div>
+										<div class="hidden-lg hidden-lg hidden-md hidden-sm"><br /></div>
+										<div class="pull-right hidden-xs">
+											<a ng-if="project.status!=='pending'" ng-click="openProject(project)" href="" class="btn btn-success actionBtn white-text">
+												<span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;&nbsp;<b>Open</b>
+											</a>&nbsp;
+											<a ng-if="project.status!=='pending'" ng-click="editProject(project)" href="" class="btn btn-warning actionBtn white-text">
+												<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;&nbsp;<b>Edit</b>
+											</a>&nbsp;
+											<a ng-show="access.members.adminGroup.addUsers" ng-if="project.status!=='pending'" ng-click="manageUsers(project)" href="" class="btn btn-sm actionBtn btn-primary white-txt-hover">
+												<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;<b>Assign Users</b>
+											</a>&nbsp;
+											<a ng-click="deleteProject(project)" href="" class="btn btn-sm red-danger actionBtn white-text">
+												<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;<b>Delete</b>
+											</a>
+										</div>
+										<div class="hidden-lg hidden-md hidden-sm">
+											<a ng-if="project.status!=='pending'" ng-click="openProject(project)" href="" class="btn btn-success actionBtn white-text">
+												<span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;&nbsp;<b>Open</b>
+											</a>&nbsp;
+											<a ng-if="project.status!=='pending'" ng-click="editProject(project)" href="" class="btn btn-warning actionBtn white-text">
+												<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;&nbsp;<b>Edit</b>
+											</a>&nbsp;
+											<a ng-show="access.members.adminGroup.addUsers" ng-if="project.status!=='pending'" ng-click="manageUsers(project)" href="" class="btn btn-sm actionBtn btn-primary white-txt-hover">
+												<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;<b>Assign Users</b>
+											</a>&nbsp;
+											<a ng-click="deleteProject(project)" href="" class="btn btn-sm red-danger actionBtn white-text">
+												<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;<b>Delete</b>
+											</a>
+										</div>
+									</div>
+								</div>
 							</uib-accordion-heading>
-
 							<div class="row">
-								<div class="col-md-7">
-									<div ng-if="project.ts"><b>Created</b>:&nbsp;{{project.ts|date}}</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 									<span class="description">{{project.description}}</span>
 								</div>
-								<div class="col-md-5 t-right">
-									<a ng-if="project.status!=='pending'" ng-click="openProject(project)" class="btn btn-warning actionBtn white-text" href="">
-										<span class="glyphicon glyphicon-folder-open"></span>
-										<b>Open</b>
-									</a>&nbsp;
-									<a ng-if="project.status!=='pending'" ng-click="editProject(project)" href="" class="btn btn-warning actionBtn white-text">
-										<span class="glyphicon glyphicon-edit"></span>
-										<b>Edit</b>
-									</a>&nbsp;
-									<a ng-show="access.members.adminGroup.addUsers" ng-if="project.status!=='pending'" ng-click="manageUsers(project)" href="" class="btn btn-sm actionBtn btn-primary white-txt-hover">
-										<span class="glyphicon glyphicon-user"></span>
-										<b>Assign Users</b>
-									</a>&nbsp;
-									<a ng-click="deleteProject(project)" href="" class="btn btn-sm red-danger actionBtn white-text">
-										<span class="glyphicon glyphicon-remove"></span>
-										<b>Delete</b>
-									</a>
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+									<div ng-if="project.ts"><b>Created</b>:&nbsp;{{project.ts|date}}</div>
 								</div>
 							</div>
 							<hr>
-							<div class="row panelScroller">
-								<div class="col-md-12">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<div class="row margin-top-bottom-5">
-										<div class="col-md-6 projectLabel">
+										<div class="col-lg-6 col-md-6 projectLabel">
 											<label>Package</label>
 										</div>
 										<div class="col-md-3">
@@ -89,7 +109,6 @@
 										<!--</a>-->
 										<!--</div>-->
 									</div>
-									<hr class="yellowbar">
 									<div class="row margin-top-bottom-5" ng-if="project.agg">
 										<div class="col-md-6 projectLabel">
 											<label>Package & Add-Ons Limit</label>
@@ -100,58 +119,53 @@
 											</div>
 										</div>
 									</div>
-									<hr>
-									<div class="row">
-										<div ng-if="project.mainResource" class="col-md-12">
-											<accordion close-others="false">
-												<accordion-group is-open="true">
-													<accordion-heading>
-														<img height="24" ng-src="/custom/modules/member/project/images/resources/{{project.mainResource.driver}}/logo.png">&nbsp;
-														<span class="small-accordion-header text-uppercase">{{project.mainResource.driver}}</span>
-													</accordion-heading>
-
-													<div class="one-deployment">
-														<div class="row margin-top-bottom-5">
-															<div class="col-md-6 projectLabel">
-																<label>Cluster Name</label>
-															</div>
-															<div class="col-md-6">
-																{{project.mainResource.projectName}} -
-																{{project.mainResource.api.clusterName}}
-															</div>
-														</div>
-														<div class="row margin-top-bottom-5">
-															<div class="col-md-6 projectLabel">
-																<label>Provider</label>
-															</div>
-															<div class="col-md-6">
-																{{project.mainResource.providerSettings.backingProviderName}}
-															</div>
-														</div>
-														<div class="row margin-top-bottom-5">
-															<div class="col-md-6 projectLabel">
-																<label>Region</label>
-															</div>
-															<div class="col-md-6">
-																{{project.mainResource.providerSettings.regionName}}
-															</div>
-														</div>
-														<div class="row margin-top-bottom-5">
-															<div class="col-md-6 projectLabel">
-																<label>Size</label>
-															</div>
-															<div class="col-md-6">
-																{{project.mainResource.providerSettings.instanceSizeName}}
-															</div>
-														</div>
-														<hr class="yellowbar">
-													</div>
-												</accordion-group>
-											</accordion>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div ng-if="project.mainResource" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+										<div class="one-deployment">
+											<div class="row margin-top-bottom-5">
+												<div class="col-md-6 projectLabel">
+													<label>Cluster Name</label>
+												</div>
+												<div class="col-md-6">
+													{{project.mainResource.projectName}} -
+													{{project.mainResource.api.clusterName}}
+												</div>
+											</div>
+											<div class="row margin-top-bottom-5">
+												<div class="col-md-6 projectLabel">
+													<label>Provider</label>
+												</div>
+												<div class="col-md-6">
+													{{project.mainResource.providerSettings.backingProviderName}}
+												</div>
+											</div>
+											<div class="row margin-top-bottom-5">
+												<div class="col-md-6 projectLabel">
+													<label>Region</label>
+												</div>
+												<div class="col-md-6">
+													{{project.mainResource.providerSettings.regionName}}
+												</div>
+											</div>
+											<div class="row margin-top-bottom-5">
+												<div class="col-md-6 projectLabel">
+													<label>Size</label>
+												</div>
+												<div class="col-md-6">
+													{{project.mainResource.providerSettings.instanceSizeName}}
+												</div>
+											</div>
 										</div>
 									</div>
+									<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+										<img height="24" ng-src="/custom/modules/member/project/images/resources/{{project.mainResource.driver}}/logo.png">&nbsp;
+										<span class="small-accordion-header text-uppercase">{{project.mainResource.driver}}</span>
+									</div>
 								</div>
-								<br>
 							</div>
 						</uib-accordion-group>
 					</uib-accordion>
@@ -161,32 +175,44 @@
 						Pending Projects
 					</uib-tab-heading>
 					<div class="text-right">
-						<input value="Check Progress" ng-click="checkPending()" type="button" class="btn btn-warning white-text">
+						<input value="Check Progress" ng-click="checkPending()" type="button" class="btn btn-sm btn-warning white-text">
 					</div>
 					<br>
 					<uib-accordion close-others="false">
-						<uib-accordion-group class="blueAccordion pending-project" ng-repeat="project in projects.pending">
+						<uib-accordion-group class="pending-project" ng-repeat="project in projects.pending" is-open="$first">
 							<uib-accordion-heading>
-								<span class="icon icon-barcode"></span>{{project.name}}
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<div class="pull-left hidden-xs">
+											{{project.name}}
+										</div>
+										<div class="hidden-lg hidden-md hidden-sm">
+											{{project.name}}
+										</div>
+										<div class="hidden-lg hidden-lg hidden-md hidden-sm"><br /></div>
+										<div class="pull-right hidden-xs">
+											<a ng-click="deleteProject(project, true)" href="" class="btn btn-sm red-danger actionBtn white-text">
+												<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;<b>Delete</b>
+											</a>
+										</div>
+										<div class="hidden-lg hidden-md hidden-sm">
+											<a ng-click="deleteProject(project, true)" href="" class="btn btn-sm red-danger actionBtn white-text">
+												<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;<b>Delete</b>
+											</a>
+										</div>
+									</div>
+								</div>
 							</uib-accordion-heading>
-
 							<div class="row">
-								<div class="col-md-1"></div>
-								<div class="col-md-7">
-									<div ng-if="project.ts"><b>Created</b>:&nbsp;{{project.ts|date}}</div>
+								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 									<span class="description">{{project.description}}</span>
 								</div>
-								<div class="col-md-3 t-right">
-
-									<a ng-click="deleteProject(project, true)" href="" class="btn btn-sm red-danger actionBtn white-text">
-										<span class="glyphicon glyphicon-remove"></span>
-										<b>Delete</b>
-									</a>
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+									<div ng-if="project.ts"><b>Created</b>:&nbsp;{{project.ts|date}}</div>
 								</div>
-								<div class="col-md-1"></div>
 							</div>
 							<hr>
-							<div class="row panelScroller">
+							<div class="row">
 								<div class="col-md-12">
 									<div class="row margin-top-bottom-5">
 										<div class="col-md-6 projectLabel">
@@ -214,7 +240,6 @@
 										<!--</a>-->
 										<!--</div>-->
 									</div>
-									<hr class="yellowbar">
 									<div class="row margin-top-bottom-5" ng-if="project.agg">
 										<div class="col-md-6 projectLabel">
 											<label>Package & Add-Ons Limit</label>
@@ -225,12 +250,7 @@
 											</div>
 										</div>
 									</div>
-									<hr>
-									<div class="row">
-
-									</div>
 								</div>
-								<br>
 							</div>
 						</uib-accordion-group>
 					</uib-accordion>
