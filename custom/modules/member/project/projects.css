@@ -90,10 +90,6 @@
     border-right: none;
 }
 
-.packagesTable .fa-check {
-    color: green;
-}
-
 .packagesTable .fa-times {
     color: red;
 }
