@@ -441,6 +441,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 		$scope.data = {
 			infraAws: false,
 			infraGoogle: false,
+			infraAzure: false,
 			newCluster: false,
 			existingCluster: true
 		};
@@ -500,7 +501,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 			if (infra === 'aws') {
 				$scope.data.infraAws = true;
 				$scope.data.infraGoogle = false;
-				delete $scope.project.infra.google;
+				$scope.data.infraAzure = false;
 				if (!$scope.project.infra.aws) {
 					$scope.project.infra.aws = {
 						api: {
@@ -508,10 +509,13 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 						}
 					};
 				}
+				delete $scope.project.infra.google;
+				delete $scope.project.infra.azure;
 			}
 			if (infra === 'google') {
 				$scope.data.infraGoogle = true;
 				$scope.data.infraAws = false;
+				$scope.data.infraAzure = false;
 				if (!$scope.project.infra.google) {
 					$scope.project.infra.google = {
 						api: {
@@ -520,6 +524,23 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 						}
 					};
 				}
+				delete $scope.project.infra.aws;
+				delete $scope.project.infra.azure;
+			}
+			
+			if (infra === 'azure') {
+				$scope.data.infraAzure = true;
+				$scope.data.infraAws = false;
+				$scope.data.infraGoogle = false;
+				if (!$scope.project.infra.azure) {
+					$scope.project.infra.azure= {
+						api: {
+							"project": "",
+							"token": ""
+						}
+					};
+				}
+				delete $scope.project.infra.google;
 				delete $scope.project.infra.aws;
 			}
 		};
