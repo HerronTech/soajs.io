@@ -383,47 +383,35 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 
 projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
 	function ($scope, $location, $timeout, isUserLoggedIn, ngDataApi, injectFiles) {
-		
-		injectFiles.injectCss("custom/modules/member/project/projects.css");
-		
-		$scope.alerts = [];
-		$scope.closeAlert = function (index) {
-			$scope.alerts.splice(index, 1);
-		};
-		
-		$scope.closeAllAlerts = function () {
-			$timeout(function () {
-				$scope.alerts = [];
-			}, 30000);
-		};
-		
-		let innerPage = {
-			header: "Member Area",
-			slogan: "Add Project",
-			image: "custom/modules/member/images/member.jpg"
-		};
-		
-		$scope.updateParentScope('innerPage', innerPage);
-		
-		$scope.$on("$destroy", function () {
-			$scope.removeFromParentScope('innerPage');
-		});
-		
-		if (!isUserLoggedIn($scope)) {
-			$scope.$parent.$emit("refreshWelcome", {});
-			$location.path('/member/login');
-		}
-		
-		$scope.hiddenTableBody = true;
+	
+		$scope.sectionTitle = "Create New Project";
 		
 		$scope.clusterSettings = {
-			"SOA-l7": {
+			"starter": {
 				"storageCapacity": "80 GB",
 				"connectivity": "2000",
 				"ram": "8 GB",
 				"storageIOPs": "240"
 			},
-			"MC-l7": {
+			"lean": {
+				"storageCapacity": "80 GB",
+				"connectivity": "4000",
+				"ram": "16 GB",
+				"storageIOPs": "240"
+			},
+			"agile": {
+				"storageCapacity": "80 GB",
+				"connectivity": "4000",
+				"ram": "16 GB",
+				"storageIOPs": "240"
+			},
+			"power": {
+				"storageCapacity": "80 GB",
+				"connectivity": "4000",
+				"ram": "16 GB",
+				"storageIOPs": "240"
+			},
+			"flex": {
 				"storageCapacity": "80 GB",
 				"connectivity": "4000",
 				"ram": "16 GB",
@@ -448,7 +436,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 		};
 		
 		$scope.project = {
-			ht_package: "SOA-l7",
+			ht_package: "starter",
 			name: "",
 			description: "",
 			infra: {},
@@ -488,6 +476,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 					return;
 				}
 			}
+			
 			$scope.step = {
 				"0": false,
 				"1": false,
@@ -496,6 +485,15 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 				"4": false
 			};
 			$scope.step[number] = true;
+			
+			if(number > 0){
+				if(number < 5){
+					$scope.sectionTitle = "Create New SAAS Project";
+				}
+				if(number === 5){
+					$scope.sectionTitle = "Create New Enterprise Project";
+				}
+			}
 		};
 		
 		$scope.setInfra = function (infra) {
@@ -642,4 +640,22 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 			}
 		};
 		
+		let innerPage = {
+			header: "Member Area",
+			slogan: "Add Project",
+			image: "custom/modules/member/images/member.jpg"
+		};
+		
+		$scope.updateParentScope('innerPage', innerPage);
+		
+		$scope.$on("$destroy", function () {
+			$scope.removeFromParentScope('innerPage');
+		});
+		
+		if (!isUserLoggedIn($scope)) {
+			$scope.$parent.$emit("refreshWelcome", {});
+			$location.path('/member/login');
+		}
+		
+		injectFiles.injectCss("custom/modules/member/project/projects.css");
 	}]);

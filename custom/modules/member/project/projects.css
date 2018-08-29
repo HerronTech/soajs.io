@@ -193,3 +193,48 @@ accordion h4 a {
         padding-right: 1px;
     }
 }
+
+.projects div.storeElement{
+    min-height:300px;
+    margin:0;
+}
+
+.projects div.storeElement .content{
+    margin:0 5px;
+    border: 1px solid #333333;
+    border-radius: 8px;
+    min-height:298px;
+    width:100%;
+    display:table;
+}
+
+.projects div.storeElement .header {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width:100%;
+    padding: 10px;
+    height: 45px;
+}
+
+.projects div.storeElement .header h3{
+    margin: 0;
+}
+
+.projects div.storeElement .body{
+    border-top: solid 1px #cccccc;
+    padding: 20px;
+    min-height:200px;
+    width:100%;
+}
+
+.projects div.storeElement .footer{
+    margin-top:4px;
+    margin-bottom:20px;
+    padding: 0 20px;
+    display:table;
+    width:100%;
+}
+
+.projects .margin0{
+    margin: 0;
+}
