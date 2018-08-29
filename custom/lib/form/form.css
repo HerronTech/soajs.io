@@ -87,6 +87,7 @@ form.css-form .header h3 {
 
 form.css-form .footer {
     text-align: right;
+    margin-top: 15px;
 }
 
 form.css-form .footer .footer-msg {
@@ -95,4 +96,8 @@ form.css-form .footer .footer-msg {
 
 form.css-form .footer input {
     margin-left: 5px;
+}
+
+form.css-form .last-entry .form-group {
+    margin: 0;
 }
