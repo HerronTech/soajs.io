@@ -48,9 +48,9 @@
 											<a ng-if="project.status!=='pending'" ng-click="editProject(project)" href="" class="btn btn-warning actionBtn white-text">
 												<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;&nbsp;<b>Edit</b>
 											</a>&nbsp;
-											<a ng-show="access.members.adminGroup.addUsers" ng-if="project.status!=='pending'" ng-click="manageUsers(project)" href="" class="btn btn-sm actionBtn btn-primary white-txt-hover">
-												<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;<b>Assign Users</b>
-											</a>&nbsp;
+											<!--<a ng-show="access.members.adminGroup.addUsers" ng-if="project.status!=='pending'" ng-click="manageUsers(project)" href="" class="btn btn-sm actionBtn btn-primary white-txt-hover">-->
+												<!--<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;&nbsp;<b>Assign Users</b>-->
+											<!--</a>&nbsp;-->
 											<a ng-click="deleteProject(project)" href="" class="btn btn-sm red-danger actionBtn white-text">
 												<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;&nbsp;<b>Delete</b>
 											</a>
@@ -135,7 +135,7 @@
 													{{project.mainResource.api.clusterName}}
 												</div>
 											</div>
-											<div class="row margin-top-bottom-5">
+											<div class="row margin-top-bottom-5" ng-if="project.mainResource.providerSettings && project.mainResource.providerSettings.backingProviderName">
 												<div class="col-md-6 projectLabel">
 													<label>Provider</label>
 												</div>

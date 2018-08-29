@@ -387,31 +387,31 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 		$scope.sectionTitle = "Create New Project";
 		
 		$scope.clusterSettings = {
-			"starter": {
+			"START": {
 				"storageCapacity": "80 GB",
 				"connectivity": "2000",
 				"ram": "8 GB",
 				"storageIOPs": "240"
 			},
-			"lean": {
+			"LEAN": {
 				"storageCapacity": "80 GB",
 				"connectivity": "4000",
 				"ram": "16 GB",
 				"storageIOPs": "240"
 			},
-			"agile": {
+			"AGILE": {
 				"storageCapacity": "80 GB",
 				"connectivity": "4000",
 				"ram": "16 GB",
 				"storageIOPs": "240"
 			},
-			"power": {
+			"POWER": {
 				"storageCapacity": "80 GB",
 				"connectivity": "4000",
 				"ram": "16 GB",
 				"storageIOPs": "240"
 			},
-			"flex": {
+			"FLEX": {
 				"storageCapacity": "80 GB",
 				"connectivity": "4000",
 				"ram": "16 GB",
@@ -436,7 +436,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 		};
 		
 		$scope.project = {
-			ht_package: "starter",
+			ht_package: "START",
 			name: "",
 			description: "",
 			infra: {},
