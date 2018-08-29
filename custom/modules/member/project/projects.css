@@ -234,3 +234,10 @@ accordion h4 a {
 .projects .margin0{
     margin: 0;
 }
+
+.ace_editor {
+    margin: 0;
+    width: 100%;
+    border-radius: 10px;
+    border: solid 1px #ccc;
+}

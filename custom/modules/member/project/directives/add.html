@@ -145,8 +145,7 @@
 								
 								<div class="form-group">
 									<label>Token</label>
-									<div id="token" ui-ace="{maxLines: Infinity, useWrapMode : true, showGutter: true, mode: 'json', firstLineNumber: 1}" ng-model="project.infra.google.api.token" style="height:200px;"></div>
-									<!--<textarea rows="5" ng-model="project.infra.google.api.token" type="text" placeholder="Token" class="form-control" tooltip="Enter the token associated with this project..." required>-->
+									<div id="token" ui-ace="{maxLines: Infinity, mode: 'json', firstLineNumber: 1}" ng-model="project.infra.google.api.token" style="height:100px;"></div>
 										</textarea>
 									<div class="fieldMsg hint">
 										Tokens allow you to communicate with Google Cloud APIs to manage your
