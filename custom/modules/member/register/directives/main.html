@@ -1,79 +1,68 @@
 <div class='row section-padding'>
-	<div class="container">
-		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-			<div ng-controller="registerCtrl">
-
-				<div id="step1" ng-if="openForm">
-					<div>
-						Welcome to HerronTech! be amongst the first to experience the prerelease of the saas version of
-						the
-						SOAJS enterprise platform. To determine if your company is a good candidate for the platform,
-						please
-						provide the following information. Once our sales engineering team reviews and approves your
-						request, we
-						will provide you with the credentials required to login and experience the future of cloud
-						orchestration, agile software development, multi tenant deployment, API management and much
-						more.
-					</div>
-					<br>
-					<div class="formback">
-
-						<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
-
-							<div class="form-group">
-								<input ng-model="contact.firstName" type="text" placeholder="First Name *" class="form-control" tooltip="Enter your first name..." required/>
-							</div>
-							<div class="form-group">
-								<input ng-model="contact.lastName" type="text" placeholder="Last Name *" class="form-control" tooltip="Enter your last name..." required/>
-							</div>
-							<div class="form-group">
-								<input ng-model="contact.email" type="email" class="form-control" placeholder="Your Email *" tooltip="Enter your email address..." required/>
-							</div>
-
-							<div class="col-md-12 col-sm-12 form-group">
-								<div vc-recaptcha theme="'light'" key="siteKey" class="pull-left" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()"></div>
-								<input type="submit" class="btn btn-warning pull-right" value="Submit" ng-disabled="!contact.captcha && !contactForm.$valid"/>
-							</div>
-							<br class="clearfix">
-						</form>
-						<br class="clearfix">
-						<div ng-show="alerts && alerts.length > 0">
-							<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
-								{{alert.msg}}
-							</uib-alert>
-							<br/>
-						</div>
-					</div>
-
-				</div>
-
-				<div ng-if="!openForm" id="step2">
-					<uib-alert type="info">
-						We have received your request to join.
-						Please check your email for the login information.
-						<!--Someone from herrontech team will contact you shortly.-->
-						<hr>
-						<table width="100%" class="infoTable">
-							<tr>
-								<td><b>Your Name:</b></td>
-								<td width="70%">{{confirm.firstName}} {{confirm.lastName}}</td>
-							</tr>
-
-							<tr>
-								<td class="group">
-									<b>Email:</b>
-								</td>
-								<td>{{confirm.email}}
-								</td>
-							</tr>
-						</table>
-
-					</uib-alert>
-				</div>
-
+	<div class="container" ng-controller="registerCtrl">
+		<div ng-if="openForm">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<h3>Register</h3>
 			</div>
-
+			<div class="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+				<p>Benefits & Advantages</p>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<img ng-src="https://as2.ftcdn.net/jpg/00/98/98/07/500_F_98980705_Um7KQijJC8T4xl5y0Pg90vYguHr8zo8J.jpg" alt="" width="100%">
+				</div>
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+					<ul>
+						<li>Download Recipes and Templates from the <a href="/store">Store</a></li>
+						<li>Create & Manage projects using our <b>SAAS</b> or our <b>Enterprise</b> solution</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+				<div ng-show="alerts && alerts.length > 0">
+					<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+						{{alert.msg}}
+					</uib-alert>
+					<br/>
+				</div>
+				<div class="formback row">
+					<form name="contactForm" novalidate ng-submit="contactForm.$valid && sendContact()">
+						<div class="row">
+							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<input ng-model="contact.firstName" type="text" placeholder="First Name *" class="form-control" uib-tooltip="Enter your first name..." required/>
+							</div>
+							<div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<input ng-model="contact.lastName" type="text" placeholder="Last Name *" class="form-control" uib-tooltip="Enter your last name..." required/>
+							</div>
+							<div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<input ng-model="contact.email" type="email" class="form-control" placeholder="Your Email *" uib-tooltip="Enter your email address..." required/>
+							</div>
+						</div>
+						
+						<div class="row">
+							
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<div vc-recaptcha theme="'light'" key="siteKey" on-create="setWidgetId(widgetId)" on-success="setResponse(response)" on-expire="cbExpiration()"></div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right hidden-sm hidden-xs">
+								<input type="submit" class="btn btn-sm btn-warning" value="Submit" ng-disabled="!contact.captcha && !contactForm.$valid"/>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center hidden-lg hidden-md">
+								<input type="submit" class="btn btn-sm btn-warning" value="Submit" ng-disabled="!contact.captcha && !contactForm.$valid"/>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div ng-if="!openForm" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<h3>Thank you for Joining ...</h3>
+			<uib-alert type="info">
+				<p>
+					We have received your request to join and your account is being created, please check your email for
+					the further details.
+				</p>
+			</uib-alert>
+			<a href="/member/login" class="btn btn-sm btn-warning pull-right" uib-tooltip="Back to Login Page">Login</a>
 		</div>
 	</div>
 </div>

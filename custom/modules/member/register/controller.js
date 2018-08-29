@@ -2,18 +2,6 @@
 var registerApp = app.components;
 registerApp.controller('registerCtrl', ['$scope', '$timeout', 'ngDataApi', function ($scope, $timeout, ngDataApi) {
 	
-	let innerPage = {
-		header: "Member Area",
-		slogan: "Login & Register",
-		image: "custom/modules/member/images/member.jpg"
-	};
-	
-	$scope.updateParentScope('innerPage', innerPage);
-	
-	$scope.$on("$destroy", function () {
-		$scope.removeFromParentScope('innerPage');
-	});
-
 	$scope.openForm = true;
 	$scope.confirm = {};
 
@@ -89,4 +77,16 @@ registerApp.controller('registerCtrl', ['$scope', '$timeout', 'ngDataApi', funct
 
 		}
 	}
+	
+	let innerPage = {
+		header: "Member Area",
+		slogan: "Login & Register",
+		image: "custom/modules/member/images/member.jpg"
+	};
+	
+	$scope.updateParentScope('innerPage', innerPage);
+	
+	$scope.$on("$destroy", function () {
+		$scope.removeFromParentScope('innerPage');
+	});
 }]);

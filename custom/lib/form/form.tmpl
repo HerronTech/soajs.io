@@ -23,7 +23,6 @@
 			<div ng-include="'custom/lib/form/inputs.tmpl'"></div>
 		</div>
 		<div ng-class="{'footer': !form.modal, 'modal-footer': form.modal}">
-			<br ng-if="!form.modal"/>
 			<div ng-class="{'submittedForm': form.submitted === true}">
 				<div class="note">
 					<uib-alert type="danger" close="form.closeNote()">

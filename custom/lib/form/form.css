@@ -88,6 +88,11 @@ form.css-form .header h3 {
 form.css-form .footer {
     text-align: right;
 }
+
+form.css-form .footer .footer-msg {
+    float: left;
+}
+
 form.css-form .footer input {
     margin-left: 5px;
 }

@@ -47,9 +47,9 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 			name: 'loginForm',
 			formConf: {
 				'name': 'login',
-				'label': "Login",
+				'label': "",
 				'msgs': {
-					'footer': ''
+					'footer': '<a href="/forgetPassword"> Forgot your password? </a>'
 				},
 				'entries': [
 					{
@@ -69,7 +69,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 						'type': 'password',
 						'placeholder': "Enter Password",
 						'value': '',
-						'fieldMsg': '<a href="/forgetPassword"> Forgot your password? </a>',
+						// 'fieldMsg': '<a href="/forgetPassword"> Forgot your password? </a>',
 						'tooltip': "Passwords are alphanumeric and support _ character only",
 						'required': true
 					}
@@ -80,18 +80,6 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 		if (isUserLoggedIn($scope)) {
 			$location.path('/member/profile');
 		}
-		
-		let innerPage = {
-			header: "Member Area",
-			slogan: "Login & Register",
-			image: "custom/modules/member/images/member.jpg"
-		};
-		
-		$scope.updateParentScope('innerPage', innerPage);
-		
-		$scope.$on("$destroy", function () {
-			$scope.removeFromParentScope('innerPage');
-		});
 		
 		var formConfig = loginConfig.formConf;
 		formConfig.timeout = $timeout;
@@ -237,6 +225,17 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 		
 		buildForm($scope, null, formConfig);
 		
+		let innerPage = {
+			header: "Member Area",
+			slogan: "Login & Register",
+			image: "custom/modules/member/images/member.jpg"
+		};
+		
+		$scope.updateParentScope('innerPage', innerPage);
+		
+		$scope.$on("$destroy", function () {
+			$scope.removeFromParentScope('innerPage');
+		});
 	}]);
 
 loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataApi', '$location', 'isUserLoggedIn',
