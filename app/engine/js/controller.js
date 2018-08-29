@@ -3,10 +3,20 @@
 //detect domain
 if (location && location.host) {
 	let customDomain = location.host;
-	customDomain = customDomain.split(":")[0];
-	customDomain = customDomain.split(".");
-	customDomain.shift();
-	customDomain = customDomain.join(".");
+	
+	//check if port is part of the domain host location value
+	if(customDomain.includes(":")){
+		customDomain = customDomain.split(":")[0];
+	}
+	
+	//check if domain host location value is a subdomain or has www
+	if(customDomain.includes(".")){
+		let t = customDomain.split(".");
+		if(t.length > 2){
+			t.shift();
+			customDomain = t.join(".");
+		}
+	}
 	myApplicationDomain = customDomain;
 }
 
