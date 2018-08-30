@@ -1,6 +1,6 @@
 <div ng-show="!entry.hidden">
 	<label ng-hide="entry.hideLabel">{{entry.label}}</label>
-	<input class=" form-control" id="{{entry.name}}" name="{{entry.name}}" ng-model="form.formData[entry.name]" type="{{entry.type}}" value="{{entry.value}}" placeholder="{{entry.placeholder}}"
+	<input class="form-control" id="{{entry.name}}" name="{{entry.name}}" ng-model="form.formData[entry.name]" type="{{entry.type}}" value="{{entry.value}}" placeholder="{{entry.placeholder}}"
 	       uib-tooltip="{{entry.tooltip}}" ng-required="entry.required" ng-click="form.call(entry.onAction, entry.name , form.formData[entry.name], form)" maxlength="{{entry.maxlength}}" ng-if="entry.disabled" disabled/>
 	<input class="form-control" id="{{entry.name}}" name="{{entry.name}}" ng-model="form.formData[entry.name]" type="{{entry.type}}" value="{{entry.value}}" placeholder="{{entry.placeholder}}"
 	       uib-tooltip="{{entry.tooltip}}" ng-required="entry.required" ng-click="form.call(entry.onAction, entry.name , form.formData[entry.name], form)" maxlength="{{entry.maxlength}}" ng-if="!entry.disabled"/>
