@@ -101,7 +101,7 @@ let navigation = [
 	{
 		"id": "forget-pw",
 		"url": "/forgetPassword",
-		"title": "SOAJS.IO | Password",
+		"title": "SOAJS.IO | Forgot Password",
 		"tplPath": "custom/modules/member/login/directives/forgetPw.html",
 		"scripts": [
 			"custom/modules/member/login/config.js",
@@ -142,7 +142,7 @@ let navigation = [
 		"id": "addProject",
 		"label": "Add Project",
 		"url": "/member/project/add",
-		"title": "SOAJS.IO | Add Project",
+		"title": "SOAJS.IO | Create New Project",
 		"tplPath": "custom/modules/member/project/directives/add.html",
 		"scripts": ["custom/modules/member/project/controller.js"],
 	},
@@ -150,7 +150,7 @@ let navigation = [
 		"id": "member-join",
 		"label": "",
 		"url": "/member/join",
-		"title": "SOAJS.IO | Join",
+		"title": "SOAJS.IO | Register",
 		"tplPath": "custom/modules/member/register/directives/main.html",
 		"scripts": ["custom/modules/member/register/controller.js"],
 	},
@@ -159,7 +159,7 @@ let navigation = [
 		"label": "Member Area",
 		"url": "/member/login",
 		"topMenu": true,
-		"title": "SOAJS.IO | Login to Member Area",
+		"title": "SOAJS.IO | Login",
 		"tplPath": "custom/modules/member/login/directives/main.html",
 		"scripts": ["custom/modules/member/login/controller.js"],
 	},
@@ -179,7 +179,7 @@ let navigation = [
 						"label": "My Profile",
 						"url": "/member/profile",
 						"topMenu": true,
-						"title": "SOAJS.IO | Profile",
+						"title": "SOAJS.IO | My Profile",
 						"tplPath": "custom/modules/member/account/directives/profile.html",
 						"scripts": [
 							"custom/modules/member/account/config.js",
@@ -191,7 +191,7 @@ let navigation = [
 						"label": "Logout",
 						"url": "/logout",
 						"topMenu": true,
-						"title": "SOAJS.IO | Login",
+						"title": "SOAJS.IO | Logout",
 						"tplPath": "custom/modules/member/login/directives/logout.html",
 						"scripts": ["custom/modules/member/login/controller.js"],
 					}
@@ -206,7 +206,7 @@ let navigation = [
 						"label": "My Projects",
 						"url": "/member/projects",
 						"topMenu": true,
-						"title": "SOAJS.IO | Projects",
+						"title": "SOAJS.IO | My Projects",
 						"tplPath": "custom/modules/member/project/directives/list.html",
 						"scripts": [
 							"custom/modules/member/config.js",
