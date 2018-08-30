@@ -214,6 +214,11 @@ accordion h4 a {
     margin: 0;
 }
 
+.projects div.storeElement table tr td i {
+    /*color:#31708f;*/
+    color:#337ab7;
+}
+
 .ace_editor {
     margin: 0;
     width: 100%;

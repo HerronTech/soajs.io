@@ -384,6 +384,8 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
 	function ($scope, $location, $timeout, isUserLoggedIn, ngDataApi, injectFiles) {
 	
+		$scope.collapsedHeadline = false;
+		
 		$scope.step = {
 			"0": true,
 			"1": false,

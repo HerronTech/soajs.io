@@ -1,11 +1,46 @@
 <div class="row">
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<p>
-			Creating a SOAJS project empowers with all the fundamental components for Microservices – Tightly
+			<a href="" ng-click="collapsedHeadline =!collapsedHeadline" title="Collapse/Expand Headline"><i class="glyphicon" ng-class="{'glyphicon-minus-sign' : !collapsedHeadline, 'glyphicon-plus-sign': collapsedHeadline}"></i></a>&nbsp;
+			Creating a SOAJS project empowers you with all the fundamental components for Microservices – Tightly
 			Interconnected with a Single-Pane-of-Glass View:
 		</p>
 	</div>
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="row" ng-show="collapsedHeadline">
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+				<span class="glyphicon glyphicon-info-sign" style="font-size: 24px; margin-top: 6px;"></span>
+			</div>
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+				<h5 class="orange-text">API Lifecycle Management</h5>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+				<span class="glyphicon glyphicon-info-sign" style="font-size: 24px; margin-top: 6px;"></span>
+			</div>
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+				<h5 class="orange-text">Multi-Cloud Orchestration</h5>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+				<span class="glyphicon glyphicon-info-sign" style="font-size: 24px; margin-top: 6px;"></span>
+			</div>
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+				<h5 class="orange-text">Release Management</h5>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+				<span class="glyphicon glyphicon-info-sign" style="font-size: 24px; margin-top: 6px;"></span>
+			</div>
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+				<h5 class="orange-text">IT Ops Automation</h5>
+			</div>
+		</div>
+	</div>
+	<div ng-show="!collapsedHeadline" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 		<div class="col-lg-6 col-md-6 col-sm-12">
 			<div class="row">
 				<div class="col-lg-1">
@@ -167,7 +202,11 @@
 								<td width="20%"><b>Limited To</b></td>
 								<td>
 									<ul>
-										<li><a href="https://cloud.mongodb.com/" target="_blank">MongoDB Atlas</a></li>
+										<li>
+											<a href="https://cloud.mongodb.com/" target="_blank">
+												<img ng-src="custom/modules/home/images/mongo.jpg" alt="MongoDB Atlas">
+											</a>
+										</li>
 									</ul>
 								</td>
 							</tr>
@@ -179,12 +218,21 @@
 							<tr>
 								<td width="20%"><b>Limited To</b></td>
 								<td>
-									<ul>
-										<li><a href="https://cloud.google.com/" target="_blank">Google Cloud</a></li>
-										<li><a href="https://portal.azure.com/" target="_blank">Microsoft Azure</a></li>
-										<li><a href="https://aws.amazon.com/console/" target="_blank">Amazon Web
-											Services</a></li>
-									</ul>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://cloud.google.com/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/gcp.jpg" alt="Google Cloud">
+										</a>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://portal.azure.com/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/azure.jpg" alt="Microsoft Azure">
+										</a>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://aws.amazon.com/console/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/aws.jpg" alt="Amazon Web Services">
+										</a>
+									</div>
 								</td>
 							</tr>
 							<tr>
@@ -195,10 +243,16 @@
 							<tr>
 								<td width="20%"><b>Limited To</b></td>
 								<td>
-									<ul>
-										<li><a href="https://github.com/" target="_blank">Github</a></li>
-										<li><a href="https://bitbucket.org/" target="_blank">Bitbucket</a></li>
-									</ul>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://github.com/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/github.jpg" alt="Github">
+										</a>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://bitbucket.org/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/bitbucket.jpg" alt="Bitbucket">
+										</a> <span class="small">(On Prem)</span>
+									</div>
 								</td>
 							</tr>
 							<tr>
@@ -209,10 +263,16 @@
 							<tr>
 								<td width="20%"><b>Limited To</b></td>
 								<td>
-									<ul>
-										<li><a href="https://travis-ci.org" target="_blank">Travis</a></li>
-										<li><a href="https://drone.io/" target="_blank">Drone</a> (OnPrem)</li>
-									</ul>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://travis-ci.org" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/travis.jpg" alt="Travis">
+										</a>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://drone.io/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/drone.jpg" alt="Drone">
+										</a> <span class="small">(On Prem)</span>
+									</div>
 								</td>
 							</tr>
 						</tbody>
@@ -256,12 +316,21 @@
 							<tr>
 								<td width="20%"><b>Supports</b></td>
 								<td>
-									<ul>
-										<li><a href="https://cloud.google.com/" target="_blank">Google Cloud</a></li>
-										<li><a href="https://portal.azure.com/" target="_blank">Microsoft Azure</a></li>
-										<li><a href="https://aws.amazon.com/console/" target="_blank">Amazon Web
-											Services</a></li>
-									</ul>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://cloud.google.com/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/gcp.jpg" alt="Google Cloud">
+										</a>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://portal.azure.com/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/azure.jpg" alt="Microsoft Azure">
+										</a>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://aws.amazon.com/console/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/aws.jpg" alt="Amazon Web Services">
+										</a>
+									</div>
 								</td>
 							</tr>
 							<tr>
@@ -272,10 +341,16 @@
 							<tr>
 								<td width="20%"><b>Supports</b></td>
 								<td>
-									<ul>
-										<li><a href="https://github.com/" target="_blank">Github</a></li>
-										<li><a href="https://bitbucket.org/" target="_blank">Bitbucket</a></li>
-									</ul>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://github.com/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/github.jpg" alt="Github">
+										</a>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://bitbucket.org/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/bitbucket.jpg" alt="Bitbucket">
+										</a> <span class="small">(On Prem)</span>
+									</div>
 								</td>
 							</tr>
 							<tr>
@@ -286,10 +361,16 @@
 							<tr>
 								<td width="20%"><b>Supports</b></td>
 								<td>
-									<ul>
-										<li><a href="https://travis-ci.org" target="_blank">Travis</a></li>
-										<li><a href="https://drone.io/" target="_blank">Drone</a> (OnPrem)</li>
-									</ul>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://travis-ci.org" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/travis.jpg" alt="Travis">
+										</a>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+										<a href="https://drone.io/" target="_blank">
+											<img width="100%" ng-src="custom/modules/home/images/drone.jpg" alt="Drone">
+										</a> <span class="small">(On Prem)</span>
+									</div>
 								</td>
 							</tr>
 						</tbody>
