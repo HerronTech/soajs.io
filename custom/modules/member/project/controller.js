@@ -4,18 +4,6 @@ var projectApp = app.components;
 projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$location', '$uibModal', 'isUserLoggedIn', 'ngDataApi', '$localStorage', 'injectFiles',
 	function ($scope, $cookies, $timeout, $location, $uibModal, isUserLoggedIn, ngDataApi, $localStorage, injectFiles) {
 		
-		let innerPage = {
-			header: "Member Area",
-			slogan: "List Projects",
-			image: "custom/modules/member/images/member.jpg"
-		};
-		
-		$scope.updateParentScope('innerPage', innerPage);
-		
-		$scope.$on("$destroy", function () {
-			$scope.removeFromParentScope('innerPage');
-		});
-		
 		$scope.projects = {};
 		$scope.projects.active = [];
 		$scope.projects.pending = [];
@@ -378,6 +366,18 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 		
 		$scope.getList();
 		
+		let innerPage = {
+			header: "Member Area",
+			slogan: "My Projects",
+			image: "custom/modules/member/images/member.jpg"
+		};
+		
+		$scope.updateParentScope('innerPage', innerPage);
+		
+		$scope.$on("$destroy", function () {
+			$scope.removeFromParentScope('innerPage');
+		});
+		
 		injectFiles.injectCss("custom/modules/member/project/projects.css");
 	}]);
 
@@ -642,7 +642,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 		
 		let innerPage = {
 			header: "Member Area",
-			slogan: "Add Project",
+			slogan: "Create New Project",
 			image: "custom/modules/member/images/member.jpg"
 		};
 		

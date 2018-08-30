@@ -1,14 +1,6 @@
 <div class='row section-padding'>
 	<div class="container" ng-controller="listProjects">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<div>
-				<a type="button" class="btn btn-warning white-text" href="/member/project/add">
-					<span class="glyphicon glyphicon-plus"></span>
-					Create New Project
-				</a>
-			</div>
-			<br>
-			
 			<div ng-show="alerts && alerts.length > 0">
 				<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
 					{{alert.msg}}
@@ -16,27 +8,33 @@
 				<br/>
 			</div>
 			
+			<div class="pull-right">
+				<a type="button" class="btn btn-sm btn-primary white-text" href="/member/project/add">
+					<span class="glyphicon glyphicon-plus"></span>
+					Create New Project
+				</a>
+			</div>
 			<uib-tabset>
 				<uib-tab>
 					<uib-tab-heading>Active</uib-tab-heading>
 					<br>
-					<div class="alert alert-warning" ng-if="projects.active.length === 0">
+					<uib-alert type="warning" ng-if="projects.active.length === 0">
 						No projects available, click on <strong>"Create New Project"</strong> above to create your first project. </br>
 						<span ng-if="projects.pending.length === 1"><strong>Note:</strong> There is currently <strong>{{projects.pending.length}}
 							pending</strong> project. It should be activated in a few moments and will appear under this tab.</span>
 						<span ng-if="projects.pending.length > 1"><strong>Note:</strong> There are currently <strong>{{projects.pending.length}}
 							pending</strong> projects. They should be activated in a few moments and will appear under this tab.</span>
-					</div>
+					</uib-alert>
 					<uib-accordion close-others="false">
 						<uib-accordion-group ng-repeat="project in projects.active" is-open="$first">
 							<uib-accordion-heading>
 								<div class="row">
 									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 										<div class="pull-left hidden-xs">
-											{{project.name}} ( bold )
+											<label>{{project.name}}</label>
 										</div>
 										<div class="hidden-lg hidden-md hidden-sm">
-											{{project.name}} ( bold )
+											<label>{{project.name}}</label>
 										</div>
 										<div class="hidden-lg hidden-lg hidden-md hidden-sm"><br /></div>
 										<div class="pull-right hidden-xs">
@@ -72,16 +70,15 @@
 								</div>
 							</uib-accordion-heading>
 							<div class="row">
-								<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-									<span class="description">{{project.description}}</span>
-								</div>
-								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-									<div ng-if="project.ts"><b>Created</b>:&nbsp;{{project.ts|date}}</div>
-								</div>
-							</div>
-							<hr>
-							<div class="row">
-								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<div class="row margin-top-bottom-5">
+										<div class="col-lg-6 col-md-6 projectLabel">
+											<label>Created</label>
+										</div>
+										<div class="col-md-3">
+											{{project.ts|date}}
+										</div>
+									</div>
 									<div class="row margin-top-bottom-5">
 										<div class="col-lg-6 col-md-6 projectLabel">
 											<label>Package</label>
@@ -119,61 +116,66 @@
 										</div>
 									</div>
 								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<span class="description">{{project.description}}</span>
+								</div>
 							</div>
 							<hr>
-							<div class="row">
-								<div ng-if="project.mainResource" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="row" ng-if="project.mainResource">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<p>The data of this project is persisted at:</p>
-									<div class="col-lg-8 col-md-8 col-sm-8 col-xs-6">
-										<div class="one-deployment">
-											<div class="row margin-top-bottom-5">
-												<div class="col-md-6 projectLabel">
-													<label>Cluster Name</label>
-												</div>
-												<div class="col-md-6">
-													{{project.mainResource.projectName}} -
-													{{project.mainResource.api.clusterName}}
-												</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+									<div class="one-deployment">
+										<div class="row margin-top-bottom-5">
+											<div class="col-md-6 projectLabel">
+												<label>Cluster Name</label>
 											</div>
-											<div class="row margin-top-bottom-5" ng-if="project.mainResource.providerSettings && project.mainResource.providerSettings.backingProviderName">
-												<div class="col-md-6 projectLabel">
-													<label>Provider</label>
-												</div>
-												<div class="col-md-6">
-													{{project.mainResource.providerSettings.backingProviderName}}
-												</div>
+											<div class="col-md-6">
+												{{project.mainResource.projectName}} -
+												{{project.mainResource.api.clusterName}}
 											</div>
-											<div class="row margin-top-bottom-5">
-												<div class="col-md-6 projectLabel">
-													<label>Region</label>
-												</div>
-												<div class="col-md-6">
-													{{project.mainResource.providerSettings.regionName}}
-												</div>
+										</div>
+										<div class="row margin-top-bottom-5" ng-if="project.mainResource.providerSettings && project.mainResource.providerSettings.backingProviderName">
+											<div class="col-md-6 projectLabel">
+												<label>Provider</label>
 											</div>
-											<div class="row margin-top-bottom-5">
-												<div class="col-md-6 projectLabel">
-													<label>Size</label>
-												</div>
-												<div class="col-md-6">
-													{{project.mainResource.providerSettings.instanceSizeName}}
-												</div>
+											<div class="col-md-6">
+												{{project.mainResource.providerSettings.backingProviderName}}
+											</div>
+										</div>
+										<div class="row margin-top-bottom-5">
+											<div class="col-md-6 projectLabel">
+												<label>Region</label>
+											</div>
+											<div class="col-md-6">
+												{{project.mainResource.providerSettings.regionName}}
+											</div>
+										</div>
+										<div class="row margin-top-bottom-5">
+											<div class="col-md-6 projectLabel">
+												<label>Size</label>
+											</div>
+											<div class="col-md-6">
+												{{project.mainResource.providerSettings.instanceSizeName}}
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-										<img width="100%" ng-src="/custom/modules/member/project/images/resources/{{project.mainResource.driver}}/logo.png">&nbsp;
-									</div>
+								</div>
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
+									<img ng-src="/custom/modules/member/project/images/resources/{{project.mainResource.driver}}/logo.png">&nbsp;
 								</div>
 							</div>
 						</uib-accordion-group>
 					</uib-accordion>
 				</uib-tab>
 				<uib-tab>
-					<uib-tab-heading>
-						Pending
-					</uib-tab-heading>
-					<div>
+					<uib-tab-heading>Pending</uib-tab-heading>
+					<br>
+					<uib-alert type="warning" ng-if="projects.pending.length === 0">
+						<p>Project creation depends on the API speed of the Infrastructure and the Resource you select while creating a project which usually that takes few minutes. Once a project is ready, it becomes available under the <b>Active</b> Tab.</p>
+					</uib-alert>
+					<div ng-if="projects.pending.length > 0">
 						<div class="text-right" style="padding-top: 10px; padding-bottom: 15px;">
 							<input value="Check Progress" ng-click="checkPending()" type="button" class="btn btn-sm btn-warning white-text">
 						</div>
