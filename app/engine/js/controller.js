@@ -184,16 +184,36 @@ app.controller('mainCtrl', ['$scope', '$location', '$timeout', function ($scope,
 		$scope.appNavigation.forEach((oneNavigationEntry) => {
 			oneNavigationEntry.active = false;
 			
+			let entryFound = false;
 			let oneLink = oneNavigationEntry.url.split("#");
 			if (oneLink[0] === $scope.currentLocation) {
 				if (oneLink[1] && oneLink[1] === $scope.currentLocationAnchor) {
+					entryFound = true;
 					activateFromLink(oneNavigationEntry)
 				}
 				else if (!oneLink[1]) {
+					entryFound = true;
 					activateFromLink(oneNavigationEntry)
 				}
 			}
-			
+			if(!entryFound && oneNavigationEntry.children){
+				oneNavigationEntry.children.forEach((oneChildGroup) => {
+					oneChildGroup.entries.forEach((oneChildEntry) =>{
+						
+						let oneLink = oneChildEntry.url.split("#");
+						if (oneLink[0] === $scope.currentLocation) {
+							if (oneLink[1] && oneLink[1] === $scope.currentLocationAnchor) {
+								entryFound = true;
+								activateFromLink(oneChildEntry)
+							}
+							else if (!oneLink[1]) {
+								entryFound = true;
+								activateFromLink(oneChildEntry)
+							}
+						}
+					});
+				});
+			}
 		});
 		
 		function activateFromLink(oneNavigationEntry) {
