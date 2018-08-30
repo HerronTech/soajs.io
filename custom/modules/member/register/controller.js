@@ -80,7 +80,7 @@ registerApp.controller('registerCtrl', ['$scope', '$timeout', 'ngDataApi', funct
 	
 	let innerPage = {
 		header: "Member Area",
-		slogan: "Login & Register",
+		slogan: "Register",
 		image: "custom/modules/member/images/member.jpg"
 	};
 	

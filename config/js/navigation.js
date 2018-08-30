@@ -176,7 +176,7 @@ let navigation = [
 				"entries": [
 					{
 						"id": "profile",
-						"label": "Profile",
+						"label": "My Profile",
 						"url": "/member/profile",
 						"topMenu": true,
 						"title": "SOAJS.IO | Profile",
@@ -213,20 +213,20 @@ let navigation = [
 							"custom/modules/member/project/controller.js"
 						]
 					},
-					{
-						"id": "chart",
-						"label": "My Organization",
-						"url": "/member/orgChart",
-						"topMenu": true,
-						"title": "SOAJS.IO | Chart",
-						"tplPath": "custom/modules/member/account/directives/orgChart.html",
-						"scripts": [
-							"custom/modules/member/config.js",
-							"custom/modules/member/account/services/groups.js",
-							"custom/modules/member/account/services/members.js",
-							"custom/modules/member/account/controller.js"
-						]
-					}
+					// {
+					// 	"id": "chart",
+					// 	"label": "My Organization",
+					// 	"url": "/member/orgChart",
+					// 	"topMenu": true,
+					// 	"title": "SOAJS.IO | Chart",
+					// 	"tplPath": "custom/modules/member/account/directives/orgChart.html",
+					// 	"scripts": [
+					// 		"custom/modules/member/config.js",
+					// 		"custom/modules/member/account/services/groups.js",
+					// 		"custom/modules/member/account/services/members.js",
+					// 		"custom/modules/member/account/controller.js"
+					// 	]
+					// }
 				]
 			}
 		]

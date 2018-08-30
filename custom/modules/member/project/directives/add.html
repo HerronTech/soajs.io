@@ -1,9 +1,6 @@
 <div class='row section-padding' ng-controller="addProject">
 	<div class="container">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			
-			<h2>{{sectionTitle}}</h2>
-			<hr>
 			<div class="projects" id="step0" ng-show="step['0']">
 				<div ng-include="'custom/modules/member/project/directives/createProjectHeadline.tmpl'"></div>
 			</div>
@@ -242,35 +239,35 @@
 							<td width="85%" ng-show="project.infra.google">Google Cloud ( GC )</td>
 							<td width="85%" ng-show="project.infra.azure">Microsoft Azure ( Azure )</td>
 						</tr>
-						<tr ng-if="clusterSettings[project.ht_package]">
-							<td colspan="2">
-								<hr>
-								<p>
-									You have chosen package: <b>{{project.ht_package}}</b> we recommend that your
-									resource flavor offers a minimum of:
-								</p>
-								<table width="100%" class="infoTableDetails">
-									<tr>
-										<td>Storage</td>
-										<td>{{clusterSettings[project.ht_package].storageCapacity}}</td>
-										<td>Network</td>
-										<td>{{clusterSettings[project.ht_package].connectivity}}</td>
-									</tr>
-									<tr>
-										<td>RAM</td>
-										<td>{{clusterSettings[project.ht_package].ram}}</td>
-										<td>IOPs</td>
-										<td>{{clusterSettings[project.ht_package].storageIOPs}}</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
+						<!--<tr ng-if="clusterSettings[project.ht_package]">-->
+							<!--<td colspan="2">-->
+								<!--<hr>-->
+								<!--<p>-->
+									<!--You have chosen package: <b>{{project.ht_package}}</b> we recommend that your-->
+									<!--resource flavor offers a minimum of:-->
+								<!--</p>-->
+								<!--<table width="100%" class="infoTableDetails">-->
+									<!--<tr>-->
+										<!--<td>Storage</td>-->
+										<!--<td>{{clusterSettings[project.ht_package].storageCapacity}}</td>-->
+										<!--<td>Network</td>-->
+										<!--<td>{{clusterSettings[project.ht_package].connectivity}}</td>-->
+									<!--</tr>-->
+									<!--<tr>-->
+										<!--<td>RAM</td>-->
+										<!--<td>{{clusterSettings[project.ht_package].ram}}</td>-->
+										<!--<td>IOPs</td>-->
+										<!--<td>{{clusterSettings[project.ht_package].storageIOPs}}</td>-->
+									<!--</tr>-->
+								<!--</table>-->
+							<!--</td>-->
+						<!--</tr>-->
 					</table>
 				</uib-alert>
 				
 				<p class="stepMessageDetails">
 					<b>SOAJS SAAS</b> requires a <b>MongoDB Atlas</b> resource to persist your project's information
-					(Cloud Orchestration, API Management, Analytics ... etc).<br/>
+					(Cloud Orchestration, API Management, Analytics ... etc).
 				</p>
 				
 				<form name="submitResource">

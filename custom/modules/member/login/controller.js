@@ -227,7 +227,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 		
 		let innerPage = {
 			header: "Member Area",
-			slogan: "Login & Register",
+			slogan: "Login",
 			image: "custom/modules/member/images/member.jpg"
 		};
 		
@@ -247,7 +247,7 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 		
 		let innerPage = {
 			header: "Member Area",
-			slogan: "Login & Register",
+			slogan: "Forgot Password",
 			image: "custom/modules/member/images/member.jpg"
 		};
 		
@@ -342,6 +342,17 @@ loginApp.controller('resetPwCtrl', ['$scope', 'ngDataApi', '$routeParams', '$tim
 		
 		buildForm($scope, null, formConfig);
 		
+		let innerPage = {
+			header: "Member Area",
+			slogan: "Reset Password",
+			image: "custom/modules/member/images/member.jpg"
+		};
+		
+		$scope.updateParentScope('innerPage', innerPage);
+		
+		$scope.$on("$destroy", function () {
+			$scope.removeFromParentScope('innerPage');
+		});
 	}]);
 
 loginApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserLoggedIn', '$location', '$timeout',
@@ -423,6 +434,17 @@ loginApp.controller('validateCtrl', ['$scope', 'ngDataApi', '$route', 'isUserLog
 			$scope.validateChangeEmail();
 		}
 		
+		let innerPage = {
+			header: "Member Area",
+			slogan: "Validate Registration",
+			image: "custom/modules/member/images/member.jpg"
+		};
+		
+		$scope.updateParentScope('innerPage', innerPage);
+		
+		$scope.$on("$destroy", function () {
+			$scope.removeFromParentScope('innerPage');
+		});
 	}]);
 
 loginApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', 'isUserLoggedIn', '$timeout', '$location',
@@ -480,4 +502,16 @@ loginApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', '
 		];
 		
 		buildForm($scope, null, formConfig);
+		
+		let innerPage = {
+			header: "Member Area",
+			slogan: "Set New Password",
+			image: "custom/modules/member/images/member.jpg"
+		};
+		
+		$scope.updateParentScope('innerPage', innerPage);
+		
+		$scope.$on("$destroy", function () {
+			$scope.removeFromParentScope('innerPage');
+		});
 	}]);
