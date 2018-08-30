@@ -37,15 +37,6 @@
     font-size: 14px;
 }
 
-.panelScroller {
-    min-height: 530px;
-    /*overflow: scroll;*/
-}
-
-.pending-project .panelScroller {
-    min-height: 130px;
-}
-
 .fieldMsg {
     font-weight: bold;
     font-size: 14px;
@@ -90,10 +81,6 @@
     border-right: none;
 }
 
-.packagesTable .fa-times {
-    color: red;
-}
-
 .steps label {
     font-size: 15px;
 }
@@ -108,19 +95,6 @@ ul.package_cluster_settings li {
 
 .steps .panel-heading h4.panel-title {
     text-transform: none;
-}
-
-.packageSelectButton:hover {
-    cursor: pointer;
-}
-
-.clickableRadioButton {
-    display: block;
-    min-height: 100%;
-    height: auto !important;
-    margin-top: 0;
-    padding-top: 10px;
-    padding-bottom: 5px
 }
 
 table.infoTable {
@@ -190,48 +164,53 @@ accordion h4 a {
     }
 }
 
-.projects div.storeElement{
-    min-height:300px;
-    margin:0;
+/* new */
+.projectName {
+    padding-top: 6px;
 }
 
-.projects div.storeElement .content{
-    margin:0 5px;
+.projects div.storeElement {
+    min-height: 300px;
+    margin: 0;
+}
+
+.projects div.storeElement .content {
+    margin: 0 5px;
     border: 1px solid #333333;
     border-radius: 8px;
-    min-height:298px;
-    width:100%;
-    display:table;
+    min-height: 298px;
+    width: 100%;
+    display: table;
 }
 
 .projects div.storeElement .header {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    width:100%;
+    width: 100%;
     padding: 10px;
     height: 45px;
 }
 
-.projects div.storeElement .header h3{
+.projects div.storeElement .header h3 {
     margin: 0;
 }
 
-.projects div.storeElement .body{
+.projects div.storeElement .body {
     border-top: solid 1px #cccccc;
     padding: 20px;
-    min-height:200px;
-    width:100%;
+    min-height: 200px;
+    width: 100%;
 }
 
-.projects div.storeElement .footer{
-    margin-top:4px;
-    margin-bottom:20px;
+.projects div.storeElement .footer {
+    margin-top: 4px;
+    margin-bottom: 20px;
     padding: 0 20px;
-    display:table;
-    width:100%;
+    display: table;
+    width: 100%;
 }
 
-.projects .margin0{
+.projects .margin0 {
     margin: 0;
 }
 

@@ -31,10 +31,10 @@
 								<div class="row">
 									<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 										<div class="pull-left hidden-xs">
-											<label>{{project.name}}</label>
+											<label class="projectName">{{project.name}}</label>
 										</div>
 										<div class="hidden-lg hidden-md hidden-sm">
-											<label>{{project.name}}</label>
+											<label class="projectName">{{project.name}}</label>
 										</div>
 										<div class="hidden-lg hidden-lg hidden-md hidden-sm"><br /></div>
 										<div class="pull-right hidden-xs">
@@ -120,7 +120,6 @@
 									<span class="description">{{project.description}}</span>
 								</div>
 							</div>
-							<hr>
 							<div class="row" ng-if="project.mainResource">
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<p>The data of this project is persisted at:</p>
@@ -176,19 +175,20 @@
 						<p>Project creation depends on the API speed of the Infrastructure and the Resource you select while creating a project which usually that takes few minutes. Once a project is ready, it becomes available under the <b>Active</b> Tab.</p>
 					</uib-alert>
 					<div ng-if="projects.pending.length > 0">
-						<div class="text-right" style="padding-top: 10px; padding-bottom: 15px;">
+						<div class="text-right">
 							<input value="Check Progress" ng-click="checkPending()" type="button" class="btn btn-sm btn-warning white-text">
 						</div>
+						<br>
 						<uib-accordion close-others="false">
 							<uib-accordion-group class="pending-project" ng-repeat="project in projects.pending" is-open="$first">
 								<uib-accordion-heading>
 									<div class="row">
 										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 											<div class="pull-left hidden-xs">
-												{{project.name}}
+												<label class="projectName">{{project.name}}</label>
 											</div>
 											<div class="hidden-lg hidden-md hidden-sm">
-												{{project.name}}
+												<label class="projectName">{{project.name}}</label>
 											</div>
 											<div class="hidden-lg hidden-lg hidden-md hidden-sm"><br/></div>
 											<div class="pull-right hidden-xs">
@@ -205,18 +205,17 @@
 									</div>
 								</uib-accordion-heading>
 								<div class="row">
-									<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-										<span class="description">{{project.description}}</span>
-									</div>
-									<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-										<div ng-if="project.ts"><b>Created</b>:&nbsp;{{project.ts|date}}</div>
-									</div>
-								</div>
-								<hr>
-								<div class="row">
-									<div class="col-md-12">
+									<div class="col-sm-6 col-xs-12">
 										<div class="row margin-top-bottom-5">
-											<div class="col-md-6 projectLabel">
+											<div class="col-lg-6 col-md-6 projectLabel">
+												<label>Created</label>
+											</div>
+											<div class="col-md-3">
+												{{project.ts|date}}
+											</div>
+										</div>
+										<div class="row margin-top-bottom-5">
+											<div class="col-lg-6 col-md-6 projectLabel">
 												<label>Package</label>
 											</div>
 											<div class="col-md-3">
@@ -252,7 +251,13 @@
 											</div>
 										</div>
 									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+										<span class="description">{{project.description}}</span>
+									</div>
 								</div>
+
+								<hr>
+
 							</uib-accordion-group>
 						</uib-accordion>
 					</div>
