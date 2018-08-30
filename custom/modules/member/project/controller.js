@@ -384,41 +384,6 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserLoggedIn', 'ngDataApi', 'injectFiles',
 	function ($scope, $location, $timeout, isUserLoggedIn, ngDataApi, injectFiles) {
 	
-		$scope.sectionTitle = "Create New Project";
-		
-		$scope.clusterSettings = {
-			"START": {
-				"storageCapacity": "80 GB",
-				"connectivity": "2000",
-				"ram": "8 GB",
-				"storageIOPs": "240"
-			},
-			"LEAN": {
-				"storageCapacity": "80 GB",
-				"connectivity": "4000",
-				"ram": "16 GB",
-				"storageIOPs": "240"
-			},
-			"AGILE": {
-				"storageCapacity": "80 GB",
-				"connectivity": "4000",
-				"ram": "16 GB",
-				"storageIOPs": "240"
-			},
-			"POWER": {
-				"storageCapacity": "80 GB",
-				"connectivity": "4000",
-				"ram": "16 GB",
-				"storageIOPs": "240"
-			},
-			"FLEX": {
-				"storageCapacity": "80 GB",
-				"connectivity": "4000",
-				"ram": "16 GB",
-				"storageIOPs": "240"
-			}
-		};
-		
 		$scope.step = {
 			"0": true,
 			"1": false,
@@ -486,12 +451,10 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 			};
 			$scope.step[number] = true;
 			
-			if(number > 0){
-				if(number < 5){
-					$scope.sectionTitle = "Create New SAAS Project";
-				}
-				if(number === 5){
-					$scope.sectionTitle = "Create New Enterprise Project";
+			console.log(number);
+			if(parseInt(number) === 2){
+				if(!$scope.data.infraAws && !$scope.data.infraAzure && !$scope.data.infraGoogle){
+					$scope.data.infraAws = true;
 				}
 			}
 		};

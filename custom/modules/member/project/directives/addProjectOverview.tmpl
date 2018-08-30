@@ -1,0 +1,31 @@
+<uib-alert type="info">
+	<p>
+		Your project is being created and will be available in a few minutes.
+	</p>
+</uib-alert>
+<div class="panel panel-default">
+	<div class="panel-heading">Project Details</div>
+	<table width="100%" class="table table-bordered table-striped">
+		<tr>
+			<td><b>Name</b></td>
+			<td width="70%">{{project.name}}</td>
+		</tr>
+		<tr>
+			<td><b>Package</b></td>
+			<td>{{project.ht_package}}</td>
+		</tr>
+		<tr>
+			<td><b>Cloud Provider</b></td>
+			<td ng-show="project.infra.aws">Amazon Web Services ( AWS )</td>
+			<td ng-show="project.infra.google">Google Cloud ( GC )</td>
+		</tr>
+		<tr>
+			<td><b>Atlas Project Name</b></td>
+			<td>{{project.resource.projectName}}</td>
+		</tr>
+		<tr>
+			<td><b>Atlas Cluster Name</b></td>
+			<td>{{project.resource.clusterName}}</td>
+		</tr>
+	</table>
+</div>

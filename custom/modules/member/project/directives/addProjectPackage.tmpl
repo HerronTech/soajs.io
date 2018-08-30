@@ -1,0 +1,63 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Project Details</div>
+	<div class="panel-body">
+		<p>
+			Follow the wizard steps to create your project.
+			( <a download href="/PDF/HC-HowtoCreateaProject.pdf" target="blank" title="Download Help Manual">
+			<span class="glyphicon glyphicon-question-sign"></span>&nbsp;Download Manual
+		</a> )
+		</p>
+	</div>
+	<table class="table table-bordered table-striped">
+		<tr>
+			<td><b>Name</b></td>
+			<td width="70%">{{project.name}}</td>
+		</tr>
+		<tr>
+			<td><b>Package</b></td>
+			<td width="85%">{{project.ht_package}}</td>
+		</tr>
+	</table>
+</div>
+<form name="submitDetails">
+	<div ng-include="'custom/modules/member/project/directives/packageTable.tmpl'"></div>
+	
+	<div class="form-group">
+		<label>
+			Project Name
+		</label>
+		<input name="projectName" ng-model="project.name" type="text" placeholder="Name" class="form-control" tooltip="Enter your project name..." ng-required="true" ng-pattern="/^[a-z0-9]+$/"/>
+		<span ng-if="submitDetails.projectName.$error.pattern === true" style="color:red; font-size:13px">
+							Must be lowercase and alphanumeric only (no special characters or spaces).
+						</span>
+	</div>
+	<div class="form-group">
+		<label>
+			Project Description
+		</label>
+		<input name="projectDescription" ng-model="project.description" type="text" placeholder="Description" class="form-control" tooltip="Enter your project Description ..." ng-required="true"/>
+	</div>
+	<br>
+	<div ng-if="submitDetails.$submitted && !submitDetails.$valid">
+		<uib-alert type="danger">
+			<div ng-if="!submitDetails.ht_package.$valid"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Please select a package to proceed.</div>
+			<div ng-if="!submitDetails.projectName.$valid"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Make sure you enter a project name.</div>
+			<div ng-if="!submitDetails.projectDescription.$valid"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Make sure you enter a project description.</div>
+		</uib-alert>
+		<!-- <alert type="danger">
+			Missing fields. Make sure you choose a package, and enter your project name and description.
+		</alert> -->
+	</div>
+	
+	<div class="pull-left">
+		<a ng-click="goToStep('0')" class="btn btn-sm btn-danger actionBtn white-text">
+			<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back
+		</a>
+	</div>
+	
+	<div class="pull-right">
+		<a ng-click="goToStep('2', submitDetails)" class="btn btn-sm btn-warning actionBtn white-text">
+			<span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Next
+		</a>
+	</div>
+</form>

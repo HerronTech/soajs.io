@@ -1,0 +1,126 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Project Details</div>
+	<div class="panel-body">
+		<p>
+			<b>SOAJS SAAS</b> requires a <b>MongoDB Atlas</b> resource to persist your project's information
+			(Cloud Orchestration, API Management, Analytics ... etc).
+		</p>
+	</div>
+	<table class="table table-bordered table-striped">
+		<tr>
+			<td><b>Name</b></td>
+			<td width="70%">{{project.name}}</td>
+		</tr>
+		<tr>
+			<td><b>Package</b></td>
+			<td width="85%">{{project.ht_package}}</td>
+		</tr>
+		<tr ng-if="project.infra.aws || project.infra.google || project.infra.azure">
+			<td><b>Cloud Provider</b></td>
+			<td width="85%" ng-show="project.infra.aws">Amazon Web Services ( AWS )</td>
+			<td width="85%" ng-show="project.infra.google">Google Cloud ( GC )</td>
+			<td width="85%" ng-show="project.infra.azure">Microsoft Azure ( Azure )</td>
+		</tr>
+		<!--<tr ng-if="clusterSettings[project.ht_package]">-->
+		<!--<td colspan="2">-->
+		<!--<hr>-->
+		<!--<p>-->
+		<!--You have chosen package: <b>{{project.ht_package}}</b> we recommend that your-->
+		<!--resource flavor offers a minimum of:-->
+		<!--</p>-->
+		<!--<table width="100%" class="infoTableDetails">-->
+		<!--<tr>-->
+		<!--<td>Storage</td>-->
+		<!--<td>{{clusterSettings[project.ht_package].storageCapacity}}</td>-->
+		<!--<td>Network</td>-->
+		<!--<td>{{clusterSettings[project.ht_package].connectivity}}</td>-->
+		<!--</tr>-->
+		<!--<tr>-->
+		<!--<td>RAM</td>-->
+		<!--<td>{{clusterSettings[project.ht_package].ram}}</td>-->
+		<!--<td>IOPs</td>-->
+		<!--<td>{{clusterSettings[project.ht_package].storageIOPs}}</td>-->
+		<!--</tr>-->
+		<!--</table>-->
+		<!--</td>-->
+		<!--</tr>-->
+	</table>
+</div>
+
+<form name="submitResource">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			MongoDB Atlas
+		</div>
+		
+		<div class="panel-body">
+			<uib-alert type="warning" class="fieldMsg">
+				Enter your Project, Cluster and API Key to connect to MongoDB Atlas and provision
+				your
+				Database,
+				<a target="_blank" href="https://docs.atlas.mongodb.com/configure-api-access/#generate-api-keys">Learn
+					More</a>
+				<a href="https://cloud.mongodb.com" class="btn btn-warning pull-right actionBtn" target="_blank">Create
+					Atlas Account</a>
+			</uib-alert>
+			
+			<div class="form-group">
+				<label>Atlas Project Name</label>
+				<input ng-model="project.resource.projectName" type="text" placeholder="Project Name" class="form-control" tooltip="Enter your Atlas project name..." ng-required="true"/>
+			</div>
+			<div class="form-group">
+				<label>Atlas Cluster Name</label>
+				<input ng-model="project.resource.clusterName" type="text" placeholder="Cluster Name" class="form-control" tooltip="Enter your Atlas cluster name..." ng-required="true"/>
+			</div>
+			
+			<div class="form-group">
+				<label>Atlas Organization Id</label>
+				<input ng-model="project.resource.api.orgId" type="text" placeholder="Organization Id" class="form-control" tooltip="Enter the organization Id where the project is created..." ng-required="true"/>
+			</div>
+			<div class="form-group">
+				<label>Atlas Username</label>
+				<input ng-model="project.resource.api.username" type="text" placeholder="API Username" class="form-control" tooltip="Enter your atlas username..." ng-required="true"/>
+				<div class="fieldMsg hint">
+					Atlas requires your username to communicate with its API.
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Atlas API Token</label>
+				<input ng-model="project.resource.api.token" type="password" placeholder="API Token / Password" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
+				<div class="fieldMsg hint">
+					Generate an API Key and paste it here to enable communication with Atlas API.
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label>Database Username</label>
+				<input ng-model="project.resource.credentials.username" type="text" placeholder="Username" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
+				<div class="fieldMsg hint">
+				
+				</div>
+			</div>
+			<div class="form-group">
+				<label>Database Password</label>
+				<input ng-model="project.resource.credentials.password" type="password" placeholder="Password" class="form-control" tooltip="Enter your atlas token..." ng-required="true"/>
+				<div class="fieldMsg hint">
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-if="submitResource.$submitted && !submitResource.$valid">
+		<uib-alert type="danger">
+			Please fill all the fields above!
+		</uib-alert>
+	</div>
+	<div>
+		<a ng-click="goToStep('2')" class="btn btn-sm btn-danger actionBtn white-text">
+			<span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back
+		</a>
+		
+		<a ng-click="submitProject(submitResource)" class="pull-right btn btn-sm btn-primary actionBtn white-text">
+			<span class="glyphicon glyphicon-play"></span>&nbsp;Create Project
+		</a>
+	
+	</div>
+</form>

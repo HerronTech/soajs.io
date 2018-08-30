@@ -191,7 +191,7 @@ accordion h4 a {
 }
 
 .projects div.storeElement{
-    min-height:300px;
+    /*min-height:300px;*/
     margin:0;
 }
 
@@ -199,7 +199,7 @@ accordion h4 a {
     margin:0 5px;
     border: 1px solid #333333;
     border-radius: 8px;
-    min-height:298px;
+    /*min-height:298px;*/
     width:100%;
     display:table;
 }
@@ -218,8 +218,8 @@ accordion h4 a {
 
 .projects div.storeElement .body{
     border-top: solid 1px #cccccc;
-    padding: 20px;
-    min-height:200px;
+    padding: 20px 20px 0 20px;
+    /*min-height:200px;*/
     width:100%;
 }
 
