@@ -225,3 +225,51 @@ accordion h4 a {
     border-radius: 10px;
     border: solid 1px #ccc;
 }
+
+.smallHeadline .responsive-icon span {
+    font-size: 2.1rem;
+}
+
+.smallHeadline h5{
+    white-space: nowrap;
+}
+
+.bigHeadline .responsive-icon span {
+    font-size: 4.1rem;
+}
+
+.smallHeadline .responsive-icon span.icon-api-lifecycle-management,
+.bigHeadline .responsive-icon span.icon-api-lifecycle-management {
+    color: white;
+    background-color: #f4b62d;
+    display: table;
+    border-radius: 50%;
+}
+
+.smallHeadline .responsive-icon span.icon-multi-cloud-orchestration,
+.bigHeadline .responsive-icon span.icon-multi-cloud-orchestration {
+    color: white;
+    background-color: #ab3d40;
+    display: table;
+    border-radius: 50%;
+}
+
+.smallHeadline .responsive-icon span.icon-release-management,
+.bigHeadline .responsive-icon span.icon-release-management {
+    color: white;
+    background-color: #3f8875;
+    display: table;
+    border-radius: 50%;
+}
+
+.smallHeadline .responsive-icon span.icon-it-ops-automation,
+.bigHeadline .responsive-icon span.icon-it-ops-automation {
+    color: white;
+    background-color: #387997;
+    display: table;
+    border-radius: 50%;
+}
+
+.bigHeadline .padding-t-5{
+    margin-top: 10px;
+}
