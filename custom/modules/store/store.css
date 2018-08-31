@@ -2,6 +2,66 @@
     font-size:48px;
 }
 
+#catalogs .yellow-txt-hover:hover{
+    color:#f4b62d !important;
+}
+
+#catalogs .tagIcon-infra{
+    background-color:#f4b62d !important;
+    color:white;
+}
+
+#catalogs div.headerIcons .icon-layers{
+    color: white;
+    background-color: #f4b62d;
+    display: table;
+    border-radius: 50%;
+    padding:15px;
+}
+
+#catalogs .tagIcon-cd{
+    background-color:#ab3d40 !important;
+    color:white;
+}
+
+#catalogs div.headerIcons .icon-file-code{
+    color: white;
+    background-color: #ab3d40;
+    display: table;
+    border-radius: 50%;
+    padding:15px;
+}
+
+#catalogs div.headerIcons .icon-file-code:before{
+    padding-left: 6px;
+}
+
+#catalogs .tagIcon-template{
+    background-color:#3f8875 !important;
+    color:white;
+}
+
+#catalogs div.headerIcons .glyphicon-globe{
+    color: white;
+    background-color: #3f8875;
+    display: table;
+    border-radius: 50%;
+    padding:15px;
+}
+
+#catalogs .tagIcon-ci{
+    background-color:#387997 !important;
+    color:white;
+}
+
+#catalogs div.headerIcons .icon-loop{
+    color: white;
+    background-color: #387997;
+    display: table;
+    border-radius: 50%;
+    padding:15px;
+}
+
 #catalogs div.storeElement{
     height:300px;
     margin:0 0 40px 0;

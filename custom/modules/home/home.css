@@ -1,0 +1,102 @@
+#product .responsive-icon {
+    margin: 0;
+    padding-top: 16px;
+}
+
+#product .responsive-icon span {
+    font-size: 2.1rem;
+}
+
+#product .responsive-icon span.icon-api-lifecycle-management {
+    color: white;
+    background-color: #f4b62d;
+    display: table;
+    border-radius: 50%;
+}
+
+#product .responsive-icon span.icon-multi-cloud-orchestration {
+    color: white;
+    background-color: #ab3d40;
+    display: table;
+    border-radius: 50%;
+}
+
+#product .responsive-icon span.icon-release-management {
+    color: white;
+    background-color: #3f8875;
+    display: table;
+    border-radius: 50%;
+}
+
+#product .responsive-icon span.icon-it-ops-automation {
+    color: white;
+    background-color: #387997;
+    display: table;
+    border-radius: 50%;
+}
+
+#product .roundedButton{
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+#why .responsive-icon span[class^="demo-icon"] {
+    font-size: 6rem;
+    color: #909da3;
+}
+
+#architect .responsive-icon span[class^="demo-icon"] {
+    font-size: 5rem;
+    color: #474f54;
+    position:relative;
+    left: -20px;
+    top: 10px;
+    text-shadow: 0px 1px 3px rgba(71, 79, 84, 0.74);
+}
+
+#connect .responsive-icon span[class^="demo-icon"] {
+    font-size: 5rem;
+    color: white;
+    background-color: #feb323;
+    display: table;
+    border-radius: 50%;
+}
+
+#connect .responsive-icon span[class^="demo-icon"]:hover {
+    font-size: 5rem;
+    color: white;
+    background-color: #a37c48;
+    display: table;
+    border-radius: 50%;
+    cursor:pointer;
+}
+
+@media (max-width: 375px) {
+    /* used in homepage architect section only*/
+    #architect .responsive-icon span[class^="demo-icon"] {
+        font-size: 3rem;
+        color: #474f54;
+        position:relative;
+        left: -10px;
+        top: 0;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* used in homepage architect section only*/
+    #architect .responsive-icon span[class^="demo-icon"] {
+        font-size: 4rem;
+        color: #474f54;
+        position:relative;
+        left: -20px;
+        top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* used in homepage product section only*/
+    #product .orange-text{
+        padding-left:10px;
+    }
+}

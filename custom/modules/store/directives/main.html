@@ -8,18 +8,18 @@
 						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noInfraCatalogs">
 							<div>
 								<div class="headerIcons">
-									<span class="glyphicon glyphicon-info-sign"></span>
+									<span class="demo-icon icon-layers center-block"></span>
 								</div>
 								<input type="checkbox" checked ng-click="hideCatalogEntries('infra')"/>&nbsp;Infra As Code Templates
 								<a href="/store/iac" title="Learn More">
-									<span class="glyphicon glyphicon-info-sign"></span>
+									<span class="glyphicon glyphicon-sign"></span>
 								</a>
 							</div>
 						</div>
 						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noCdCatalogs">
 							<div>
 								<div class="headerIcons">
-									<span class="glyphicon glyphicon-info-sign"></span>
+									<span class="demo-icon icon-file-code center-block"></span>
 								</div>
 								<input type="checkbox" checked ng-click="hideCatalogEntries('cd')"/>&nbsp;Catalog Recipes
 								<a href="/store/catalogs" title="Learn More">
@@ -30,7 +30,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noTempCatalogs">
 							<div>
 								<div class="headerIcons">
-									<span class="glyphicon glyphicon-info-sign"></span>
+									<span class="glyphicon glyphicon-globe center-block"></span>
 								</div>
 								<input type="checkbox" checked ng-click="hideCatalogEntries('template')"/>&nbsp;Environment Templates
 								<a href="/store/env" title="Learn More">
@@ -41,7 +41,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noCiCatalogs">
 							<div>
 								<div class="headerIcons">
-									<span class="glyphicon glyphicon-info-sign"></span>
+									<span class="demo-icon icon-loop center-block"></span>
 								</div>
 								<input type="checkbox" checked ng-click="hideCatalogEntries('ci')"/>&nbsp;Continuous Integration
 								<a href="/store/ci" title="Learn More">
@@ -65,7 +65,7 @@
 									</div>
 									<div class="col-lg-1 col-md-1 col-sm-1">
 										<a href="" ng-click="download(onectlg._id)" tooltip="Download">
-											<span class="glyphicon glyphicon-cloud-download white-text"></span>
+											<span class="glyphicon glyphicon-cloud-download white-text yellow-txt-hover"></span>
 										</a>
 									</div>
 								</div>
@@ -89,8 +89,8 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-1 col-md-1 col-sm-1 tagIcon">
-										<span class="glyphicon glyphicon-info-sign"></span>
+									<div class="col-lg-1 col-md-1 col-sm-1 tagIcon tagIcon-{{onectlg.type}}">
+										<span class="{{onectlg.smallIcon}}"></span>
 									</div>
 								</div>
 							</div>

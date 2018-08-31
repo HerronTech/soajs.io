@@ -1,6 +1,6 @@
 "use strict";
 var homeApp = app.components;
-homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', function ($scope, $uibModal, homePageSrv) {
+homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', 'injectFiles', function ($scope, $uibModal, homePageSrv, injectFiles) {
 	
 	$scope.siteKey = sitekey;
 	
@@ -91,4 +91,6 @@ homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', functi
 	$scope.$on("$destroy", function () {
 		$scope.removeFromParentScope('header_carousel');
 	});
+	
+	injectFiles.injectCss("custom/modules/home/home.css");
 }]);

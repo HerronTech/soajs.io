@@ -75,10 +75,6 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 				renderCatalogEntries(currentScope, response)
 			}
 		});
-		
-		// $http.get("custom/modules/store/list.json").success(function (response) {
-		// 	renderCatalogEntries(currentScope, response)
-		// });
 	}
 	
 	function renderCatalogEntries(currentScope, response){
@@ -98,20 +94,24 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 			infra: []
 		};
 		
-		response.forEach((oneCtlg) => {
+		currentScope.allCatalogs.forEach((oneCtlg) => {
 			oneCtlg.expanded = false;
 			oneCtlg.hide = false;
 			
 			if (oneCtlg.type === 'ci') {
+				oneCtlg.smallIcon = "demo-icon icon-loop";
 				currentScope.catalogs.ci.push(oneCtlg);
 			}
 			if (oneCtlg.type === 'cd') {
+				oneCtlg.smallIcon = "demo-icon icon-file-code";
 				currentScope.catalogs.cd.push(oneCtlg);
 			}
 			if (oneCtlg.type === 'template') {
+				oneCtlg.smallIcon = "glyphicon glyphicon-globe";
 				currentScope.catalogs.envTemplate.push(oneCtlg);
 			}
 			if (oneCtlg.type === 'infra') {
+				oneCtlg.smallIcon = "demo-icon icon-layers";
 				currentScope.catalogs.infra.push(oneCtlg);
 			}
 		});
