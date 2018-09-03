@@ -282,8 +282,12 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 					'label': 'Edit Profile',
 					'btn': 'warning',
 					'action': function (formData) {
-						profileObj.phone = formData.phone;
-						profileObj.company = formData.company;
+						if (formData.phone) {
+							profileObj.phone = formData.phone;
+						}
+						if (formData.company) {
+							profileObj.company = formData.company;
+						}
 
 						var postData = {
 							'profile': profileObj,
@@ -363,7 +367,9 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 		let userCookie = $localStorage.soajs_user;
 		if (userCookie) {
 			if ((typeof(userCookie) !== "undefined") && (typeof(userCookie) === "object")) {
-				profileObj = $localStorage.soajs_user.profile;
+				if ($localStorage.soajs_user.profile) {
+					profileObj = $localStorage.soajs_user.profile;
+				}
 				$scope.getProfile(userCookie.username);
 			}
 		}
