@@ -587,7 +587,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 					});
 					$scope.goToStep('4');
 					$timeout(function () {
-						$scope.$parent.go("/members/projects");
+						$location.path("/members/projects");
 					}, 6000);
 				}
 			});
