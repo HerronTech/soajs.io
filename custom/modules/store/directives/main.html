@@ -57,7 +57,7 @@
 					<uib-alert ng-show="store.alert.msg" type="{{store.alert.type}}" ng-bind-html="store.alert.msg|toTrustedHtml"></uib-alert>
 					
 					<div class="row" ng-if="!allCatalogs || allCatalogs.length === 0">
-						<alert type="warning"><p>No Entries available in the SOAJS Store at the moment. Come back Soon.</p></alert>
+						<uib-alert type="warning"><p>No Entries available in the SOAJS Store at the moment. Come back Soon.</p></uib-alert>
 					</div>
 					<div class="row" ng-if="allCatalogs && allCatalogs.length > 0">
 						<div ng-repeat="onectlg in allCatalogs" class="storeElement col-lg-6 col-md-6 col-sm-12 col-xs-12" ng-hide="onectlg.hide" tooltip="Last Modified on {{onectlg.ts|date}}">
