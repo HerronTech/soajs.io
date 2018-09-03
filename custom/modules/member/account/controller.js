@@ -345,11 +345,13 @@ accountApp.controller('profileCtrl', ['$scope', '$timeout', '$uibModal', 'ngData
 					var myProfile = response.profile;
 					formConfig.data = response;
 					// formConfig.data.profile = myProfile;
-					if (myProfile.phone) {
-						formConfig.data.phone = myProfile.phone;
-					}
-					if (myProfile.company) {
-						formConfig.data.company = myProfile.company;
+					if (myProfile) {
+						if (myProfile.phone) {
+							formConfig.data.phone = myProfile.phone;
+						}
+						if (myProfile.company) {
+							formConfig.data.company = myProfile.company;
+						}
 					}
 					buildForm($scope, null, formConfig);
 
