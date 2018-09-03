@@ -278,7 +278,7 @@ app.service('ngDataApi', ['$http', '$cookies', '$localStorage', function ($http,
 //services that returns true if user is logged in
 app.service('isUserLoggedIn', ['$cookies', '$localStorage', 'ngDataApi', function ($cookies, $localStorage, ngDataApi) {
 	return function (currentScope) {
-		if ($cookies.get('soajs_username', { 'domain': interfaceDomain }) && $cookies.get('access_token', { 'domain': interfaceDomain })) {
+		if ($localStorage.soajs_user && $cookies.get('soajs_username', { 'domain': interfaceDomain }) && $cookies.get('access_token', { 'domain': interfaceDomain })) {
 			return true;
 		}
 		else {
