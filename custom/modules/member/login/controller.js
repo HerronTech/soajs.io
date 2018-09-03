@@ -57,9 +57,9 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 						'label': 'Username',
 						'hideLabel': true,
 						'type': 'text',
-						'placeholder': 'Enter Username',
+						'placeholder': 'Enter Username or Email',
 						'value': '',
-						'tooltip': "Usernames are alphanumeric and support  _ & -  character only",
+						'tooltip': "Usernames are alphanumeric",
 						'required': true
 					},
 					{
@@ -489,7 +489,7 @@ loginApp.controller('setPasswordCtrl', ['$scope', 'ngDataApi', '$routeParams', '
 						else {
 							$scope.alerts.push({
 								'type': 'success',
-								'msg': "Password Set Successfully"
+								'msg': "Password Set Successfully. Use your email as the username to login"
 							});
 							$scope.hideForm = true;
 							$timeout(function () {
