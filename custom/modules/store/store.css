@@ -63,7 +63,7 @@
 }
 
 #catalogs div.storeElement{
-    height:300px;
+    height:250px;
     margin:0 0 40px 0;
 }
 
@@ -71,7 +71,7 @@
     margin:0 5px 0px 5px;
     border: 1px solid #333333;
     border-radius: 8px;
-    height:298px;
+    height:248px;
 }
 
 #catalogs div.storeElement .header {
@@ -87,7 +87,7 @@
 #catalogs div.storeElement .body{
     border-top: solid 1px #cccccc;
     padding: 20px 0;
-    height:200px;
+    height:150px;
     width:100%;
     overflow: scroll;
 }
