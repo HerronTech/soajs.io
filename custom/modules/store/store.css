@@ -1,111 +1,113 @@
 #catalogs div.headerIcons {
-    font-size:48px;
+    font-size: 48px;
 }
 
-#catalogs .yellow-txt-hover:hover{
-    color:#f4b62d !important;
+#catalogs .yellow-txt-hover:hover {
+    color: #f4b62d !important;
 }
 
-#catalogs .tagIcon-infra{
-    background-color:#f4b62d !important;
-    color:white;
+#catalogs .tagIcon-infra {
+    background-color: #f4b62d !important;
+    color: white;
 }
 
-#catalogs div.headerIcons .icon-layers{
+#catalogs div.headerIcons .icon-layers {
     color: white;
     background-color: #f4b62d;
     display: table;
     border-radius: 50%;
-    padding:15px;
+    padding: 15px;
 }
 
-#catalogs .tagIcon-cd{
-    background-color:#ab3d40 !important;
-    color:white;
+#catalogs .tagIcon-cd {
+    background-color: #ab3d40 !important;
+    color: white;
 }
 
-#catalogs div.headerIcons .icon-file-code{
+#catalogs div.headerIcons .icon-file-code {
     color: white;
     background-color: #ab3d40;
     display: table;
     border-radius: 50%;
-    padding:15px;
+    padding: 15px;
 }
 
-#catalogs div.headerIcons .icon-file-code:before{
+#catalogs div.headerIcons .icon-file-code:before {
     padding-left: 6px;
 }
 
-#catalogs .tagIcon-template{
-    background-color:#3f8875 !important;
-    color:white;
+#catalogs .tagIcon-template {
+    background-color: #3f8875 !important;
+    color: white;
 }
 
-#catalogs div.headerIcons .glyphicon-globe{
+#catalogs div.headerIcons .glyphicon-globe {
     color: white;
     background-color: #3f8875;
     display: table;
     border-radius: 50%;
-    padding:15px;
+    padding: 15px;
 }
 
-#catalogs .tagIcon-ci{
-    background-color:#387997 !important;
-    color:white;
+#catalogs .tagIcon-ci {
+    background-color: #387997 !important;
+    color: white;
 }
 
-#catalogs div.headerIcons .icon-loop{
+#catalogs div.headerIcons .icon-loop {
     color: white;
     background-color: #387997;
     display: table;
     border-radius: 50%;
-    padding:15px;
+    padding: 15px;
 }
 
-#catalogs div.storeElement{
-    height:250px;
-    margin:0 0 40px 0;
+#catalogs div.storeElement {
+    height: 265px;
+    margin: 0 0 40px 0;
 }
 
-#catalogs div.storeElement .content{
-    margin:0 5px 0px 5px;
+#catalogs div.storeElement .content {
+    margin: 0 5px 0px 5px;
     border: 1px solid #333333;
     border-radius: 8px;
-    height:248px;
+    height: 263px;
 }
 
 #catalogs div.storeElement .header {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     /*background-color: #eeeeee;*/
-    width:100%;
+    width: 100%;
     padding: 5px 0;
     overflow: hidden;
-    height: 45px;
+    height: 60px;
+    line-height: 1.3em;
+    padding-top: 8px;
 }
 
-#catalogs div.storeElement .body{
+#catalogs div.storeElement .body {
     border-top: solid 1px #cccccc;
     padding: 20px 0;
-    height:150px;
-    width:100%;
+    height: 150px;
+    width: 100%;
     overflow: scroll;
 }
 
-#catalogs div.storeElement .body .mainIcon{
-    font-size:100px;
+#catalogs div.storeElement .body .mainIcon {
+    font-size: 100px;
 }
 
-#catalogs div.storeElement .footer{
-    margin-top:4px;
+#catalogs div.storeElement .footer {
+    margin-top: 4px;
     border-top: solid 1px #cccccc;
-    display:table;
-    width:100%;
+    display: table;
+    width: 100%;
 }
 
-#catalogs div.storeElement .footer .col{
-    padding-left:0;
-    padding-right:0;
+#catalogs div.storeElement .footer .col {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #catalogs div.storeElement .footer img {
@@ -113,12 +115,12 @@
     padding: 1px 2px;
     border-radius: 8px;
     display: table;
-    width:100%;
+    width: 100%;
     text-align: center;
 }
 
 #catalogs div.storeElement .footer .worksWith {
-    font-size:17px;
+    font-size: 17px;
     padding: 10px 0 7px 15px;
 }
 
@@ -129,8 +131,14 @@
 #catalogs div.storeElement .footer .tagIcon {
     padding: 10px 0 6px 0;
     border-left: 1px solid #cccccc;
-    font-size:24px;
+    font-size: 22px;
     padding-left: 11px;
-    background-color:#eeeeee;
+    background-color: #eeeeee;
     border-bottom-right-radius: 8px;
+}
+
+@media (max-width: 500px) {
+    #catalogs div.storeElement .footer .worksWith {
+        font-size: 13px;
+    }
 }
