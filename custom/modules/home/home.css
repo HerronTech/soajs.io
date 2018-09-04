@@ -75,6 +75,10 @@
     cursor:pointer;
 }
 
+.formback .noPaddingLeft{
+    padding-left:0;
+}
+
 @media (max-width: 375px) {
     /* used in homepage architect section only*/
     #architect .responsive-icon span[class^="demo-icon"] {
@@ -83,6 +87,10 @@
         position:relative;
         left: -10px;
         top: 0;
+    }
+
+    .formback .noPaddingLeft{
+        padding-left: 15px;
     }
 }
 

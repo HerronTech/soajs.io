@@ -167,6 +167,11 @@ form.ng-submitted input.ng-invalid {
     padding-top: 60px;
 }
 
+.small-section-padding {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
 .glyphicon-refresh-animate {
     -animation: spin 1.2s infinite linear;
     -webkit-animation: spin2 1.2s infinite linear;
