@@ -16,3 +16,16 @@ body, html {
         background-image: url('/config/images/soajsio.png');
     }
 }
+
+@media (max-width: 500px) {
+    .container .nav > li > a {
+        padding: 10px 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container .nav > li > a {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+}

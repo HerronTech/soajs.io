@@ -132,17 +132,17 @@ accordion h4 a {
 
 @media (max-width: 520px) {
 
-    .packagesTable tr th, .packagesTable tr td {
+    .packagesTable tbody tr th, .packagesTable tbody tr td {
         font-size: 11px;
         word-break: break-all;
     }
 
-    body .packagesTable tr td.emptyFirstCell {
+    body .packagesTable tbody tr td.emptyFirstCell {
         padding-left: 0;
         padding-right: 2px;
     }
 
-    .packagesTable tr td {
+    .packagesTable tbody tr td {
         padding-left: 3px;
         padding-right: 3px;
     }
@@ -179,8 +179,8 @@ accordion h4 a {
     border: 1px solid #333333;
     border-radius: 8px;
     /*min-height:298px;*/
-    width:100%;
-    display:table;
+    width: 100%;
+    display: table;
 }
 
 .projects div.storeElement .header {
@@ -216,7 +216,7 @@ accordion h4 a {
 
 .projects div.storeElement table tr td i {
     /*color:#31708f;*/
-    color:#337ab7;
+    color: #337ab7;
 }
 
 .ace_editor {
@@ -230,7 +230,7 @@ accordion h4 a {
     font-size: 2.1rem;
 }
 
-.smallHeadline h5{
+.smallHeadline h5 {
     white-space: nowrap;
 }
 
@@ -270,6 +270,6 @@ accordion h4 a {
     border-radius: 50%;
 }
 
-.bigHeadline .padding-t-5{
+.bigHeadline .padding-t-5 {
     margin-top: 10px;
 }
