@@ -1,5 +1,5 @@
 body, html {
-    min-width: 400px;
+    min-width: 380px;
 }
 
 @media (max-width: 768px) {
