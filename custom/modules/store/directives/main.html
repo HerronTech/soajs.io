@@ -63,10 +63,10 @@
 						<div ng-repeat="onectlg in allCatalogs" class="storeElement col-lg-6 col-md-6 col-sm-12 col-xs-12" ng-hide="onectlg.hide" tooltip="Last Modified on {{onectlg.ts|date}}">
 							<div class="content">
 								<div class="header blue-bg white-text">
-									<div class="col-lg-11 col-md-11 col-sm-11" ng-click="expandCollapse(onectlg);" tooltip="{{onectlg.name}}">
+									<div class="col-md-11 col-xs-11" ng-click="expandCollapse(onectlg);" tooltip="{{onectlg.name}}">
 										<b>{{onectlg.name}}</b>
 									</div>
-									<div class="col-lg-1 col-md-1 col-sm-1">
+									<div class="col-md-1 col-xs-1">
 										<a href="" ng-click="download(onectlg._id)" tooltip="Download">
 											<span class="glyphicon glyphicon-cloud-download white-text yellow-txt-hover"></span>
 										</a>
@@ -80,19 +80,19 @@
 									<div class="col-lg-12 col-md-12 col-sm-12" ng-show="onectlg.expanded && onectlg.description!== ''" ng-bind-html="onectlg.description | toTrustedHtml"></div>
 								</div>
 								<div class="footer">
-									<div class="col-lg-11 col-md-11 col-sm-11">
+									<div class="col-md-11 col-xs-11">
 										<div class="row">
-											<div class="col-lg-3 col-md-3 col-sm-3 worksWith">
+											<div class="col-md-3 col-xs-3 worksWith">
 												Works With
 											</div>
-											<div class="col-lg-9 col-md-9 col-sm-9 techList">
-												<div class="col-xs-2 col-sm-2 col-lg-2" ng-repeat="oneLink in onectlg.icons">
+											<div class="col-md-9 col-sm-9 techList">
+												<div class="col-xs-2 col-sm-2 col-md-2" ng-repeat="oneLink in onectlg.icons">
 													<img src="{{oneLink.url}}" alt="{{oneLink.label}}" tooltip="{{oneLink.label}}"/>
 												</div>
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-1 col-md-1 col-sm-1 tagIcon tagIcon-{{onectlg.type}}">
+									<div class="col-md-1 col-xs-1 tagIcon tagIcon-{{onectlg.type}}">
 										<span class="{{onectlg.smallIcon}}"></span>
 									</div>
 								</div>

@@ -137,8 +137,29 @@
     border-bottom-right-radius: 8px;
 }
 
+@media (max-width: 800px) {
+    #catalogs div.storeElement .footer .techList img {
+        max-height: 30px;
+        width: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        line-height: 1.2em;
+        font-size: 14px;
+    }
+}
+
 @media (max-width: 500px) {
     #catalogs div.storeElement .footer .worksWith {
         font-size: 13px;
+    }
+}
+
+@media (max-width: 464px) {
+    #catalogs div.storeElement .footer .worksWith {
+        font-size: 12px;
+        line-height: normal;
     }
 }
