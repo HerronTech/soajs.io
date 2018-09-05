@@ -2,6 +2,10 @@
     font-size: 48px;
 }
 
+#catalogs .downloadIcon {
+    text-align: right;
+}
+
 #catalogs .yellow-txt-hover:hover {
     color: #f4b62d !important;
 }
@@ -145,15 +149,23 @@
 }
 
 @media (max-width: 600px) {
-    .header {
+    #catalogs .header {
         line-height: 1.2em;
-        font-size: 14px;
     }
 }
 
 @media (max-width: 500px) {
+    #catalogs .header {
+        font-size: 14px;
+    }
+
     #catalogs div.storeElement .footer .worksWith {
         font-size: 13px;
+    }
+
+    #catalogs div.storeElement .footer .tagIcon {
+        font-size: 14px;
+        padding-left: 6px;
     }
 }
 
