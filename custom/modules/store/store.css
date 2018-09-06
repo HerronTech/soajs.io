@@ -163,11 +163,18 @@
     #catalogs .header {
         line-height: 1.2em;
     }
+    #catalogs div.storeElement .footer .techList{
+        text-align: center;
+    }
 }
 
 @media (max-width: 540px) {
     #catalogs div.storeElement .footer .worksWith {
         line-height: normal;
+    }
+    #catalogs div.storeElement .footer .techList img {
+        max-height: 30px;
+        max-width: 20px;
     }
 }
 
