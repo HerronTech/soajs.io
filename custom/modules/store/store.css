@@ -159,11 +159,18 @@
     }
 }
 
+@media (max-width: 766px) {
+    #catalogs div.storeElement .footer .worksWith {
+        line-height: 1.2em;
+    }
+}
+
 @media (max-width: 600px) {
     #catalogs .header {
         line-height: 1.2em;
     }
-    #catalogs div.storeElement .footer .techList{
+
+    #catalogs div.storeElement .footer .techList {
         text-align: center;
     }
 }
@@ -172,6 +179,7 @@
     #catalogs div.storeElement .footer .worksWith {
         line-height: normal;
     }
+
     #catalogs div.storeElement .footer .techList img {
         max-height: 30px;
         max-width: 20px;
@@ -200,7 +208,6 @@
 @media (max-width: 464px) {
     #catalogs div.storeElement .footer .worksWith {
         font-size: 12px;
-        line-height: normal;
     }
 
     #catalogs div.storeElement .body {
