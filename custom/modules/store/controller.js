@@ -32,8 +32,8 @@ storeApp.controller('storeCtrl', ['$scope', '$http', '$cookies', 'injectFiles', 
 	/**
 	 * method that triggers downloading a single catalog entry
 	 */
-	$scope.download = function(entryId) {
-		storePageSrv.download($scope, entryId);
+	$scope.download = function(entry) {
+		storePageSrv.download($scope, entry);
 	};
 	
 	//upon start inject a custom css file

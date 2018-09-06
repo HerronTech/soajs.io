@@ -4,7 +4,7 @@ var storeAppSrv = app.components;
 storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModal', 'ngDataApi', function ($http, $location, $cookies, $uibModal, ngDataApi) {
 	
 	function openSaveAsDialog(filename, content, mediaType) {
-		let blob = new Blob([content], {type: mediaType});
+		let blob = new Blob([content], { type: mediaType });
 		let URL = window.URL || window.webkitURL;
 		let objectUrl = URL.createObjectURL(blob);
 		
@@ -16,16 +16,16 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 		a.click();
 	}
 	
-	function download(currentScope, id) {
-		
-		if(!currentScope.isUserLoggedIn){
+	function download(currentScope, entry) {
+		let id = entry._id;
+		if (!currentScope.isUserLoggedIn) {
 			$uibModal.open({
 				templateUrl: "loginPage.tmpl",
-				animate:true,
+				animate: true,
 				controller: function ($scope, $uibModalInstance) {
 					$scope.go = function (path) {
 						if (path) {
-							$cookies.put("store_path", "/store", {'domain': interfaceDomain});
+							$cookies.put("store_path", "/store", { 'domain': interfaceDomain });
 							$location.path(path);
 							$uibModalInstance.close();
 						}
@@ -36,7 +36,7 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 				}
 			});
 		}
-		else{
+		else {
 			let options = {
 				"method": "get",
 				"routeName": "/store/download",
@@ -52,7 +52,9 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 				if (error) {
 					currentScope.store.alert = { 'type': 'danger', 'msg': error.message };
 				} else {
-					openSaveAsDialog("store_" + new Date().toISOString() + ".zip", response, "application/zip")
+					let zipFileName = entry.name;
+					zipFileName = zipFileName.replace(/[^A-Z0-9]+/ig, "-");
+					openSaveAsDialog("store_" + zipFileName + "-" + new Date().toISOString() + ".zip", response, "application/zip")
 				}
 			});
 		}
@@ -77,7 +79,7 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 		});
 	}
 	
-	function renderCatalogEntries(currentScope, response){
+	function renderCatalogEntries(currentScope, response) {
 		currentScope.allCatalogs = angular.copy(response);
 		
 		currentScope.allCatalogs = sortCatalogsByType(currentScope.allCatalogs);
@@ -131,12 +133,12 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 	}
 	
 	function sortCatalogsByType(catalogEntries) {
-		let types = ['infra','cd','template','ci'];
+		let types = ['infra', 'cd', 'template', 'ci'];
 		
-		let newArray  = [];
+		let newArray = [];
 		types.forEach((oneType) => {
 			catalogEntries.forEach((oneCatalog) => {
-				if(oneCatalog.type === oneType) {
+				if (oneCatalog.type === oneType) {
 					newArray.push(oneCatalog);
 				}
 			});
