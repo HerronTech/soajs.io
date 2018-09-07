@@ -586,9 +586,10 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 						'msg': successMsg
 					});
 					$scope.goToStep('4');
+					$scope.closeAllAlerts();
 					$timeout(function () {
-						$location.path("/members/projects");
-					}, 6000);
+						$location.path("/member/projects");
+					}, 9000);
 				}
 			});
 		};
