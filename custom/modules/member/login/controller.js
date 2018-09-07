@@ -78,7 +78,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 		};
 		
 		if (isUserLoggedIn($scope)) {
-			$location.path('/member/profile');
+			$location.path('/member/projects');
 		}
 		
 		var formConfig = loginConfig.formConf;
@@ -86,7 +86,7 @@ loginApp.controller('loginPageCtrl', ['$scope', '$cookies', '$timeout', '$localS
 		formConfig.actions = [
 			{
 				'type': 'reset',
-				'label': 'Register',
+				'label': 'Create Your Free Account',
 				'btn': 'warning',
 				'action': function () {
 					$location.path('/member/join');
@@ -242,7 +242,7 @@ loginApp.controller('forgotPwCtrl', ['$scope', '$cookies', '$timeout', 'ngDataAp
 	function ($scope, $cookies, $timeout, ngDataApi, $location, isUserLoggedIn) {
 		
 		if (isUserLoggedIn($scope)) {
-			$location.path('/member/profile');
+			$location.path('/member/projects');
 		}
 		
 		let innerPage = {
