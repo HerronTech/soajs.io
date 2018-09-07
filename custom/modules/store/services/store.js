@@ -54,6 +54,7 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 				} else {
 					let zipFileName = entry.name;
 					zipFileName = zipFileName.replace(/[^A-Z0-9]+/ig, "-");
+					zipFileName = zipFileName + '_' + entry.type;
 					openSaveAsDialog(zipFileName + "-" + new Date().toISOString() + ".zip", response, "application/zip")
 				}
 			});
