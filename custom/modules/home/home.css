@@ -1,3 +1,21 @@
+
+#product p {
+    height: 160px;
+}
+
+#product .yellow-txt {
+    color: #f49c1c;
+}
+#product .red-txt {
+    color: #aa3f3f;
+}
+#product .green-txt {
+    color: #418774;
+}
+#product .blue-txt {
+    color: #397999;
+}
+
 #product .responsive-icon {
     margin: 0;
     /*padding-top: 16px;*/
@@ -8,34 +26,34 @@
 }
 
 #product .responsive-icon span {
-    font-size: 4.1rem;
+    font-size: 8.1rem;
 }
 
 #product .responsive-icon span.icon-api-lifecycle-management {
     color: white;
     background-color: #f4b62d;
-    display: table;
+    display: inline-block;
     border-radius: 50%;
 }
 
 #product .responsive-icon span.icon-multi-cloud-orchestration {
     color: white;
     background-color: #ab3d40;
-    display: table;
+    display: inline-block;
     border-radius: 50%;
 }
 
 #product .responsive-icon span.icon-release-management {
     color: white;
     background-color: #3f8875;
-    display: table;
+    display: inline-block;
     border-radius: 50%;
 }
 
 #product .responsive-icon span.icon-it-ops-automation {
     color: white;
     background-color: #387997;
-    display: table;
+    display: inline-block;
     border-radius: 50%;
 }
 
@@ -102,13 +120,5 @@
         position:relative;
         left: -20px;
         top: 10px;
-    }
-}
-
-@media (max-width: 768px) {
-
-    /* used in homepage product section only*/
-    #product .orange-text{
-        padding-left:10px;
     }
 }
