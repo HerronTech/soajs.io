@@ -5,7 +5,7 @@ productApp.controller('productCtrl', ['$scope', 'injectFiles', function ($scope,
 	let innerPage = {
 		header: "Microservices Management Platform",
 		slogan: "Complete & Adaptable",
-        image: "custom/modules/member/images/member.jpg"
+        image: "custom/modules/product/images/product.png"
 	};
 	
 	$scope.updateParentScope('innerPage', innerPage);
