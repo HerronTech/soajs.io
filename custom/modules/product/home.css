@@ -1,0 +1,53 @@
+#product .responsive-icon {
+    margin: 0;
+    /*padding-top: 16px;*/
+}
+
+#product .padding-t-5{
+    margin-top: 10px;
+}
+
+#product .responsive-icon span {
+    font-size: 4.1rem;
+}
+
+#product .responsive-icon span.icon-api-lifecycle-management {
+    color: white;
+    background-color: #f4b62d;
+    display: table;
+    border-radius: 50%;
+}
+
+#product .responsive-icon span.icon-multi-cloud-orchestration {
+    color: white;
+    background-color: #ab3d40;
+    display: table;
+    border-radius: 50%;
+}
+
+#product .responsive-icon span.icon-release-management {
+    color: white;
+    background-color: #3f8875;
+    display: table;
+    border-radius: 50%;
+}
+
+#product .responsive-icon span.icon-it-ops-automation {
+    color: white;
+    background-color: #387997;
+    display: table;
+    border-radius: 50%;
+}
+
+#product .roundedButton{
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+@media (max-width: 768px) {
+
+    /* used in homepage product section only*/
+    #product .orange-text{
+        padding-left:10px;
+    }
+}

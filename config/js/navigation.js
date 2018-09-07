@@ -32,6 +32,14 @@ let navigation = [
 	 "topMenu": true,
 	 },
 	 */
+    {
+        "id": "product",
+        "label": "Product",
+        "url": "/product",
+        "title": "SOAJS.IO | Microservices Management Platform",
+        "tplPath": "custom/modules/product/directives/main.tmpl",
+        "scripts": ["custom/modules/product/controller.js"]
+    },
 	{
 		"id": "terms",
 		"label": "Terms & Conditions",
