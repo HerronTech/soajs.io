@@ -41,7 +41,7 @@
 	<div ng-if="submitDetails.$submitted && !submitDetails.$valid">
 		<uib-alert type="danger">
 			<div ng-if="!submitDetails.ht_package.$valid"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Please select a package to proceed.</div>
-			<div ng-if="!submitDetails.projectName.$valid"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Make sure you enter a project name.</div>
+			<div ng-if="!submitDetails.projectName.$valid"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Make sure you enter a valid project name.</div>
 			<div ng-if="!submitDetails.projectDescription.$valid"><span class="glyphicon glyphicon-chevron-right"></span>&nbsp;Make sure you enter a project description.</div>
 		</uib-alert>
 		<!-- <alert type="danger">
