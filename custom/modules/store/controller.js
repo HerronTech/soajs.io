@@ -21,16 +21,16 @@ storeApp.controller('storeCtrl', ['$scope', '$http', '$cookies', 'injectFiles', 
 				
 				switch(type){
 					case 'infra':
-						$scope.iacSelected = (!oneCtlg.hide);
+						$scope.iacSelected = oneCtlg.hide;
 						break;
 					case 'cd':
-						$scope.cdSelected = (!oneCtlg.hide);
+						$scope.cdSelected = oneCtlg.hide;
 						break;
 					case 'template':
-						$scope.envSelected = (!oneCtlg.hide);
+						$scope.envSelected = oneCtlg.hide;
 						break;
 					case 'ci':
-						$scope.ciSelected = (!oneCtlg.hide);
+						$scope.ciSelected = oneCtlg.hide;
 						break;
 				}
 			}
