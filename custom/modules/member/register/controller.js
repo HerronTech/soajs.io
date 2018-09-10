@@ -1,6 +1,10 @@
 "use strict";
 var registerApp = app.components;
-registerApp.controller('registerCtrl', ['$scope', '$timeout', 'ngDataApi', function ($scope, $timeout, ngDataApi) {
+registerApp.controller('registerCtrl', ['$scope', '$timeout', 'ngDataApi', '$location', 'isUserLoggedIn', function ($scope, $timeout, ngDataApi, $location, isUserLoggedIn) {
+	
+	if (isUserLoggedIn($scope)) {
+		$location.path('/member/projects');
+	}
 	
 	$scope.openForm = true;
 	$scope.confirm = {};
