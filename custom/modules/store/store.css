@@ -21,6 +21,7 @@
     display: table;
     border-radius: 50%;
     padding: 15px;
+    cursor:pointer;
 }
 
 #catalogs .tagIcon-cd {
@@ -34,6 +35,7 @@
     display: table;
     border-radius: 50%;
     padding: 15px;
+    cursor:pointer;
 }
 
 #catalogs div.headerIcons .icon-file-code:before {
@@ -51,6 +53,7 @@
     display: table;
     border-radius: 50%;
     padding: 15px;
+    cursor:pointer;
 }
 
 #catalogs .tagIcon-ci {
@@ -64,6 +67,7 @@
     display: table;
     border-radius: 50%;
     padding: 15px;
+    cursor:pointer;
 }
 
 #catalogs div.storeElement {

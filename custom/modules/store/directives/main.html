@@ -7,7 +7,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noInfraCatalogs">
 							<div>
 								<div class="headerIcons">
-									<span class="demo-icon icon-layers center-block"></span>
+									<span class="demo-icon icon-layers center-block" ng-click="hideCatalogEntries('infra')"></span>
 								</div>
 								<input type="checkbox" checked ng-click="hideCatalogEntries('infra')"/>&nbsp;Infra As
 								Code Templates
@@ -19,7 +19,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noCdCatalogs">
 							<div>
 								<div class="headerIcons">
-									<span class="demo-icon icon-file-code center-block"></span>
+									<span class="demo-icon icon-file-code center-block" ng-click="hideCatalogEntries('cd')"></span>
 								</div>
 								<input type="checkbox" checked ng-click="hideCatalogEntries('cd')"/>&nbsp;Catalog
 								Recipes
@@ -31,7 +31,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noTempCatalogs">
 							<div>
 								<div class="headerIcons">
-									<span class="glyphicon glyphicon-globe center-block"></span>
+									<span class="glyphicon glyphicon-globe center-block" ng-click="hideCatalogEntries('template')"></span>
 								</div>
 								<input type="checkbox" checked ng-click="hideCatalogEntries('template')"/>&nbsp;Environment
 								Templates
@@ -43,7 +43,7 @@
 						<div class="col-lg-3 col-md-3 col-sm-6 text-center" ng-if="!noCiCatalogs">
 							<div>
 								<div class="headerIcons">
-									<span class="demo-icon icon-loop center-block"></span>
+									<span class="demo-icon icon-loop center-block" ng-click="hideCatalogEntries('ci')"></span>
 								</div>
 								<input type="checkbox" checked ng-click="hideCatalogEntries('ci')"/>&nbsp;Continuous
 								Integration
