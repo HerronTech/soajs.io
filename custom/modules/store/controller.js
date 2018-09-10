@@ -18,6 +18,21 @@ storeApp.controller('storeCtrl', ['$scope', '$http', '$cookies', 'injectFiles', 
 		$scope.allCatalogs.forEach((oneCtlg) => {
 			if(oneCtlg.type === type){
 				oneCtlg.hide = !oneCtlg.hide;
+				
+				switch(type){
+					case 'infra':
+						$scope.iacSelected = (!oneCtlg.hide);
+						break;
+					case 'cd':
+						$scope.cdSelected = (!oneCtlg.hide);
+						break;
+					case 'template':
+						$scope.envSelected = (!oneCtlg.hide);
+						break;
+					case 'ci':
+						$scope.ciSelected = (!oneCtlg.hide);
+						break;
+				}
 			}
 		});
 	};

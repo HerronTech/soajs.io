@@ -9,7 +9,7 @@
 								<div class="headerIcons">
 									<span class="demo-icon icon-layers center-block" ng-click="hideCatalogEntries('infra')"></span>
 								</div>
-								<input type="checkbox" checked ng-click="hideCatalogEntries('infra')"/>&nbsp;Infra As
+								<input type="checkbox" ng-model="iacSelected" checked ng-click="hideCatalogEntries('infra')"/>&nbsp;Infra As
 								Code Templates
 								<!--<a href="/store/iac" title="Learn More">-->
 								<!--<span class="glyphicon glyphicon-info-sign"></span>-->
@@ -21,7 +21,7 @@
 								<div class="headerIcons">
 									<span class="demo-icon icon-file-code center-block" ng-click="hideCatalogEntries('cd')"></span>
 								</div>
-								<input type="checkbox" checked ng-click="hideCatalogEntries('cd')"/>&nbsp;Catalog
+								<input type="checkbox" ng-model="cdSelected"checked ng-click="hideCatalogEntries('cd')"/>&nbsp;Catalog
 								Recipes
 								<!--<a href="/store/catalogs" title="Learn More">-->
 								<!--<span class="glyphicon glyphicon-info-sign"></span>-->
@@ -33,7 +33,7 @@
 								<div class="headerIcons">
 									<span class="glyphicon glyphicon-globe center-block" ng-click="hideCatalogEntries('template')"></span>
 								</div>
-								<input type="checkbox" checked ng-click="hideCatalogEntries('template')"/>&nbsp;Environment
+								<input type="checkbox" ng-model="envSelected"checked ng-click="hideCatalogEntries('template')"/>&nbsp;Environment
 								Templates
 								<!--<a href="/store/env" title="Learn More">-->
 								<!--<span class="glyphicon glyphicon-info-sign"></span>-->
@@ -45,7 +45,7 @@
 								<div class="headerIcons">
 									<span class="demo-icon icon-loop center-block" ng-click="hideCatalogEntries('ci')"></span>
 								</div>
-								<input type="checkbox" checked ng-click="hideCatalogEntries('ci')"/>&nbsp;Continuous
+								<input type="checkbox" ng-model="ciSelected" checked ng-click="hideCatalogEntries('ci')"/>&nbsp;Continuous
 								Integration
 								<!--<a href="/store/ci" title="Learn More">-->
 								<!--<span class="glyphicon glyphicon-info-sign"></span>-->

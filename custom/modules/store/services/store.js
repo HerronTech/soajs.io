@@ -85,6 +85,11 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 		
 		currentScope.allCatalogs = sortCatalogsByType(currentScope.allCatalogs);
 		
+		currentScope.iacSelected = true;
+		currentScope.cdSelected = true;
+		currentScope.envSelected = true;
+		currentScope.ciSelected = true;
+		
 		currentScope.noCdCatalogs = false;
 		currentScope.noCiCatalogs = false;
 		currentScope.noTempCatalogs = false;
@@ -121,15 +126,19 @@ storeAppSrv.service('storePageSrv', ['$http', '$location', '$cookies', '$uibModa
 		
 		if (currentScope.catalogs.cd.length === 0) {
 			currentScope.noCdCatalogs = true;
+			currentScope.cdSelected = false;
 		}
 		if (currentScope.catalogs.ci.length === 0) {
 			currentScope.noCiCatalogs = true;
+			currentScope.ciSelected = false;
 		}
 		if (currentScope.catalogs.envTemplate.length === 0) {
 			currentScope.noTempCatalogs = true;
+			currentScope.envSelected = false;
 		}
 		if (currentScope.catalogs.infra.length === 0) {
 			currentScope.noInfraCatalogs = true;
+			currentScope.iacSelected = false;
 		}
 	}
 	
