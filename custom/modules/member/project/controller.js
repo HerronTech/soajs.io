@@ -47,6 +47,8 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 			$cookies.put('soajs_project', project.name, {'domain': interfaceDomain});
 			$cookies.remove('soajs_dashboard_key', {'domain': interfaceDomain});
 			$cookies.remove("soajs_dashboard_login", {'domain': interfaceDomain});
+			$cookies.remove("myEnv", {'domain': interfaceDomain});
+			$cookies.remove("myInfra", {'domain': interfaceDomain});
 			var path = cloudUri + '#/dashboard';
 			$timeout(function () {
 				overlayLoading.hide();
@@ -59,6 +61,8 @@ projectApp.controller('listProjects', ['$scope', '$cookies', '$timeout', '$locat
 			$cookies.put('soajs_project', project.name, {'domain': interfaceDomain});
 			$cookies.remove('soajs_dashboard_key', {'domain': interfaceDomain});
 			$cookies.remove("soajs_dashboard_login", {'domain': interfaceDomain});
+			$cookies.remove("myEnv", {'domain': interfaceDomain});
+			$cookies.remove("myInfra", {'domain': interfaceDomain});
 			var path = cloudUri + '#/project/settings';
 			$timeout(function () {
 				overlayLoading.hide();
