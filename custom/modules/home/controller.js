@@ -79,7 +79,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', 'injec
 		{
 			id: 'main-image',
 			header: "Putting applications on the cloud shouldn’t be an IT pain.",
-			slogan: "Work on what matters. Get Microservices done.",
+			slogan: "Any cloud. Any technology.",
 			image: "custom/modules/home/images/cloud.jpg"
 		}
 	];
