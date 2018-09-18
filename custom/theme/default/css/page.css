@@ -83,6 +83,15 @@ body, html {
     background-color: transparent;
 }
 
+.navbar-default .navbar-nav .dropdown-menu .dropdown-header {
+    font-size:14px;
+}
+
+.navbar-default .navbar-nav .dropdown-menu a {
+    font-size:12px;
+    margin-left:10px;
+}
+
 nav #logo {
     height: 26px;
     max-height: 26px;

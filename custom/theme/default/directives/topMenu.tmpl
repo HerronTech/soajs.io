@@ -35,7 +35,7 @@
 								<a id="{{oneNav.id}}" href="{{oneNav.url}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{oneNav.label}} <span class="caret"></span></a>
 								<ul class="dropdown-menu">
 									<li ng-repeat="(group, entries) in oneNav.children">
-										<div class="dropdown-header" ng-if="entries.label && entries.label !== ''">
+										<div class="dropdown-header capitalize" ng-if="entries.label && entries.label !== ''">
 											{{entries.label}}
 										</div>
 										<a ng-repeat="oneSubMenu in entries.entries" id="{{oneNav.id}}_{{oneSubMenu.id}}" href="{{oneSubMenu.url}}">{{oneSubMenu.label}}</a>

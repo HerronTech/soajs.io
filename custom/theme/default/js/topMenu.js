@@ -1,4 +1,4 @@
-app.controller('topMenuCtrl', ['$scope', 'isUserLoggedIn', function ($scope, isUserLoggedIn) {
+app.controller('topMenuCtrl', ['$scope', 'isUserLoggedIn', '$cookies', '$localStorage', function ($scope, isUserLoggedIn, $cookies, $localStorage) {
 	
 	$scope.$parent.$on('refreshWelcome', function (event, args) {
 		$scope.updateMenu();
@@ -8,8 +8,11 @@ app.controller('topMenuCtrl', ['$scope', 'isUserLoggedIn', function ($scope, isU
 		navigation.forEach(function (one) {
 			if (one.id === 'member-area') {
 				if (isUserLoggedIn($scope)) {
+					let user = $localStorage.soajs_user;
+					one.children[0].label = user.firstName + " " + user.lastName;
 					one.topMenu = true;
 				} else {
+					one.children[0].label = '';
 					one.topMenu = false;
 				}
 			}

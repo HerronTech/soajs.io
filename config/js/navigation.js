@@ -206,12 +206,12 @@ let navigation = [
 				]
 			},
 			{
-				"label": "",
+				"label": "Projects",
 				"id": "user-projects",
 				"entries": [
 					{
 						"id": "projects",
-						"label": "My Projects",
+						"label": "List Projects",
 						"url": "/member/projects",
 						"topMenu": true,
 						"title": "SOAJS.IO | My Projects",
@@ -220,6 +220,15 @@ let navigation = [
 							"custom/modules/member/config.js",
 							"custom/modules/member/project/controller.js"
 						]
+					},
+					{
+						"id": "add-projects",
+						"label": "Create New Project",
+						"url": "/member/project/add",
+						"topMenu": true,
+						"title": "SOAJS.IO | Create New Project",
+						"tplPath": "custom/modules/member/project/directives/add.html",
+						"scripts": ["custom/modules/member/project/controller.js"]
 					},
 					// {
 					// 	"id": "chart",
