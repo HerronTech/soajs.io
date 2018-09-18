@@ -68,7 +68,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', 'injec
 	 * Method that handles newsletter form on submit event
 	 */
 	$scope.subscribe = function(){
-		homePageSrv.subscribe($scope, $uibModalInstance);
+		homePageSrv.subscribe($scope);
 	};
 	
 	//use service to load all the icons from icons.json to the scope of this controller

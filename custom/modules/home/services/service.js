@@ -103,7 +103,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	 * Method that handles newsletter form on submit event
 	 * @param $scope
 	 */
-	function subscribe($scope, uibModalInstance) {
+	function subscribe($scope) {
 		let postData = angular.copy($scope.newsletter);
 		delete postData.alert;
 		$http({
@@ -120,7 +120,6 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 					alert: {}
 				};
 				$scope.newsletter.alert = {'type': 'success', 'msg': "Thank you for subscribing."};
-				uibModalInstance.close();
 			}
 			else {
 				$scope.newsletter.alert = {
