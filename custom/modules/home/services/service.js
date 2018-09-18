@@ -18,7 +18,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	 * Method that handles contact sales form on submit event
 	 * @param $scope
 	 */
-	function contactSalesForm($scope) {
+	function contactSalesForm($scope, uibModalInstance) {
 		$scope.sales.alert = {'type': 'info', 'msg': "Your message is being sent, please wait ..."};
 		let postData = angular.copy($scope.sales);
 		delete postData.alert;
@@ -42,6 +42,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 					'type': 'success',
 					'msg': "Thank you for contacting our sales team. We will get back to you shortly."
 				};
+				uibModalInstance.close();
 			}
 			else {
 				$scope.sales.alert = {
@@ -61,7 +62,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	 * Method that handles demo form on submit event
 	 * @param $scope
 	 */
-	function demoForm($scope) {
+	function demoForm($scope, uibModalInstance) {
 		$scope.demo.alert = {'type': 'info', 'msg': "Your request is being sent, please wait ..."};
 		let postData = angular.copy($scope.demo);
 		delete postData.alert;
@@ -85,6 +86,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 					'type': 'success',
 					'msg': "Thank you for contacting our team regarding a demo. We will get back to you shortly."
 				};
+				uibModalInstance.close();
 			}
 			else {
 				$scope.demo.alert = {
@@ -101,7 +103,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 	 * Method that handles newsletter form on submit event
 	 * @param $scope
 	 */
-	function subscribe($scope) {
+	function subscribe($scope, uibModalInstance) {
 		let postData = angular.copy($scope.newsletter);
 		delete postData.alert;
 		$http({
@@ -118,6 +120,7 @@ homeAppSrv.service('homePageSrv', ['$http', function ($http) {
 					alert: {}
 				};
 				$scope.newsletter.alert = {'type': 'success', 'msg': "Thank you for subscribing."};
+				uibModalInstance.close();
 			}
 			else {
 				$scope.newsletter.alert = {

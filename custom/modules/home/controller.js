@@ -19,12 +19,12 @@ homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', 'injec
 		$uibModal.open({
 			animation: true,
 			templateUrl: 'sales.tmpl',
-			controller: ($scope) => {
+			controller: ($scope, $uibModalInstance) => {
 				$scope.siteKey = currentScope.siteKey;
 				$scope.sales = angular.copy(currentScope.sales);
 				
 				$scope.contactSales = function(){
-					homePageSrv.contactSalesForm($scope);
+					homePageSrv.contactSalesForm($scope, $uibModalInstance);
 				};
 			},
 		});
@@ -45,12 +45,12 @@ homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', 'injec
 		$uibModal.open({
 			animation: true,
 			templateUrl: 'demo.tmpl',
-			controller: ($scope) => {
+			controller: ($scope, $uibModalInstance) => {
 				$scope.siteKey = currentScope.siteKey;
 				$scope.demo = angular.copy(currentScope.demo);
 				
 				$scope.requestDemo = function(){
-					homePageSrv.demoForm($scope);
+					homePageSrv.demoForm($scope, $uibModalInstance);
 				};
 			},
 		});
@@ -68,7 +68,7 @@ homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', 'injec
 	 * Method that handles newsletter form on submit event
 	 */
 	$scope.subscribe = function(){
-		homePageSrv.subscribe($scope);
+		homePageSrv.subscribe($scope, $uibModalInstance);
 	};
 	
 	//use service to load all the icons from icons.json to the scope of this controller
