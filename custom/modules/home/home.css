@@ -64,12 +64,12 @@
 
 #why .responsive-icon span[class^="demo-icon"] {
     font-size: 6rem;
-    color: #909da3;
+    color: #474f54;
 }
 
 #architect .responsive-icon span[class^="demo-icon"] {
     font-size: 5rem;
-    color: #474f54;
+    color: #909da3;
     position:relative;
     left: -20px;
     top: 10px;
