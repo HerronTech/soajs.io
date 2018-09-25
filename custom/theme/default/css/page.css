@@ -276,6 +276,10 @@ form.ng-submitted input.ng-invalid {
 }
 
 .formback {
-    padding: 20px;
-    background-color: lightsteelblue;
+    padding: 30px;
+    background-color: #325169;
+}
+
+.formback h3 {
+    margin-top: 0px;
 }
