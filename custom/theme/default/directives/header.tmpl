@@ -47,14 +47,16 @@
             <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
 
                 <h1>{{header_ad.header}}</h1>
-                <h4 class="text-right orange-text">{{header_ad.slogan}}</h4>
-                <p style="font-size:13px; padding-top: 10px;" ng-bind-html="header_ad.msg|toTrustedHtml"></p>
-                <p class="text-center" style="padding-top: 20px;">
-                <a href="/member/join" class="btn btn-warning roundedButton">Create Your Free Account</a>
-                </p>
+                <h4 class="text-right orange-text" style="padding-top: 15px;">{{header_ad.slogan}}</h4>
+                <p style="padding-top: 25px;" ng-bind-html="header_ad.msg|toTrustedHtml"></p>
             </div>
             <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 text-left">
                 <img width="100%" ng-src="{{header_ad.image}}">
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <p class="text-center" style="padding-top: 40px;">
+                    <a href="/member/join" class="btn btn-warning roundedButton">Create Your Free Account</a>
+                </p>
             </div>
         </div>
     </div>
