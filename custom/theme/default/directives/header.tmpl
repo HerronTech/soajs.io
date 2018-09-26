@@ -45,19 +45,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <h1>Putting applications on the cloud shouldn’t be an IT pain.</h1>
-                <h4 class="text-right orange-text">Any cloud - Any technology</h4>
-                <p style="font-size:14px; padding-top: 10px;">
-                    SOAJS single-pane-of-glass Management Platform eliminates the biggest barrier to getting applications
-                    onto the cloud. Empower your team with instant DevOps & CloudOps capabilities to help them achieve
-                    durable agility, work on what matters, and deliver microservices faster.
-                </p>
+
+                <h1>{{header_ad.header}}</h1>
+                <h4 class="text-right orange-text">{{header_ad.slogan}}</h4>
+                <p style="font-size:13px; padding-top: 10px;" ng-bind-html="header_ad.msg|toTrustedHtml"></p>
                 <p class="text-center" style="padding-top: 20px;">
                 <a href="/member/join" class="btn btn-warning roundedButton">Create Your Free Account</a>
                 </p>
             </div>
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 text-left">
-                <img ng-src="{{header_ad.image}}">
+                <img width="100%" ng-src="{{header_ad.image}}">
             </div>
         </div>
     </div>

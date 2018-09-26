@@ -72,20 +72,18 @@ homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', 'injec
 	};
 	
 	//use service to load all the icons from icons.json to the scope of this controller
-	homePageSrv.getIcons($scope);
+	//homePageSrv.getIcons($scope);
 	
 	//for this page, fill the carousel
-	let header_ad = [
-		{
+	let header_ad = {
 			id: 'main-image',
 			header: "Putting applications on the cloud shouldn’t be an IT pain.",
 			slogan: "Any cloud - Any technology",
 			msg: "SOAJS single-pane-of-glass Management Platform eliminates the biggest barrier to getting applications" +
 				"onto the cloud. Empower your team with instant DevOps & CloudOps capabilities to help them achieve" +
 				"durable agility, work on what matters, and deliver microservices faster.",
-			image: "custom/modules/home/images/cloud.jpg"
-		}
-	];
+			image: "custom/modules/home/images/emmp.png"
+		};
 	
 	//upon start call parent method and send carousel entries to main scope.
 	$scope.updateParentScope('header_ad', header_ad);
@@ -94,6 +92,5 @@ homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', 'injec
 	$scope.$on("$destroy", function () {
 		$scope.removeFromParentScope('header_ad');
 	});
-	
 	injectFiles.injectCss("custom/modules/home/home.css");
 }]);
