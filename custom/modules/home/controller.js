@@ -79,8 +79,8 @@ homeApp.controller('homePageCtrl', ['$scope', '$uibModal', 'homePageSrv', 'injec
 			id: 'main-image',
 			header: "Putting applications on the cloud shouldn’t be an IT pain.",
 			slogan: "Any cloud - Any technology",
-			msg: "SOAJS single-pane-of-glass Management Platform eliminates the biggest barrier to getting applications" +
-				"onto the cloud. Empower your team with instant DevOps & CloudOps capabilities to help them achieve" +
+			msg: "SOAJS single-pane-of-glass Management Platform eliminates the biggest barrier to getting applications " +
+				"onto the cloud. Empower your team with instant DevOps & CloudOps capabilities to help them achieve " +
 				"durable agility, work on what matters, and deliver microservices faster.",
 			image: "custom/modules/home/images/emmp.png"
 		};
