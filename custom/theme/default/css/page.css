@@ -112,6 +112,16 @@ nav #logo.blueLogo {
 /**
     Header Styles
  */
+#headerAD {
+    padding-top: 100px;
+    padding-bottom: 30px;
+    opacity: 1;
+    background: #325169; /* #393958 or 325169*/
+    background-image: linear-gradient(to bottom right, #224665, #30414f);
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+
 #inner-page-header {
     padding-top: 100px;
     height: 300px;
@@ -276,6 +286,10 @@ form.ng-submitted input.ng-invalid {
 }
 
 .formback {
-    padding: 20px;
-    background-color: lightsteelblue;
+    padding: 30px;
+    background-color: #325169;
+}
+
+.formback h3 {
+    margin-top: 0px;
 }
