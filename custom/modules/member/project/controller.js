@@ -571,6 +571,7 @@ projectApp.controller('addProject', ['$scope', '$location', '$timeout', 'isUserL
 			invokeApi($scope, ngDataApi, {
 				"method": "post",
 				"routeName": "/projects/project",
+				"timeout": 2 * 60000,
 				"data": {
 					data: postedProject
 				},

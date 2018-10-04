@@ -32,6 +32,10 @@ function getSendDataFromServer($scope, ngDataApi, options, callback) {
 	if (options.method) {
 		apiOptions.method = options.method;
 	}
+	
+	if (options.timeout) {
+		apiOptions.timeout = options.timeout;
+	}
 
 	if (options.responseType) {
 		apiOptions.responseType = options.responseType;
