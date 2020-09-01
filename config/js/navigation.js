@@ -23,23 +23,22 @@ let navigation = [
 		"url": "/#why",
 		"topMenu": true,
 	},
-	/*
-	 {
-	 "id": "contact-anchor",
-	 "label": "Contact Us",
-	 "title": "SOAJS | Contact Us",
-	 "url": "/#contact",
-	 "topMenu": true,
-	 },
-	 */
-    {
-        "id": "product",
-        "label": "Product",
-        "url": "/product",
-        "title": "SOAJS.IO | Microservices Management Platform",
-        "tplPath": "custom/modules/product/directives/main.tmpl",
-        "scripts": ["custom/modules/product/controller.js"]
-    },
+	
+	{
+		"id": "contact-anchor",
+		"label": "Contact Us",
+		"title": "SOAJS | Contact Us",
+		"url": "/#connect",
+		"topMenu": true,
+	},
+	{
+		"id": "product",
+		"label": "Product",
+		"url": "/product",
+		"title": "SOAJS.IO | Microservices Management Platform",
+		"tplPath": "custom/modules/product/directives/main.tmpl",
+		"scripts": ["custom/modules/product/controller.js"]
+	},
 	{
 		"id": "terms",
 		"label": "Terms & Conditions",
@@ -64,15 +63,15 @@ let navigation = [
 		"tplPath": "custom/modules/legal/directives/privacy.tmpl",
 		"scripts": ["custom/modules/legal/controller.js"]
 	},
-	{
-		"id": "store-anchor",
-		"label": "Store",
-		"url": "/store",
-		"topMenu": true,
-		"title": "SOAJS.IO | Store",
-		"tplPath": "custom/modules/store/directives/main.html",
-		"scripts": ["custom/modules/store/controller.js", "custom/modules/store/services/store.js"]
-	},
+	// {
+	// 	"id": "store-anchor",
+	// 	"label": "Store",
+	// 	"url": "/store",
+	// 	"topMenu": true,
+	// 	"title": "SOAJS.IO | Store",
+	// 	"tplPath": "custom/modules/store/directives/main.html",
+	// 	"scripts": ["custom/modules/store/controller.js", "custom/modules/store/services/store.js"]
+	// },
 	{
 		"id": "store-ci-anchor",
 		"label": "Continuous Integration Recipes",
@@ -162,15 +161,15 @@ let navigation = [
 		"tplPath": "custom/modules/member/register/directives/main.html",
 		"scripts": ["custom/modules/member/register/controller.js"],
 	},
-	{
-		"id": "member-area-login",
-		"label": "Member Area",
-		"url": "/member/login",
-		"topMenu": true,
-		"title": "SOAJS.IO | Login",
-		"tplPath": "custom/modules/member/login/directives/main.html",
-		"scripts": ["custom/modules/member/login/controller.js"],
-	},
+	// {
+	// 	"id": "member-area-login",
+	// 	"label": "Member Area",
+	// 	"url": "/member/login",
+	// 	"topMenu": true,
+	// 	"title": "SOAJS.IO | Login",
+	// 	"tplPath": "custom/modules/member/login/directives/main.html",
+	// 	"scripts": ["custom/modules/member/login/controller.js"],
+	// },
 	{
 		"id": "member-area",
 		"label": "Member Area",

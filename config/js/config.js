@@ -39,6 +39,6 @@ let appDirectives = {
 };
 
 //google recaptcha public key
-const sitekey = "6LcMzgMTAAAAAKd0Lqit5HJUI2Y6evlriyxT8-Zj";
+const sitekey = "6LfrQsYZAAAAALSeInG4jeGTDQ-hVlQ6lRI7M7bv";
 
 let cloudUri = window.location.protocol + '//cloud.' + myApplicationDomain + "/";
